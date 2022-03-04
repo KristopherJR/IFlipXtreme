@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace View
 {
-    class View
+    interface IViewManager
     {
     }
 }
