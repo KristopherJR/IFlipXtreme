@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Controller
 {
-    class Controller
+    public class Controller : IController
     {
     }
 }

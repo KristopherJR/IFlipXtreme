@@ -58,10 +58,6 @@
     <Compile Include="ImageView.Designer.cs">
       <DependentUpon>ImageView.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IGalleryView.cs" />
-    <Compile Include="Interfaces\IImageView.cs" />
-    <Compile Include="Interfaces\IView.cs" />
-    <Compile Include="Interfaces\IViewManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewManager.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">

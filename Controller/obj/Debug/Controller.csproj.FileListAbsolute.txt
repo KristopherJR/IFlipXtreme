@@ -4,3 +4,4 @@ C:\Users\rank1_18\source\repos\IFlipXtreme\Controller\bin\Debug\Controller.pdb
 C:\Users\rank1_18\source\repos\IFlipXtreme\Controller\obj\Debug\Controller.csproj.CoreCompileInputs.cache
 C:\Users\rank1_18\source\repos\IFlipXtreme\Controller\obj\Debug\Controller.exe
 C:\Users\rank1_18\source\repos\IFlipXtreme\Controller\obj\Debug\Controller.pdb
+C:\Users\rank1_18\Source\Repos\IFlipXtreme\Controller\obj\Debug\Controller.csproj.AssemblyReference.cache

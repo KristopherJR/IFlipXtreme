@@ -1,0 +1,2 @@
+C:\Users\rank1_18\Source\Repos\IFlipXtreme\Model\obj\Debug\Model.csproj.AssemblyReference.cache
+C:\Users\rank1_18\Source\Repos\IFlipXtreme\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache

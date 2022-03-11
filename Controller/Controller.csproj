@@ -39,9 +39,6 @@
     <Compile Include="CommandInvoker.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="GenericFactory.cs" />
-    <Compile Include="Interfaces\ICommandInvoker.cs" />
-    <Compile Include="Interfaces\IController.cs" />
-    <Compile Include="Interfaces\IGenericFactory.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,4 @@
+C:\Users\rank1_18\Source\Repos\IFlipXtreme\View\obj\Debug\View.csproj.AssemblyReference.cache
+C:\Users\rank1_18\Source\Repos\IFlipXtreme\View\obj\Debug\View.Properties.Resources.resources
+C:\Users\rank1_18\Source\Repos\IFlipXtreme\View\obj\Debug\View.csproj.GenerateResource.cache
+C:\Users\rank1_18\Source\Repos\IFlipXtreme\View\obj\Debug\View.csproj.CoreCompileInputs.cache
