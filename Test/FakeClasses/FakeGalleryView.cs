@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Test
 {
-    class FakeGalleryView
+    public class FakeGalleryView
     {
+        public void ImportButtonPressed()
+        {
+            // EXECUTE the Command object
+            _execute(_importImage);
+        }
+       
     }
 }

@@ -19,9 +19,8 @@ namespace Test
             #region ARRANGE
             // DECLARE a bool, call it testPassed:
             bool testPassed = false;
-            // INSTANTIATE fakeGalleryView:
 
-            //Mock mockController = new Mock<Controller.Controller>();
+            FakeController fakeController = new FakeController();
 
             //mockController.Setup()
             #endregion
@@ -33,7 +32,7 @@ namespace Test
 
             #region ASSERT
             // CHECK that the collection in the EventArgs is a List of Images and only contains 1 element:
-            if(e.ImageList is List<Image> && e.ImageList.count == 1)
+            if(fakeController.FakeGalleryView.ImageList.count == 1)
             {
                 // SET testPassed to true:
                 testPassed = true;
