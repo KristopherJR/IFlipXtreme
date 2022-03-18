@@ -8,9 +8,13 @@ namespace Test.FakeClasses
 {
     public class FakeController
     {
+        public FakeImageStorage FakeImageStorage;
+        public FakeGalleryView FakeGalleryView;
+
         public FakeController()
         {
-
+            FakeImageStorage = new FakeImageStorage();
+            FakeGalleryView = new FakeGalleryView();
         }
     }
 }

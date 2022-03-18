@@ -13,7 +13,7 @@ namespace Test.FakeClasses
 
         }
 
-        public void Execute(FakeCommand pFakeCommand)
+        public void Execute(FakeICommand pFakeCommand)
         {
             pFakeCommand.Execute();
         }

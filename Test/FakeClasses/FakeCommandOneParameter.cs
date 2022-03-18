@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Test.FakeClasses
 {
-    public class FakeCommandOneParameter : FakeICommand
+    public class FakeCommandOneParameter<T> : FakeICommand
     {
         #region Fields
-        private Action _action;
+        private Action<T> _action;
         private T _parameter;
         #endregion
 
@@ -25,7 +25,7 @@ namespace Test.FakeClasses
         /// Constructor for FakeCommandOneParameter
         /// </summary>
         /// <param name="pAction">An Action Delegate that points to the Method the Command should Execute.</param>
-        public FakeCommandOneParameter(Action pAction)
+        public FakeCommandOneParameter(Action<T> pAction)
         {
             // ASSIGN _action:
             _action = pAction;

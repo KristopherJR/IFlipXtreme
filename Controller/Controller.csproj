@@ -41,15 +41,5 @@
     <Compile Include="GenericFactory.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Model\Model.csproj">
-      <Project>{74b53272-1704-4f2a-a1af-2981bd3f4330}</Project>
-      <Name>Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\View\View.csproj">
-      <Project>{75c1e4bf-aa23-49ad-ac91-e9c02b866ec3}</Project>
-      <Name>View</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

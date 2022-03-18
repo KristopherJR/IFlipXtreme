@@ -49,7 +49,6 @@
     <Compile Include="Interfaces\IPublisher.cs" />
     <Compile Include="Interfaces\ISubscriber.cs" />
     <Compile Include="Interfaces\IView.cs" />
-    <Compile Include="Interfaces\IViewManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Drawing" />

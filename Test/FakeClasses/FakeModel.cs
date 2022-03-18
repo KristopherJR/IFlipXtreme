@@ -13,6 +13,10 @@ namespace Test.FakeClasses
         #endregion
 
         #region Properties
+        public FakeImageStorage FakeImageStorage
+        {
+            get { return _fakeImageStorage; }
+        }
         #endregion
 
         #region Methods
@@ -21,13 +25,6 @@ namespace Test.FakeClasses
             _fakeImageStorage = new FakeImageStorage();
         }
 
-        public Dictionary<string, Action> GetActions()
-        {
-            Dictionary<string, Action> _actions = new Dictionary<string, Action>();
-
-            _actions.Add("command_invoker_execute", _fakeCommandInvoker.GetExecuteAction);
-
-        }
         #endregion
     }
 }
