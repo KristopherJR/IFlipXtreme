@@ -22,7 +22,6 @@ namespace Test
 
             FakeController fakeController = new FakeController();
 
-            //mockController.Setup()
             #endregion
 
             #region ACT

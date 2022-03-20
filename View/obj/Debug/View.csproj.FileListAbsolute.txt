@@ -2,3 +2,7 @@ C:\Users\rank1_18\Source\Repos\IFlipXtreme\View\obj\Debug\View.Properties.Resour
 C:\Users\rank1_18\Source\Repos\IFlipXtreme\View\obj\Debug\View.csproj.GenerateResource.cache
 C:\Users\rank1_18\Source\Repos\IFlipXtreme\View\obj\Debug\View.csproj.CoreCompileInputs.cache
 C:\Users\rank1_18\Source\Repos\IFlipXtreme\View\obj\Debug\View.csproj.AssemblyReference.cache
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\obj\Debug\View.csproj.AssemblyReference.cache
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\obj\Debug\View.Properties.Resources.resources
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\obj\Debug\View.csproj.GenerateResource.cache
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\obj\Debug\View.csproj.CoreCompileInputs.cache

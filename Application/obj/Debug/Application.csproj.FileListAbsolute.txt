@@ -1,2 +1,4 @@
 C:\Users\rank1_18\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.csproj.AssemblyReference.cache
 C:\Users\rank1_18\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.csproj.CoreCompileInputs.cache
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\obj\Debug\Application.csproj.AssemblyReference.cache
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\obj\Debug\Application.csproj.CoreCompileInputs.cache

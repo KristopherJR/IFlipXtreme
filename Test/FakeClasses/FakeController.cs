@@ -1,20 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Test.FakeClasses
 {
     public class FakeController
     {
-        public FakeImageStorage FakeImageStorage;
-        public FakeGalleryView FakeGalleryView;
+        private FakeModel _fakeModel;
+        private FakeGalleryView _fakeGalleryView;
+
+        public FakeGalleryView FakeGalleryView
+        {
+            get { return _fakeGalleryView; }
+        }
 
         public FakeController()
         {
-            FakeImageStorage = new FakeImageStorage();
-            FakeGalleryView = new FakeGalleryView();
+            _fakeModel = new FakeModel();
+            _fakeGalleryView = new FakeGalleryView();
+
+            Action<string> loadImageAction = _fakeModel.FakeImageStorage.LoadImage;
+
+            FakeCommandOneParameter command = new FakeCommandOneParameter((Action<Type>)loadImageAction);
+
+            _fakeGalleryView.Commands.Add("Import", (FakeICommand)command);
         }
     }
 }

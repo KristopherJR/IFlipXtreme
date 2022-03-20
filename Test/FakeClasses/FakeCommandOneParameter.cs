@@ -6,26 +6,19 @@ using System.Threading.Tasks;
 
 namespace Test.FakeClasses
 {
-    public class FakeCommandOneParameter<T> : FakeICommand
+    public class FakeCommandOneParameter : FakeICommand
     {
         #region Fields
-        private Action<T> _action;
-        private T _parameter;
-        #endregion
-
-        #region Properties
-        public T Parameter
-        {
-            set { _parameter = value; }
-        }
+        private Action<Type> _action;
+        private Type _parameter;
         #endregion
 
         #region Methods
         /// <summary>
-        /// Constructor for FakeCommandOneParameter
+        /// Constructor for FakeCommand
         /// </summary>
         /// <param name="pAction">An Action Delegate that points to the Method the Command should Execute.</param>
-        public FakeCommandOneParameter(Action<T> pAction)
+        public FakeCommandOneParameter(Action<Type> pAction)
         {
             // ASSIGN _action:
             _action = pAction;
@@ -36,7 +29,30 @@ namespace Test.FakeClasses
         /// </summary>
         public void Execute()
         {
-            _action(_parameter);
+            if(!(_parameter == null))
+            {
+                _action(_parameter);
+            }
+            else
+            {
+                throw new ParameterNotSetException("You can not Execute the Command without setting its parameter.");
+            }
+        }
+
+        /// <summary>
+        /// Injects parameters for the Command object.
+        /// </summary>
+        public void InjectParameters(List<Type> pParameters)
+        {
+            if (pParameters.Count == 1)
+            {
+                _parameter = pParameters[0];
+            }
+            else
+            {
+                // THROW InvalidParameterListException:
+                throw new InvalidParameterListException("You must provide only one parameter for a Command One Parameter object.");
+            }
         }
         #endregion
     }

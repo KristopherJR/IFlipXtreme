@@ -71,6 +71,8 @@
     <Compile Include="FakeClasses\FakeImageStorage.cs" />
     <Compile Include="FakeClasses\FakeImportImageEventArgs.cs" />
     <Compile Include="FakeClasses\FakeModel.cs" />
+    <Compile Include="FakeClasses\InvalidParameterListException.cs" />
+    <Compile Include="FakeClasses\ParameterNotSetException.cs" />
     <Compile Include="ImportImageIntegrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
