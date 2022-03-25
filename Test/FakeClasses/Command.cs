@@ -38,7 +38,7 @@ namespace Test.FakeClasses
     /// <summary>
     /// Class Command<T>. Takes one parameter for the Action delegate.
     /// </summary>
-    public class Command<T> : ICommand
+    public class Command<T> : ICommand<T>
     {
         #region FIELDS
         // DECLARE an Action<T>, call it _action:
@@ -88,7 +88,7 @@ namespace Test.FakeClasses
     /// <summary>
     /// Class Command<T1,T2>. Takes two parameters for the Action delegate.
     /// </summary>
-    public class Command<T1, T2> : ICommand
+    public class Command<T1, T2> : ICommand<T1,T2>
     {
         #region FIELDS
         // DECLARE an Action<T1,T2>, call it _action:

@@ -42,7 +42,7 @@ namespace Test
             if(_commands.ContainsKey("Import"))
             {
     
-               ((Command<string>)_commands["Import"]).ParameterOne = "../../../assets/OrangeFish.png";
+               ((ICommand<string>)_commands["Import"]).ParameterOne = "../../../assets/OrangeFish.png";
 
                 _commands["Import"].Execute();
             }
