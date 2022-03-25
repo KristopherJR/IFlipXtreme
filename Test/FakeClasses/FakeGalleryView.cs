@@ -12,7 +12,7 @@ namespace Test
     {
         #region Fields
         private List<Image> _imageList;
-        private Dictionary<string, FakeICommand> _commands;
+        private Dictionary<string, ICommand> _commands;
         #endregion
 
         #region Properties
@@ -21,7 +21,7 @@ namespace Test
             get { return _imageList; }
         }
 
-        public Dictionary<string, FakeICommand> Commands
+        public Dictionary<string, ICommand> Commands
         {
             get { return _commands; }
             set { _commands = value; }
@@ -32,6 +32,7 @@ namespace Test
         public FakeGalleryView()
         {
             _imageList = new List<Image>();
+            _commands = new Dictionary<string, ICommand>();
             
         }
 
@@ -40,9 +41,8 @@ namespace Test
             // EXECUTE the Command object
             if(_commands.ContainsKey("Import"))
             {
-                List<Type> parameters = new List<Type>();
-                parameters.Add((Type)(object) "../../../assets/OrangeFish.png");
-                _commands["Import"].InjectParameters(parameters);
+    
+               ((Command<string>)_commands["Import"]).ParameterOne = "../../../assets/OrangeFish.png";
 
                 _commands["Import"].Execute();
             }

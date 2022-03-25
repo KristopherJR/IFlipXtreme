@@ -19,9 +19,9 @@ namespace Test.FakeClasses
 
             Action<string> loadImageAction = _fakeModel.FakeImageStorage.LoadImage;
 
-            FakeCommandOneParameter command = new FakeCommandOneParameter((Action<Type>)loadImageAction);
+            Command<string> command = new Command<string>(loadImageAction);
 
-            _fakeGalleryView.Commands.Add("Import", (FakeICommand)command);
+            _fakeGalleryView.Commands.Add("Import", command);
         }
     }
 }
