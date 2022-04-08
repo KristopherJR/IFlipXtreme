@@ -60,7 +60,11 @@ namespace Test
         {
             foreach(ISubscriber subscriber in _subscribers)
             {
-                subscriber.Update(new FakeImportImageEventArgs(_fakeImageStorage.ImageStore));
+                if (subscriber is FakeGalleryView)
+                    {
+                    subscriber.Update(new FakeImportImageEventArgs(GetThumbnails()));
+                }
+                
             }
         }
 

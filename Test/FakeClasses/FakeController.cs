@@ -6,6 +6,7 @@ namespace Test
     {
         private FakeModel _fakeModel;
         private FakeGalleryView _fakeGalleryView;
+        private CommandInvoker _commandInvoker;
 
         #region Properties
 
@@ -28,6 +29,8 @@ namespace Test
             _fakeGalleryView = new FakeGalleryView();
 
             _fakeModel.Subscribe(_fakeGalleryView);
+
+            _fakeGalleryView.ExecutePointer = _commandInvoker.Execute;
 
             Action<string> loadImageAction = _fakeModel.LoadImage;
 
