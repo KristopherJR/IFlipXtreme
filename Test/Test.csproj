@@ -67,6 +67,7 @@
     <Compile Include="FakeClasses\CommandInvoker.cs" />
     <Compile Include="FakeClasses\FakeController.cs" />
     <Compile Include="FakeClasses\FakeGalleryView.cs" />
+    <Compile Include="FakeClasses\FakeImageManipulator.cs" />
     <Compile Include="FakeClasses\ICommand.cs" />
     <Compile Include="FakeClasses\FakeImageStorage.cs" />
     <Compile Include="FakeClasses\FakeImportImageEventArgs.cs" />
@@ -74,7 +75,9 @@
     <Compile Include="FakeClasses\InvalidParameterListException.cs" />
     <Compile Include="FakeClasses\IPublisher.cs" />
     <Compile Include="FakeClasses\ISubscriber.cs" />
+    <Compile Include="FakeClasses\IUpdatable.cs" />
     <Compile Include="FakeClasses\ParameterNotSetException.cs" />
+    <Compile Include="ImageManipulatorTest.cs" />
     <Compile Include="ImportImageIntegrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ModelTest.cs" />

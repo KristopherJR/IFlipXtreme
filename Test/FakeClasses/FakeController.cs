@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Test.FakeClasses
+namespace Test
 {
     public class FakeController
     {
@@ -27,7 +27,9 @@ namespace Test.FakeClasses
             _fakeModel = new FakeModel();
             _fakeGalleryView = new FakeGalleryView();
 
-            Action<string> loadImageAction = _fakeModel.FakeImageStorage.LoadImage;
+            _fakeModel.Subscribe(_fakeGalleryView);
+
+            Action<string> loadImageAction = _fakeModel.LoadImage;
 
             Command<string> command = new Command<string>(loadImageAction);
 

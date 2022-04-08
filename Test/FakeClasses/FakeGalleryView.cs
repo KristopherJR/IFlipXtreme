@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Test.FakeClasses;
 
 namespace Test
 {
@@ -47,6 +46,15 @@ namespace Test
                 _commands["Import"].Execute();
             }
             //_execute(_importImage);
+        }
+
+        /// <summary>
+        /// Default Update method for an IUpdatable.
+        /// </summary>
+        /// <param name="e">Event information</param>
+        public void Update(EventArgs e)
+        {
+            
         }
         #endregion
     }

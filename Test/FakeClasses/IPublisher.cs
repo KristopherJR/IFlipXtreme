@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 /// <summary>
 /// IPublisher interface. Implemented by classes that publisher events.
 /// </summary>
-namespace Test.FakeClasses
+namespace Test
 {
     public interface IPublisher
     {

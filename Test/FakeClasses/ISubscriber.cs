@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Test.FakeClasses
+namespace Test
 {
-    public interface ISubscriber
+    public interface ISubscriber : IUpdatable
     {
-
+        // nothing for now
     }
 }
