@@ -14,12 +14,12 @@ namespace Test
 
         }
 
-        public Image Resize(Image pImageToResize, int pWidth, int pHeight)
+        public Image Resize(Image pImageToResize, Size pSize)
         {
 
-            Bitmap bitmap = new Bitmap(pWidth, pHeight);
+            Bitmap bitmap = new Bitmap(pSize.Width, pSize.Height);
             Graphics graphic = Graphics.FromImage(bitmap);
-            graphic.DrawImage(pImageToResize, 0, 0, pWidth, pHeight);
+            graphic.DrawImage(pImageToResize, 0, 0, pSize.Width, pSize.Height);
 
 
             return bitmap;

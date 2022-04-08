@@ -49,7 +49,8 @@ namespace Test
 
             foreach (Image i in _fakeImageStorage.ImageStore)
             {
-                thumbList.Add(_fakeImageManipulator.Resize(i, 128, 128));  
+                
+                thumbList.Add(_fakeImageManipulator.Resize(i, new Size(128,128)));  
             }
 
             return thumbList;
