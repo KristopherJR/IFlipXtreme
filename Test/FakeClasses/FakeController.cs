@@ -7,10 +7,20 @@ namespace Test.FakeClasses
         private FakeModel _fakeModel;
         private FakeGalleryView _fakeGalleryView;
 
+        #region Properties
+
+
+
         public FakeGalleryView FakeGalleryView
         {
             get { return _fakeGalleryView; }
         }
+
+        public FakeModel FakeModel
+        {
+            get { return _fakeModel; }
+        }
+        #endregion
 
         public FakeController()
         {

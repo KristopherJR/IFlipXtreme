@@ -8,7 +8,7 @@ using Test.FakeClasses;
 
 namespace Test
 {
-    public class FakeGalleryView
+    public class FakeGalleryView : ISubscriber
     {
         #region Fields
         private List<Image> _imageList;
