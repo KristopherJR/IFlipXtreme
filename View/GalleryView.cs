@@ -46,35 +46,14 @@ namespace View
         {
             InitializeComponent();
 
-            _thumbnailContainers = new List<PictureBox>(8);
-
-            _thumbnailContainers.Add(pictureBox1);
-            _thumbnailContainers.Add(pictureBox2);
-            _thumbnailContainers.Add(pictureBox3);
-            _thumbnailContainers.Add(pictureBox4);
-            _thumbnailContainers.Add(pictureBox5);
-            _thumbnailContainers.Add(pictureBox6);
-            _thumbnailContainers.Add(pictureBox7);
-            _thumbnailContainers.Add(pictureBox8);
-
-            Console.WriteLine(_thumbnailContainers.Count);
+            _thumbnailContainers = new List<PictureBox> { pictureBox1, pictureBox2, pictureBox3, pictureBox4, pictureBox5, pictureBox6, pictureBox7, pictureBox8 };
 
             _imageList = new List<Image>();
+
             _commands = new Dictionary<string, ICommand>();
 
         }
 
-        public void ImportButtonPressed(string path)
-        {
-            // EXECUTE the Command object
-            if (_commands.ContainsKey("Import"))
-            {
-
-                ((ICommand<string>)_commands["Import"]).ParameterOne = path;
-
-                _execute(_commands["Import"]);
-            }
-        }
 
         /// <summary>
         /// Default Update method for an IUpdatable.
@@ -118,8 +97,15 @@ namespace View
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 string path = fileDialog.FileName;
-                ImportButtonPressed(path);
-            }
+
+                if (_commands.ContainsKey("Import"))
+                {
+
+                    ((ICommand<string>)_commands["Import"]).ParameterOne = path;
+
+                    _execute(_commands["Import"]);
+                }
+            }          
         }
     }
 }

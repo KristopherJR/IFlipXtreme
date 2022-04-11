@@ -10,3 +10,4 @@ C:\Users\Alfie\Source\Repos\IFlipXtreme\Library\bin\Debug\Library.pdb
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Library\obj\Debug\Library.dll
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Library\obj\Debug\Library.pdb
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Library\obj\Debug\Library.csprojAssemblyReference.cache
