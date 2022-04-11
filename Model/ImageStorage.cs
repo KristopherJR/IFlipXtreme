@@ -17,7 +17,7 @@ namespace Model
         }
         #endregion
 
-        public FakeImageStorage()
+        public ImageStorage()
         {
             _imageStore = new List<Image>();
         }
@@ -57,8 +57,5 @@ namespace Model
 
             return true;
         }
-
-
-
     }
 }

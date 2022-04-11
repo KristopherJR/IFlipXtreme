@@ -39,6 +39,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EventArgs\ImportImageEventArgs.cs" />
     <Compile Include="EventArgs\UpdateImageListEventArgs.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\ICommandInvoker.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Interfaces\IModel.cs" />
     <Compile Include="Interfaces\IPublisher.cs" />
     <Compile Include="Interfaces\ISubscriber.cs" />
+    <Compile Include="Interfaces\IUpdatable.cs" />
     <Compile Include="Interfaces\IView.cs" />
   </ItemGroup>
   <ItemGroup>

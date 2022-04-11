@@ -1,5 +1,6 @@
 ﻿using Library;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace Model
 {
@@ -56,11 +57,10 @@ namespace Model
         {
             foreach (ISubscriber subscriber in _subscribers)
             {
-                if (subscriber is GalleryView)
+                if (subscriber is IGalleryView)
                 {
                     subscriber.Update(new ImportImageEventArgs(GetThumbnails()));
                 }
-
             }
         }
 

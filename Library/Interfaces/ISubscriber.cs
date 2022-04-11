@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public interface ISubscriber
+    public interface ISubscriber : IUpdatable
     {
     }
 }

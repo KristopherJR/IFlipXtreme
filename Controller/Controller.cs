@@ -18,7 +18,7 @@ namespace Controller
 
         public Model.Model Model
         {
-            get { return _Model; }
+            get { return _model; }
         }
         #endregion
 
@@ -38,7 +38,5 @@ namespace Controller
 
             _galleryView.Commands.Add("Import", command);
         }
-    }
-
     }
 }
