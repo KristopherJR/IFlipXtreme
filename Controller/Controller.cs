@@ -1,6 +1,8 @@
 ﻿using Library;
 using View;
+using System;
 using Model;
+using System.Windows.Forms;
 
 namespace Controller
 {
@@ -26,6 +28,7 @@ namespace Controller
         {
             _model = new Model.Model();
             _galleryView = new GalleryView();
+            
             _commandInvoker = new CommandInvoker();
 
             _model.Subscribe(_galleryView);
@@ -37,6 +40,8 @@ namespace Controller
             Command<string> command = new Command<string>(loadImageAction);
 
             _galleryView.Commands.Add("Import", command);
+
+            Application.Run(_galleryView);
         }
     }
 }

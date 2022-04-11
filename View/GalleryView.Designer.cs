@@ -60,6 +60,7 @@ namespace View
             this.importButton.TabIndex = 1;
             this.importButton.Text = "Import";
             this.importButton.UseVisualStyleBackColor = true;
+            this.importButton.Click += new System.EventHandler(this.importButton_Click);
             // 
             // editButton
             // 
@@ -171,6 +172,7 @@ namespace View
             this.Controls.Add(this.groupBoxThumbnails);
             this.Name = "GalleryView";
             this.Text = "GalleryView";
+            this.Load += new System.EventHandler(this.GalleryView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

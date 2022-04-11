@@ -41,8 +41,6 @@
   <ItemGroup>
     <Compile Include="CommandInvoker.cs" />
     <Compile Include="Controller.cs" />
-    <Compile Include="GenericFactory.cs" />
-    <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Library\Library.csproj">
@@ -57,6 +55,10 @@
       <Project>{75c1e4bf-aa23-49ad-ac91-e9c02b866ec3}</Project>
       <Name>View</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

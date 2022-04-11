@@ -41,3 +41,25 @@ D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\ob
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\obj\Debug\Test.csproj.CopyComplete
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\obj\Debug\Test.dll
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\obj\Debug\Test.pdb
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\Test.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\Test.pdb
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\Castle.Core.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\Moq.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\Castle.Core.xml
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\Moq.xml
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\obj\Debug\Test.csprojAssemblyReference.cache
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\obj\Debug\Test.csproj.CopyComplete
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\obj\Debug\Test.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\obj\Debug\Test.pdb

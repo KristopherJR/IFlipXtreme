@@ -14,3 +14,23 @@ D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Applica
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Library.dll.config
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\obj\Debug\Application.csproj.CopyComplete
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\obj\Debug\Application.exe
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\Application.exe.config
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\Application.exe
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\Application.pdb
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\Controller.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\Library.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\Model.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\View.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\Controller.pdb
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\Controller.dll.config
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\Library.pdb
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\Library.dll.config
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\Model.pdb
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\Model.dll.config
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\View.pdb
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\bin\Debug\View.dll.config
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.csprojAssemblyReference.cache
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.csproj.CoreCompileInputs.cache
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.csproj.CopyComplete
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.exe
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.pdb

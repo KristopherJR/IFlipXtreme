@@ -10,3 +10,14 @@ D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\b
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\obj\Debug\Model.csproj.CopyComplete
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\obj\Debug\Model.dll
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\obj\Debug\Model.pdb
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\bin\Debug\Model.dll.config
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\bin\Debug\Model.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\bin\Debug\Model.pdb
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\bin\Debug\Library.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\bin\Debug\Library.pdb
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\bin\Debug\Library.dll.config
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\obj\Debug\Model.dll
+C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\obj\Debug\Model.pdb
