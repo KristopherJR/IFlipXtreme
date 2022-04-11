@@ -27,6 +27,7 @@ namespace Test
         {
             _fakeModel = new FakeModel();
             _fakeGalleryView = new FakeGalleryView();
+            _commandInvoker = new CommandInvoker();
 
             _fakeModel.Subscribe(_fakeGalleryView);
 

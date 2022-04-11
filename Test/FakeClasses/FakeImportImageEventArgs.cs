@@ -22,7 +22,7 @@ namespace Test
         /// Constructor for FakeImportImageEventArgs.
         /// </summary>
         /// <param name="pImages">A List containing all Images in the ImageStorage.</param>
-        public FakeImportImageEventArgs(List<Image> pImages)
+        public FakeImportImageEventArgs(List<Image> pImages) : base()
         {
             // ASSIGN pImages to _images:
             _images = pImages;

@@ -41,5 +41,11 @@
     <Compile Include="GenericFactory.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Application\Application.csproj">
+      <Project>{49769b87-fb98-4dfe-a2e3-a228e8e700ab}</Project>
+      <Name>Application</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -73,6 +73,7 @@
     <Compile Include="FakeClasses\FakeImageStorage.cs" />
     <Compile Include="FakeClasses\FakeImportImageEventArgs.cs" />
     <Compile Include="FakeClasses\FakeModel.cs" />
+    <Compile Include="FakeClasses\InvalidEventArgsTypeException.cs" />
     <Compile Include="FakeClasses\InvalidParameterListException.cs" />
     <Compile Include="FakeClasses\IPublisher.cs" />
     <Compile Include="FakeClasses\ISubscriber.cs" />

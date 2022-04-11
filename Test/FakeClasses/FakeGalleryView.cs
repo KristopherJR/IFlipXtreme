@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using 
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,6 +43,7 @@ namespace Test
         {
             _imageList = new List<Image>();
             _commands = new Dictionary<string, ICommand>();
+            _thumbnailContainers = new List<PictureBox>();
             
         }
 
@@ -65,11 +65,17 @@ namespace Test
         /// Default Update method for an IUpdatable.
         /// </summary>
         /// <param name="e">Event information</param>
-        public void Update(FakeImportImageEventArgs e)
+        public void Update(EventArgs e)
         {
-            _imageList = e.Images;
-
-            RefreshThumbnails();
+            if(e is FakeImportImageEventArgs)
+            {
+                _imageList = (e as FakeImportImageEventArgs).Images;
+                RefreshThumbnails();
+            }
+            else
+            {
+                throw new InvalidEventArgsTypeException("Gallery View Event Args must be of type ImportImageEventArgs.");
+            }
         }
 
         /// <summary>
