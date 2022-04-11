@@ -6,3 +6,14 @@ D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\ob
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\obj\Debug\View.Properties.Resources.resources
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\obj\Debug\View.csproj.GenerateResource.cache
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\obj\Debug\View.csproj.CoreCompileInputs.cache
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\obj\Debug\View.GalleryView.resources
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\obj\Debug\View.ImageView.resources
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\bin\Debug\View.dll.config
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\bin\Debug\View.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\bin\Debug\View.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\bin\Debug\Library.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\bin\Debug\Library.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\bin\Debug\Library.dll.config
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\obj\Debug\View.csproj.CopyComplete
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\obj\Debug\View.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\View\obj\Debug\View.pdb

@@ -2,3 +2,18 @@ C:\Users\rank1_18\Source\Repos\IFlipXtreme\Controller\obj\Debug\Controller.cspro
 C:\Users\rank1_18\Source\Repos\IFlipXtreme\Controller\obj\Debug\Controller.csproj.AssemblyReference.cache
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\obj\Debug\Controller.csproj.AssemblyReference.cache
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\obj\Debug\Controller.csproj.CoreCompileInputs.cache
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Controller.exe.config
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Controller.exe
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Controller.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\obj\Debug\Controller.csproj.CopyComplete
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\obj\Debug\Controller.exe
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\obj\Debug\Controller.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Library.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Model.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\View.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Library.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Library.dll.config
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Model.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Model.dll.config
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\View.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\View.dll.config

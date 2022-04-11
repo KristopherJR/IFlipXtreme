@@ -1,3 +1,12 @@
 C:\Users\rank1_18\Source\Repos\IFlipXtreme\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\obj\Debug\Model.csproj.AssemblyReference.cache
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\bin\Debug\Model.dll.config
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\bin\Debug\Model.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\bin\Debug\Model.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\bin\Debug\Library.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\bin\Debug\Library.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\bin\Debug\Library.dll.config
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\obj\Debug\Model.csproj.CopyComplete
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\obj\Debug\Model.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Model\obj\Debug\Model.pdb
