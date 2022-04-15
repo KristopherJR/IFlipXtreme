@@ -11,3 +11,10 @@ C:\Users\Alfie\Source\Repos\IFlipXtreme\Library\obj\Debug\Library.csproj.CoreCom
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Library\obj\Debug\Library.dll
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Library\obj\Debug\Library.pdb
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Library\obj\Debug\Library.csprojAssemblyReference.cache
+C:\Users\Alfie\Documents\Github visual studio clone\Library\bin\Debug\Library.dll.config
+C:\Users\Alfie\Documents\Github visual studio clone\Library\bin\Debug\Library.dll
+C:\Users\Alfie\Documents\Github visual studio clone\Library\bin\Debug\Library.pdb
+C:\Users\Alfie\Documents\Github visual studio clone\Library\obj\Debug\Library.csprojAssemblyReference.cache
+C:\Users\Alfie\Documents\Github visual studio clone\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+C:\Users\Alfie\Documents\Github visual studio clone\Library\obj\Debug\Library.dll
+C:\Users\Alfie\Documents\Github visual studio clone\Library\obj\Debug\Library.pdb

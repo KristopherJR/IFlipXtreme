@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EventArgs\ImportImageEventArgs.cs" />
-    <Compile Include="EventArgs\UpdateImageListEventArgs.cs" />
+    <Compile Include="EventArgs\UpdateViewEventArgs.cs" />
     <Compile Include="Exceptions\InvalidEventArgsTypeException.cs" />
     <Compile Include="Exceptions\InvalidParameterListException.cs" />
     <Compile Include="Exceptions\ParameterNotSetException.cs" />

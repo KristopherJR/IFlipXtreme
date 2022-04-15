@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Library;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,27 @@ namespace View
 {
     public partial class ImageView : Form
     {
+        private Dictionary<string, ICommand> _commands;
+
+        Action<ICommand> _executePointer;
+
+
+        public Action<ICommand> ExecutePointer
+        {
+            set { _executePointer = value; }
+        }
+
+        public Dictionary<string, ICommand> Commands
+        {
+            get { return _commands; }
+            set { _commands = value; }
+        }
+
         public ImageView()
         {
             InitializeComponent();
+
+            _commands = new Dictionary<string, ICommand>();
         }
 
         private void ImageView_Load(object sender, EventArgs e)
@@ -50,6 +69,11 @@ namespace View
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void InjectCurrentImage(Image pImageList)
+        {
+            
         }
     }
 }

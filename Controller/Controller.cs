@@ -9,15 +9,10 @@ namespace Controller
     public class Controller : IController
     {
         private Model.Model _model;
-        private GalleryView _galleryView;
+        private View.View _view;
         private CommandInvoker _commandInvoker;
 
         #region Properties
-        public GalleryView GalleryView
-        {
-            get { return _galleryView; }
-        }
-
         public Model.Model Model
         {
             get { return _model; }
@@ -27,13 +22,16 @@ namespace Controller
         public Controller()
         {
             _model = new Model.Model();
-            _galleryView = new GalleryView();
+
+            _view = new View.View();
+
+            //_galleryView = new GalleryView();
             
             _commandInvoker = new CommandInvoker();
 
-            _model.Subscribe(_galleryView);
+            _model.Subscribe(_view);
 
-            _galleryView.ExecutePointer = _commandInvoker.Execute;
+            _view.ExecutePointer = _commandInvoker.Execute;
 
             #region Actions
             Action<string> loadImageAction = _model.LoadImage;
@@ -60,18 +58,19 @@ namespace Controller
             Command<int> rotateImageCommand = new Command<int>(rotateImageAction);
             Command<int> flipImageCommand = new Command<int>(flipImageAction);
 
-            _galleryView.Commands.Add("LoadImage", loadImageCommand);
-            _galleryView.Commands.Add("AdjustBrightness", adjustBrightnessCommand);
-            _galleryView.Commands.Add("AdjustContrast", adjustContrastCommand);
-            _galleryView.Commands.Add("AdjustSaturation", adjustSaturationCommand);
-            _galleryView.Commands.Add("AdjustScale", adjustScaleCommand);
-            _galleryView.Commands.Add("CropImage", cropImageCommand);
-            _galleryView.Commands.Add("SaveImage", saveImageCommand);
-            _galleryView.Commands.Add("ApplyFilter", applyFilterCommand);
-            _galleryView.Commands.Add("RotateImage", rotateImageCommand);
-            _galleryView.Commands.Add("FlipImage", flipImageCommand);
+            _view.GalleryView.Commands.Add("LoadImage", loadImageCommand);
+            _view.ImageView.Commands.Add("AdjustBrightness", adjustBrightnessCommand);
+            _view.ImageView.Commands.Add("AdjustContrast", adjustContrastCommand);
+            _view.ImageView.Commands.Add("AdjustSaturation", adjustSaturationCommand);
+            _view.ImageView.Commands.Add("AdjustScale", adjustScaleCommand);
+            _view.ImageView.Commands.Add("CropImage", cropImageCommand);
+            _view.ImageView.Commands.Add("SaveImage", saveImageCommand);
+            _view.ImageView.Commands.Add("ApplyFilter", applyFilterCommand);
+            _view.ImageView.Commands.Add("RotateImage", rotateImageCommand);
+            _view.ImageView.Commands.Add("FlipImage", flipImageCommand);
             #endregion
-            Application.Run(_galleryView);
+
+            _view.StartApp();
         }
     }
 }

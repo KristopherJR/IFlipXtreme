@@ -32,3 +32,18 @@ C:\Users\Alfie\Source\Repos\IFlipXtreme\View\obj\Debug\View.csproj.CoreCompileIn
 C:\Users\Alfie\Source\Repos\IFlipXtreme\View\obj\Debug\View.csproj.CopyComplete
 C:\Users\Alfie\Source\Repos\IFlipXtreme\View\obj\Debug\View.dll
 C:\Users\Alfie\Source\Repos\IFlipXtreme\View\obj\Debug\View.pdb
+C:\Users\Alfie\Documents\Github visual studio clone\View\bin\Debug\View.dll.config
+C:\Users\Alfie\Documents\Github visual studio clone\View\bin\Debug\View.dll
+C:\Users\Alfie\Documents\Github visual studio clone\View\bin\Debug\View.pdb
+C:\Users\Alfie\Documents\Github visual studio clone\View\bin\Debug\Library.dll
+C:\Users\Alfie\Documents\Github visual studio clone\View\bin\Debug\Library.pdb
+C:\Users\Alfie\Documents\Github visual studio clone\View\bin\Debug\Library.dll.config
+C:\Users\Alfie\Documents\Github visual studio clone\View\obj\Debug\View.csprojAssemblyReference.cache
+C:\Users\Alfie\Documents\Github visual studio clone\View\obj\Debug\View.GalleryView.resources
+C:\Users\Alfie\Documents\Github visual studio clone\View\obj\Debug\View.ImageView.resources
+C:\Users\Alfie\Documents\Github visual studio clone\View\obj\Debug\View.Properties.Resources.resources
+C:\Users\Alfie\Documents\Github visual studio clone\View\obj\Debug\View.csproj.GenerateResource.cache
+C:\Users\Alfie\Documents\Github visual studio clone\View\obj\Debug\View.csproj.CoreCompileInputs.cache
+C:\Users\Alfie\Documents\Github visual studio clone\View\obj\Debug\View.csproj.CopyComplete
+C:\Users\Alfie\Documents\Github visual studio clone\View\obj\Debug\View.dll
+C:\Users\Alfie\Documents\Github visual studio clone\View\obj\Debug\View.pdb

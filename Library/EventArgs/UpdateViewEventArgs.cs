@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    public class UpdateImageListEventArgs : EventArgs
+    public class UpdateViewEventArgs : EventArgs
     {
         #region FIELDS
         // DECLARE a List<Image>, call it _imageList:
         private List<Image> _imageList;
+
+        // DECLARE a Image, call it _image:
+        private Image _image;
         #endregion
 
         #region PROPERTIES
@@ -21,15 +24,25 @@ namespace Library
             // RETURN _imageList:
             get { return _imageList; }
         }
+
+
+        public Image Image
+        {
+            // RETURN _imageList:
+            get { return _image; }
+        }
+
         #endregion
         /// <summary>
         /// Constructor for UpdateImageListEventArgs.
         /// </summary>
         /// <param name="pImageList">A List containing all Images in the Models ImageStorage.</param>
-        public UpdateImageListEventArgs(List<Image> pImageList)
+        public UpdateViewEventArgs(List<Image> pImageList, Image pImage)
         {
             // ASSIGN _imageList:
             _imageList = pImageList;
+
+            _image = pImage;
         }
     }
 }

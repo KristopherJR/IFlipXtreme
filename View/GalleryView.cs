@@ -11,13 +11,13 @@ using Library;
 
 namespace View
 {
-    public partial class GalleryView : Form, ISubscriber, IGalleryView
+    public partial class GalleryView : Form, IGalleryView
     {
         #region Fields
         private List<Image> _imageList;
         private Dictionary<string, ICommand> _commands;
 
-        private Action<ICommand> _execute;
+        private Action<ICommand> _executePointer;
 
         List<PictureBox> _thumbnailContainers;
 
@@ -37,7 +37,7 @@ namespace View
 
         public Action<ICommand> ExecutePointer
         {
-            set { _execute = value; }
+            set { _executePointer = value; }
         }
         #endregion
 
@@ -59,18 +59,18 @@ namespace View
         /// Default Update method for an IUpdatable.
         /// </summary>
         /// <param name="e">Event information</param>
-        public void Update(EventArgs e)
-        {
-            if (e is ImportImageEventArgs)
-            {
-                _imageList = (e as ImportImageEventArgs).Images;
-                RefreshThumbnails();
-            }
-            else
-            {
-                throw new InvalidEventArgsTypeException("Gallery View Event Args must be of type ImportImageEventArgs.");
-            }
-        }
+        //public void Update(EventArgs e)
+        //{
+        //    if (e is ImportImageEventArgs)
+        //    {
+        //        _imageList = (e as ImportImageEventArgs).Images;
+                
+        //    }
+        //    else
+        //    {
+        //        throw new InvalidEventArgsTypeException("Gallery View Event Args must be of type ImportImageEventArgs.");
+        //    }
+        //}
 
         /// <summary>
         /// Refresh the Displayed thumbnail list
@@ -90,6 +90,13 @@ namespace View
 
         }
 
+        public void InjectThumbnails(List<Image> pThumbs)
+        {
+            _imageList = pThumbs;
+
+            RefreshThumbnails();
+        }
+
         private void importButton_Click(object sender, EventArgs e)
         {
             OpenFileDialog fileDialog = new OpenFileDialog();
@@ -98,12 +105,12 @@ namespace View
             {
                 string path = fileDialog.FileName;
 
-                if (_commands.ContainsKey("Import"))
+                if (_commands.ContainsKey("LoadImage"))
                 {
 
-                    ((ICommand<string>)_commands["Import"]).ParameterOne = path;
+                    ((ICommand<string>)_commands["LoadImage"]).ParameterOne = path;
 
-                    _execute(_commands["Import"]);
+                    _executePointer(_commands["LoadImage"]);
                 }
             }          
         }

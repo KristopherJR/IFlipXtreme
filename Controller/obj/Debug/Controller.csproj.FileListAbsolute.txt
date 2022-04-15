@@ -34,3 +34,20 @@ C:\Users\Alfie\Source\Repos\IFlipXtreme\Controller\obj\Debug\Controller.pdb
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Controller.dll.config
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Controller.dll
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\obj\Debug\Controller.dll
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\bin\Debug\Controller.dll.config
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\bin\Debug\Controller.dll
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\bin\Debug\Controller.pdb
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\bin\Debug\Library.dll
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\bin\Debug\Model.dll
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\bin\Debug\View.dll
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\bin\Debug\Library.pdb
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\bin\Debug\Library.dll.config
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\bin\Debug\Model.pdb
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\bin\Debug\Model.dll.config
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\bin\Debug\View.pdb
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\bin\Debug\View.dll.config
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\obj\Debug\Controller.csprojAssemblyReference.cache
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\obj\Debug\Controller.csproj.CoreCompileInputs.cache
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\obj\Debug\Controller.csproj.CopyComplete
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\obj\Debug\Controller.dll
+C:\Users\Alfie\Documents\Github visual studio clone\Controller\obj\Debug\Controller.pdb

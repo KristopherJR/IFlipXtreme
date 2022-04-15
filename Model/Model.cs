@@ -104,14 +104,16 @@ namespace Model
             return thumbList;
         }
 
+        public Image GetCurrentImage()
+        {
+            return (new Bitmap(1,1));
+        }
+
         private void UpdateSubscribers()
         {
             foreach (ISubscriber subscriber in _subscribers)
             {
-                if (subscriber is IGalleryView)
-                {
-                    subscriber.Update(new ImportImageEventArgs(GetThumbnails()));
-                }
+                subscriber.Update(new UpdateViewEventArgs(GetThumbnails(),GetCurrentImage()));
             }
         }
 

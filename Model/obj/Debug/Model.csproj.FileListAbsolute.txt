@@ -21,3 +21,14 @@ C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\obj\Debug\Model.csproj.CoreCompile
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\obj\Debug\Model.dll
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Model\obj\Debug\Model.pdb
+C:\Users\Alfie\Documents\Github visual studio clone\Model\bin\Debug\Model.dll.config
+C:\Users\Alfie\Documents\Github visual studio clone\Model\bin\Debug\Model.dll
+C:\Users\Alfie\Documents\Github visual studio clone\Model\bin\Debug\Model.pdb
+C:\Users\Alfie\Documents\Github visual studio clone\Model\bin\Debug\Library.dll
+C:\Users\Alfie\Documents\Github visual studio clone\Model\bin\Debug\Library.pdb
+C:\Users\Alfie\Documents\Github visual studio clone\Model\bin\Debug\Library.dll.config
+C:\Users\Alfie\Documents\Github visual studio clone\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\Alfie\Documents\Github visual studio clone\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\Alfie\Documents\Github visual studio clone\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\Alfie\Documents\Github visual studio clone\Model\obj\Debug\Model.dll
+C:\Users\Alfie\Documents\Github visual studio clone\Model\obj\Debug\Model.pdb
