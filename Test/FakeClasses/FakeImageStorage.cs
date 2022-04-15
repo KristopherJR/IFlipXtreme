@@ -35,21 +35,21 @@ namespace Test
             try
             {
                 //  IF _imageStore already has 8 elements
-                //if (_imageStore.Count == 8)
+                if (_imageStore.Count == 8)
                 {
                     // FOR elements 7-1
                     for (int i = 7; i > 0; i--)
                     {
                         // REPLACE this image with the previous image in the list (Shift all images up by 1, final image gets deleted)
-                        _imageStore[i] = _imageStore[i -1];
+                        _imageStore[i] = _imageStore[i - 1];
                     }
                     // SET the first image in the list to the new image
                     _imageStore[0] = Image.FromFile(pImagePath);
                 }
-                //else
+                else
                 {
-                    // ADD new image to the end of _imageStore, if it is not full
-                    _imageStore.Add(Image.FromFile(pImagePath));
+                    // INSERT the image at the start of the List and push all elements along by 1
+                    _imageStore.Insert(0, Image.FromFile(pImagePath));
                 }
             }
             catch (Exception e)

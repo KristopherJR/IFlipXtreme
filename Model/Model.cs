@@ -40,6 +40,57 @@ namespace Model
             }
         }
 
+        public void AdjustBrightness(int pBrightnessVal)
+        {
+
+        }
+
+        public void AdjustContrast(int pContrastVal)
+        {
+
+        }
+
+        public void AdjustSaturation(int pSaturationVal)
+        {
+
+        }
+
+        public void AdjustScale(int pScaleVal)
+        {
+
+        }
+
+        public void CropImage(int pOriginX, int pOriginY, int pNewWidth, int pNewHeight)
+        {
+
+        }
+
+        public void SaveImage()
+        {
+
+        }
+
+        public void ApplyFilter(int pFilterIndex)
+        {
+
+        }
+
+        public void RotateImage(int pRotateVal)
+        {
+
+        }
+
+        public void FlipImage(int pFlipVal)
+        {
+
+        }
+
+
+
+
+
+
+
         public List<Image> GetThumbnails()
         {
             List<Image> thumbList = new List<Image>();

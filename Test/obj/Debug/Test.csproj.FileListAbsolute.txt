@@ -63,3 +63,10 @@ C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\obj\Debug\Test.csproj.CoreCompileIn
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\obj\Debug\Test.csproj.CopyComplete
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\obj\Debug\Test.dll
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Test\obj\Debug\Test.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\obj\Debug\Test.csproj.AssemblyReference.cache
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\Model.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\Library.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\Model.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\Model.dll.config
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\Library.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\Library.dll.config
