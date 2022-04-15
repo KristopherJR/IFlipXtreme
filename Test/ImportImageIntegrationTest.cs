@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Test
 {

@@ -1,4 +1,5 @@
-﻿using Library;
+﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
+using Library;
 using View;
 using System;
 using Model;
@@ -6,35 +7,55 @@ using System.Windows.Forms;
 
 namespace Controller
 {
+    /// <summary>
+    /// Controller Class: High level class.  Holds reference to both View and Model projects, and the commandInvoker. 
+    /// </summary>
     public class Controller : IController
     {
+        // DECLARE a new Model object to hold a refence to the model (server) of the application.  Call it "_model".
         private Model.Model _model;
+
+        // DECLARE a new Model object to hold a refence to the view (GUI) of the application.  Call it "_view".
         private View.View _view;
+
+        // DECLARE a new CommandInvoker object to hold a refence to the commandInvoker.  Call it "_commandInvoker".
         private CommandInvoker _commandInvoker;
 
         #region Properties
+        // DECLARE a get property to access "_model"
         public Model.Model Model
         {
             get { return _model; }
         }
         #endregion
 
+        /// <summary>
+        /// Constructor for Controller class
+        /// </summary>
         public Controller()
         {
+            // INSTANTIATE "_model" to as new Model
             _model = new Model.Model();
 
+            // INSTANTIATE "_view" as a new View
             _view = new View.View();
 
-            //_galleryView = new GalleryView();
-            
+            // INSTANTIATE "_commandInvoker" as a new Command Invoker            
             _commandInvoker = new CommandInvoker();
 
+            // CALL the model's Subscribe Method and pass in the View object.  This subscribes the GUI to the server for updates
             _model.Subscribe(_view);
 
+            // SET the execute pointer in the view to the Command Invoker's Execute method
             _view.ExecutePointer = _commandInvoker.Execute;
 
             #region Actions
+
+            // DECLARE & INSTANTIATE action objects that are used by the Gallery View.  These will be placed in Command Objects.
             Action<string> loadImageAction = _model.LoadImage;
+            Action<int> openImageAction = _model.OpenImage;
+
+            // DECLARE & INSTANTIATE action objects that are used by the Image View (Editor).  These will be placed in Command Objects.
             Action<int> adjustBrightnessAction = _model.AdjustBrightness;
             Action<int> adjustContrastAction = _model.AdjustContrast;
             Action<int> adjustSaturationAction = _model.AdjustSaturation;
@@ -47,7 +68,10 @@ namespace Controller
             #endregion
 
             #region Commands
+            // DECLARE & INSTANTIATE
             Command<string> loadImageCommand = new Command<string>(loadImageAction);
+            Command<int> openImageCommand = new Command<int>(openImageAction);
+
             Command<int> adjustBrightnessCommand = new Command<int>(adjustBrightnessAction);
             Command<int> adjustContrastCommand = new Command<int>(adjustContrastAction);
             Command<int> adjustSaturationCommand = new Command<int>(adjustSaturationAction);
@@ -59,6 +83,8 @@ namespace Controller
             Command<int> flipImageCommand = new Command<int>(flipImageAction);
 
             _view.GalleryView.Commands.Add("LoadImage", loadImageCommand);
+            _view.GalleryView.Commands.Add("OpenImage", loadImageCommand);
+
             _view.ImageView.Commands.Add("AdjustBrightness", adjustBrightnessCommand);
             _view.ImageView.Commands.Add("AdjustContrast", adjustContrastCommand);
             _view.ImageView.Commands.Add("AdjustSaturation", adjustSaturationCommand);

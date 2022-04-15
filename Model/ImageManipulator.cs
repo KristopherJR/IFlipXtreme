@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
+using System.Drawing;
 
 namespace Model
 {

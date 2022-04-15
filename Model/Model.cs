@@ -1,4 +1,5 @@
-﻿using Library;
+﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
+using Library;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -10,6 +11,9 @@ namespace Model
         private ImageManipulator _ImageManipulator;
         private ImageStorage _ImageStorage;
         private IList<ISubscriber> _subscribers;
+
+        
+        
         #endregion
 
         #region Properties
@@ -85,11 +89,11 @@ namespace Model
 
         }
 
+        public void OpenImage(int pPos)
+        {
+            
 
-
-
-
-
+        }
 
         public List<Image> GetThumbnails()
         {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -91,15 +92,18 @@ namespace Test
     public class Command<T1, T2> : ICommand<T1,T2>
     {
         #region FIELDS
+
         // DECLARE an Action<T1,T2>, call it _action:
         private Action<T1, T2> _action;
         // DECLARE an object of type T1, call it _parameterOne:
         private T1 _parameterOne;
         // DECLARE an object of type T2, call it _parameterTwo:
         private T2 _parameterTwo;
+
         #endregion FIELDS
 
         #region PROPERTIES
+
         public T1 ParameterOne
         {
             set { _parameterOne = value; }
@@ -109,6 +113,7 @@ namespace Test
         {
             set { _parameterTwo = value; }
         }
+
         #endregion
 
         #region METHODS

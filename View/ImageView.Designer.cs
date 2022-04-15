@@ -76,7 +76,6 @@ namespace View
             this.trackBarBrightness.Size = new System.Drawing.Size(512, 45);
             this.trackBarBrightness.TabIndex = 1;
             this.trackBarBrightness.Value = 50;
-            this.trackBarBrightness.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // buttonSave
             // 
@@ -86,6 +85,7 @@ namespace View
             this.buttonSave.TabIndex = 2;
             this.buttonSave.Text = "Save and Exit";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // buttonDiscard
             // 
@@ -95,6 +95,7 @@ namespace View
             this.buttonDiscard.TabIndex = 3;
             this.buttonDiscard.Text = "Exit and Discard Changes";
             this.buttonDiscard.UseVisualStyleBackColor = true;
+            this.buttonDiscard.Click += new System.EventHandler(this.buttonDiscard_Click);
             // 
             // labelContrast
             // 
@@ -104,7 +105,7 @@ namespace View
             this.labelContrast.Size = new System.Drawing.Size(46, 13);
             this.labelContrast.TabIndex = 4;
             this.labelContrast.Text = "Contrast";
-            this.labelContrast.Click += new System.EventHandler(this.label1_Click);
+            //this.labelContrast.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelBrightness
             // 
@@ -150,7 +151,6 @@ namespace View
             this.trackBarScale.Size = new System.Drawing.Size(512, 45);
             this.trackBarScale.TabIndex = 10;
             this.trackBarScale.Value = 50;
-            this.trackBarScale.Scroll += new System.EventHandler(this.trackBar2_Scroll);
             // 
             // labelScale
             // 
@@ -160,7 +160,6 @@ namespace View
             this.labelScale.Size = new System.Drawing.Size(34, 13);
             this.labelScale.TabIndex = 9;
             this.labelScale.Text = "Scale";
-            this.labelScale.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // buttonRotateRight90
             // 
@@ -213,6 +212,7 @@ namespace View
             this.textBoxCropLocationX.Name = "textBoxCropLocationX";
             this.textBoxCropLocationX.Size = new System.Drawing.Size(100, 20);
             this.textBoxCropLocationX.TabIndex = 16;
+            this.textBoxCropLocationX.TextChanged += new System.EventHandler(this.textBoxCropLocationX_TextChanged);
             // 
             // textBoxCropWidth
             // 
@@ -220,6 +220,7 @@ namespace View
             this.textBoxCropWidth.Name = "textBoxCropWidth";
             this.textBoxCropWidth.Size = new System.Drawing.Size(100, 20);
             this.textBoxCropWidth.TabIndex = 17;
+            this.textBoxCropWidth.TextChanged += new System.EventHandler(this.textBoxCropWidth_TextChanged);
             // 
             // textBoxCropLocationY
             // 
@@ -227,6 +228,7 @@ namespace View
             this.textBoxCropLocationY.Name = "textBoxCropLocationY";
             this.textBoxCropLocationY.Size = new System.Drawing.Size(100, 20);
             this.textBoxCropLocationY.TabIndex = 18;
+            this.textBoxCropLocationY.TextChanged += new System.EventHandler(this.textBoxCropLocationY_TextChanged);
             // 
             // textBoxCropHeight
             // 
@@ -234,6 +236,7 @@ namespace View
             this.textBoxCropHeight.Name = "textBoxCropHeight";
             this.textBoxCropHeight.Size = new System.Drawing.Size(100, 20);
             this.textBoxCropHeight.TabIndex = 19;
+            this.textBoxCropHeight.TextChanged += new System.EventHandler(this.textBoxCropHeight_TextChanged);
             // 
             // labelCropBoxLocationX
             // 
@@ -261,7 +264,6 @@ namespace View
             this.labelCropBoxHeight.Size = new System.Drawing.Size(87, 13);
             this.labelCropBoxHeight.TabIndex = 22;
             this.labelCropBoxHeight.Text = "Crop Box Height:";
-            this.labelCropBoxHeight.Click += new System.EventHandler(this.label3_Click);
             // 
             // labelCropBoxWidth
             // 
@@ -301,6 +303,8 @@ namespace View
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.trackBarBrightness);
             this.Controls.Add(this.pictureBoxEditImage);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ImageView";
             this.Text = "ImageView";
             this.Load += new System.EventHandler(this.ImageView_Load);

@@ -39,19 +39,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventArgs\UpdateImageListEventArgs.cs" />
-    <Compile Include="Interfaces\ICommand.cs" />
-    <Compile Include="Interfaces\ICommandInvoker.cs" />
-    <Compile Include="Interfaces\IController.cs" />
-    <Compile Include="Interfaces\IGalleryView.cs" />
-    <Compile Include="Interfaces\IGenericFactory.cs" />
-    <Compile Include="Interfaces\IImageManipulator.cs" />
-    <Compile Include="Interfaces\IImageStorage.cs" />
-    <Compile Include="Interfaces\IImageView.cs" />
-    <Compile Include="Interfaces\IModel.cs" />
-    <Compile Include="Interfaces\IPublisher.cs" />
-    <Compile Include="Interfaces\ISubscriber.cs" />
-    <Compile Include="Interfaces\IView.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>
   <ItemGroup>

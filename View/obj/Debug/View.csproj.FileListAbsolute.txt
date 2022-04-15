@@ -47,3 +47,18 @@ C:\Users\Alfie\Documents\Github visual studio clone\View\obj\Debug\View.csproj.C
 C:\Users\Alfie\Documents\Github visual studio clone\View\obj\Debug\View.csproj.CopyComplete
 C:\Users\Alfie\Documents\Github visual studio clone\View\obj\Debug\View.dll
 C:\Users\Alfie\Documents\Github visual studio clone\View\obj\Debug\View.pdb
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\bin\Debug\View.dll.config
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\bin\Debug\View.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\bin\Debug\View.pdb
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\bin\Debug\Library.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\bin\Debug\Library.pdb
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\bin\Debug\Library.dll.config
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\obj\Debug\View.csproj.AssemblyReference.cache
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\obj\Debug\View.GalleryView.resources
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\obj\Debug\View.ImageView.resources
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\obj\Debug\View.Properties.Resources.resources
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\obj\Debug\View.csproj.GenerateResource.cache
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\obj\Debug\View.csproj.CoreCompileInputs.cache
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\obj\Debug\View.csproj.CopyComplete
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\obj\Debug\View.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\View\obj\Debug\View.pdb

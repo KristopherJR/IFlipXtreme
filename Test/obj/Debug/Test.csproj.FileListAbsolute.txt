@@ -70,3 +70,31 @@ D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bi
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\Model.dll.config
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\Library.pdb
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\Library.dll.config
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Test.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Test.pdb
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Castle.Core.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Library.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Model.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Moq.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Library.pdb
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Library.dll.config
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Model.pdb
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Model.dll.config
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Castle.Core.xml
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\Moq.xml
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\obj\Debug\Test.csproj.AssemblyReference.cache
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\obj\Debug\Test.csproj.CopyComplete
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\obj\Debug\Test.dll
+C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Test\obj\Debug\Test.pdb

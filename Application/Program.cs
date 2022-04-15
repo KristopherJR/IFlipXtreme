@@ -1,4 +1,5 @@
-﻿using System;
+﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
+using System;
 
 
 namespace Application
@@ -11,6 +12,7 @@ namespace Application
         [STAThread]
         static void Main(string[] args)
         {
+            // INSTANTIATE a new controller, entry point to Image Flipper program
             Controller.Controller controller = new Controller.Controller();
         }
     }
