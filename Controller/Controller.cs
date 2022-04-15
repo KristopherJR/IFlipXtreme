@@ -49,6 +49,18 @@ namespace Controller
             // SET the execute pointer in the view to the Command Invoker's Execute method
             _view.ExecutePointer = _commandInvoker.Execute;
 
+            // INITIALISE the command objects and pass them to relevant views
+            InitialiseCommands();
+
+            // CALL StartApp in view to launch the Immage Flipper program
+            _view.StartApp();
+        }
+
+        /// <summary>
+        /// InitialiseCommands Method: Generates the needed Command Objects and passes them to the relevant Views.
+        /// </summary>
+        private void InitialiseCommands()
+        {
             #region Actions
 
             // DECLARE & INSTANTIATE action objects that are used by the Gallery View.  These will be placed in Command Objects.
@@ -60,7 +72,7 @@ namespace Controller
             Action<int> adjustContrastAction = _model.AdjustContrast;
             Action<int> adjustSaturationAction = _model.AdjustSaturation;
             Action<int> adjustScaleAction = _model.AdjustScale;
-            Action<int,int,int,int> cropImageAction = _model.CropImage;
+            Action<int, int, int, int> cropImageAction = _model.CropImage;
             Action saveImageAction = _model.SaveImage;
             Action<int> applyFilterAction = _model.ApplyFilter;
             Action<int> rotateImageAction = _model.RotateImage;
@@ -68,23 +80,26 @@ namespace Controller
             #endregion
 
             #region Commands
-            // DECLARE & INSTANTIATE
+            // DECLARE & INSTANTIATE command objects that are used by the Gallery View, pass in the relevant Actions that were defined prior.
             Command<string> loadImageCommand = new Command<string>(loadImageAction);
             Command<int> openImageCommand = new Command<int>(openImageAction);
 
+            // DECLARE & INSTANTIATE command objects that are used by the Image View (Editor), pass in the relevant Actions that were defined prior.
             Command<int> adjustBrightnessCommand = new Command<int>(adjustBrightnessAction);
             Command<int> adjustContrastCommand = new Command<int>(adjustContrastAction);
             Command<int> adjustSaturationCommand = new Command<int>(adjustSaturationAction);
             Command<int> adjustScaleCommand = new Command<int>(adjustScaleAction);
-            Command<int,int,int,int> cropImageCommand = new Command<int,int,int,int>(cropImageAction);
+            Command<int, int, int, int> cropImageCommand = new Command<int, int, int, int>(cropImageAction);
             Command saveImageCommand = new Command(saveImageAction);
             Command<int> applyFilterCommand = new Command<int>(applyFilterAction);
             Command<int> rotateImageCommand = new Command<int>(rotateImageAction);
             Command<int> flipImageCommand = new Command<int>(flipImageAction);
 
+            // ADD the relevant Command Objects to the Gallery View's list of commands
             _view.GalleryView.Commands.Add("LoadImage", loadImageCommand);
             _view.GalleryView.Commands.Add("OpenImage", loadImageCommand);
 
+            // ADD the relevant Command Objects to the Image View's list of commands
             _view.ImageView.Commands.Add("AdjustBrightness", adjustBrightnessCommand);
             _view.ImageView.Commands.Add("AdjustContrast", adjustContrastCommand);
             _view.ImageView.Commands.Add("AdjustSaturation", adjustSaturationCommand);
@@ -94,9 +109,8 @@ namespace Controller
             _view.ImageView.Commands.Add("ApplyFilter", applyFilterCommand);
             _view.ImageView.Commands.Add("RotateImage", rotateImageCommand);
             _view.ImageView.Commands.Add("FlipImage", flipImageCommand);
-            #endregion
 
-            _view.StartApp();
+            #endregion
         }
     }
 }

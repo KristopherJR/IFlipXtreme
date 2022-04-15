@@ -79,6 +79,11 @@ namespace View
             this.ControlBox = false;
         }
 
+        //public void GalleryView_Load()
+        //{
+            
+        //}
+
         /// <summary>
         /// SelectImage method: Called everytime a Picturebox is clicked in the GUI. Handles the selection logic.
         /// </summary>
@@ -91,57 +96,75 @@ namespace View
             // IF there is no Image in the clicked PictureBox:
             if (selectedBox.Image != null)
             {
-                // 
+                // ITERATE through all PictureBoxes in "_thumbnailContainers":
                 for (int i = 0; i < _thumbnailContainers.Count; i++)
                 {
+                    // SET the back colour of the PictureBox to Transparent:
                     _thumbnailContainers[i].BackColor = Color.Transparent;
-
+                    // IF the current PictureBox has been clicked on:
                     if (_thumbnailContainers[i] == selectedBox)
                     {
+                        // STORE the index of the selected PictureBox:
                         _selectedImageIndex = i;
+                        // SET the backcolour to Green to show it has been selected:
                         selectedBox.BackColor = Color.Green;
+
                         Console.WriteLine("you just clicked: " + selectedBox.Name);
                     }
                 }
             }                
         }
 
+        /// <summary>
+        /// ResetSelection: Resets the PictureBox that the user has selected.
+        /// </summary>
         private void ResetSelection()
         {
+            // ITERATE through all PictureBoxes in "_thumbnailContainers":
             for (int i = 0; i < _thumbnailContainers.Count; i++)
             {
+                // SET the back colour of the PictureBox to Transparent:
                 _thumbnailContainers[i].BackColor = Color.Transparent;
+                // SET the "_selectedImageIndex" to -1:
                 _selectedImageIndex = -1;
             }
         }
 
         /// <summary>
-        /// Refresh the Displayed thumbnail list
+        /// RefreshThumbnails: Refreshes the Displayed thumbnail list with the newly updated Image collection.
         /// </summary>
         /// <param name="pThumbList"></param>
         private void RefreshThumbnails()
         {
+            // ITERATE through all PictureBoxes in "_thumbnailContainers":
             for (int i = 0; i < _thumbnailList.Count; i++)
             {
+                // UPDATE the Images in the boxes with the new ones loaded into the "_thumbnailList":
                 _thumbnailContainers[i].Image = _thumbnailList[i];
             }
         }
         #endregion
 
-        private void GalleryView_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        /// <summary>
+        /// InjectThumbnails: Updates the Thumbnail image collection and refreshes them in the GUI.
+        /// </summary>
+        /// <param name="pThumbs">A List containing the new image thumbnail collection.</param>
         public void InjectThumbnails(List<Image> pThumbs)
         {
+            // ASSIGN pThumns to "_thumbnailList":
             _thumbnailList = pThumbs;
-
+            // REFRESH the thumbnails in the GUI:
             RefreshThumbnails();
         }
 
+        /// <summary>
+        /// ImportButton_Click: Called whenever the user clicks on the Import Image button.
+        /// </summary>
+        /// <param name="sender">The object firing the event.</param>
+        /// <param name="e">EventArgs.</param>
         private void importButton_Click(object sender, EventArgs e)
         {
+            // INSTANTIATE a new OpenFileDialog, call it "fileDialog":
             OpenFileDialog fileDialog = new OpenFileDialog();
 
             if (fileDialog.ShowDialog() == DialogResult.OK)
@@ -160,13 +183,22 @@ namespace View
         }
 
         
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonExit_Click(object sender, EventArgs e)
         {
             this.Dispose();
             Application.Exit();
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonEdit_Click(object sender, EventArgs e)
         {
             _toggleFormPointer();
@@ -180,18 +212,19 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void LoadDefaultImage_Click(object sender, EventArgs e)
         {
+            // INSTANTIATE a string for the default image folder, call it "path":
             string path = "../../../Test/bin/Release/VersionControl/";
-            
+            // INCREMENT the version tag for indexing the image collection:
             labelVersion.Tag = labelVersion.Tag + "+";
-            
+            // IF the image count = 8:
             if(((String)labelVersion.Tag).Length == 8)
             {
                 for(int i = 0; i < 8; i++)
                 {
+                    // SET the path to the default images:
                     ((ICommand<string>)_commands["LoadImage"]).ParameterOne = path + i.ToString() + ".txt";
-
+                    // FIRE the "LoadImage" Command to load the default Image collection:
                     _executePointer(_commands["LoadImage"]);
-    
                 }
             }
         }
