@@ -35,6 +35,7 @@ namespace Controller
 
             _galleryView.ExecutePointer = _commandInvoker.Execute;
 
+            #region Actions
             Action<string> loadImageAction = _model.LoadImage;
             Action<int> adjustBrightnessAction = _model.AdjustBrightness;
             Action<int> adjustContrastAction = _model.AdjustContrast;
@@ -45,7 +46,9 @@ namespace Controller
             Action<int> applyFilterAction = _model.ApplyFilter;
             Action<int> rotateImageAction = _model.RotateImage;
             Action<int> flipImageAction = _model.FlipImage;
+            #endregion
 
+            #region Commands
             Command<string> loadImageCommand = new Command<string>(loadImageAction);
             Command<int> adjustBrightnessCommand = new Command<int>(adjustBrightnessAction);
             Command<int> adjustContrastCommand = new Command<int>(adjustContrastAction);
@@ -67,7 +70,7 @@ namespace Controller
             _galleryView.Commands.Add("ApplyFilter", applyFilterCommand);
             _galleryView.Commands.Add("RotateImage", rotateImageCommand);
             _galleryView.Commands.Add("FlipImage", flipImageCommand);
-
+            #endregion
             Application.Run(_galleryView);
         }
     }
