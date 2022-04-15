@@ -45,8 +45,8 @@ namespace Model
                 }
                 else
                 {
-                    // ADD new image to the end of _imageStore, if it is not full
-                    _imageStore.Add(Image.FromFile(pImagePath));
+                    // INSERT the image at the start of the List and push all elements along by 1
+                    _imageStore.Insert(0,Image.FromFile(pImagePath));
                 }
             }
             catch (Exception e)
