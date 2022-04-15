@@ -7,8 +7,11 @@ using System.Threading.Tasks;
 
 namespace Library
 {
+    /// <summary>
+    /// IController Interface
+    /// </summary>
     public interface IController
     {
-
+        // do nothing for now
     }
 }

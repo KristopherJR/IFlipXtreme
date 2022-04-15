@@ -52,7 +52,7 @@ namespace View
             set { _executePointer = value; }
         }
 
-        // DECLARE a set/get property for "_commands".  Call it "Commands".
+        // DECLARE a get-set property for "_commands".  Call it "Commands".
         public Dictionary<string, ICommand> Commands
         {
             set { _commands = value; }

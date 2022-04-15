@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace Library
 {
+    /// <summary>
+    /// IImageManipulator Interface
+    /// </summary>
     interface IImageManipulator
     {
+        // do nothing for now
     }
 }

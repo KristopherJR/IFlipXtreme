@@ -79,11 +79,6 @@ namespace View
             this.ControlBox = false;
         }
 
-        //public void GalleryView_Load()
-        //{
-            
-        //}
-
         /// <summary>
         /// SelectImage method: Called everytime a Picturebox is clicked in the GUI. Handles the selection logic.
         /// </summary>
@@ -107,7 +102,7 @@ namespace View
                         // STORE the index of the selected PictureBox:
                         _selectedImageIndex = i;
                         // SET the backcolour to Green to show it has been selected:
-                        selectedBox.BackColor = Color.Green;
+                        selectedBox.BackColor = Color.YellowGreen;
 
                         Console.WriteLine("you just clicked: " + selectedBox.Name);
                     }
@@ -166,17 +161,19 @@ namespace View
         {
             // INSTANTIATE a new OpenFileDialog, call it "fileDialog":
             OpenFileDialog fileDialog = new OpenFileDialog();
-
+            
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
+                // SET the path to the selected Image:
                 string path = fileDialog.FileName;
-
+                // IF the command object "LoadImage" exists:
                 if (_commands.ContainsKey("LoadImage"))
                 {
-
+                    // SET the ParameterOne to path:
                     ((ICommand<string>)_commands["LoadImage"]).ParameterOne = path;
-
+                    // SIGNAL to the CommandInvoker to fire the command:
                     _executePointer(_commands["LoadImage"]);
+                    // RESET the users selection:
                     ResetSelection();
                 }
             }          
@@ -184,23 +181,24 @@ namespace View
 
         
         /// <summary>
-        /// 
+        /// buttonExit_Click: Closes the application when the user clicks the Exit button.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The object sending the event.</param>
+        /// <param name="e">EventArgs.</param>
         private void buttonExit_Click(object sender, EventArgs e)
         {
-            this.Dispose();
+            // EXIT the application:
             Application.Exit();
         }
 
         /// <summary>
-        /// 
+        /// buttonEdit_Click: Called when the user clicks the Edit button. Toggles form visibility.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param name="sender">The object sending the event.</param>
+        /// <param name="e">EventArgs.</param>
         private void buttonEdit_Click(object sender, EventArgs e)
         {
+            // TOGGLE the forms visibility:
             _toggleFormPointer();
         }
 
@@ -219,6 +217,7 @@ namespace View
             // IF the image count = 8:
             if(((String)labelVersion.Tag).Length == 8)
             {
+                // FOR LOOP: Repeats 8 times
                 for(int i = 0; i < 8; i++)
                 {
                     // SET the path to the default images:

@@ -86,9 +86,10 @@ namespace View
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Location = new System.Drawing.Point(15, 19);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 14);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox1.Size = new System.Drawing.Size(136, 136);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectImage);
@@ -96,9 +97,10 @@ namespace View
             // pictureBox2
             // 
             this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox2.Location = new System.Drawing.Point(149, 19);
+            this.pictureBox2.Location = new System.Drawing.Point(148, 14);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox2.Size = new System.Drawing.Size(136, 136);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectImage);
@@ -106,9 +108,10 @@ namespace View
             // pictureBox3
             // 
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox3.Location = new System.Drawing.Point(283, 19);
+            this.pictureBox3.Location = new System.Drawing.Point(288, 14);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox3.Size = new System.Drawing.Size(136, 136);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectImage);
@@ -116,9 +119,10 @@ namespace View
             // pictureBox4
             // 
             this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox4.Location = new System.Drawing.Point(417, 19);
+            this.pictureBox4.Location = new System.Drawing.Point(430, 14);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox4.Size = new System.Drawing.Size(136, 136);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox4.TabIndex = 3;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectImage);
@@ -126,9 +130,10 @@ namespace View
             // pictureBox8
             // 
             this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox8.Location = new System.Drawing.Point(417, 153);
+            this.pictureBox8.Location = new System.Drawing.Point(430, 156);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox8.Size = new System.Drawing.Size(136, 136);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox8.TabIndex = 7;
             this.pictureBox8.TabStop = false;
             this.pictureBox8.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectImage);
@@ -136,9 +141,10 @@ namespace View
             // pictureBox7
             // 
             this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox7.Location = new System.Drawing.Point(283, 153);
+            this.pictureBox7.Location = new System.Drawing.Point(288, 156);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox7.Size = new System.Drawing.Size(136, 136);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox7.TabIndex = 6;
             this.pictureBox7.TabStop = false;
             this.pictureBox7.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectImage);
@@ -146,9 +152,10 @@ namespace View
             // pictureBox6
             // 
             this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox6.Location = new System.Drawing.Point(149, 153);
+            this.pictureBox6.Location = new System.Drawing.Point(148, 156);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox6.Size = new System.Drawing.Size(136, 136);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox6.TabIndex = 5;
             this.pictureBox6.TabStop = false;
             this.pictureBox6.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectImage);
@@ -156,9 +163,10 @@ namespace View
             // pictureBox5
             // 
             this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox5.Location = new System.Drawing.Point(15, 153);
+            this.pictureBox5.Location = new System.Drawing.Point(6, 156);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(128, 128);
+            this.pictureBox5.Size = new System.Drawing.Size(136, 136);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox5.TabIndex = 4;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.SelectImage);
@@ -205,7 +213,6 @@ namespace View
             this.MinimizeBox = false;
             this.Name = "GalleryView";
             this.Text = "GalleryView";
-            //this.Load += new System.EventHandler(this.GalleryView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

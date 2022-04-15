@@ -3,9 +3,17 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Test
 {
+    /// <summary>
+    /// ImportImageIntegrationTest.
+    /// 
+    /// Tests the functionality of importing
+    /// </summary>
     [TestClass]
     public class ImportImageIntegrationTest
     {
+        /// <summary>
+        /// 
+        /// </summary>
         [TestMethod]
         public void TestGoodThumbnailCollectionPassedToView()
         {
@@ -13,6 +21,7 @@ namespace Test
             // DECLARE a bool, call it testPassed:
             bool testPassed = false;
 
+            // DECLARE a reference to Fake Controller. Call it "fakeController":
             FakeController fakeController = new FakeController();
 
             #endregion
@@ -34,9 +43,5 @@ namespace Test
             #endregion
 
         }
-
-
-    }
-    
-    
+    }  
 }

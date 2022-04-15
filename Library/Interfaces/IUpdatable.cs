@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace Library
 {
+    /// <summary>
+    /// IUpdatable Interface
+    /// </summary>
     public interface IUpdatable
     {
         #region Methods

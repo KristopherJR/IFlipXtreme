@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    interface IImageStorage
+    /// <summary>
+    /// IImageStorage Interface
+    /// </summary>
+    public interface IImageStorage
     {
+        // do nothing for now
     }
 }

@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace Library
 {
+    /// <summary>
+    /// IGalleryView Interface
+    /// </summary>
     public interface IGalleryView
     {
+        // do nothing for now
     }
 }

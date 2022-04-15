@@ -7,8 +7,15 @@ using System.Threading.Tasks;
 
 namespace Library
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class ParameterNotSetException : Exception
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pMessage"></param>
         public ParameterNotSetException(string pMessage) : base(pMessage)
         {
 

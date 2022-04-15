@@ -48,7 +48,6 @@
     <Compile Include="Interfaces\ICommandInvoker.cs" />
     <Compile Include="Interfaces\IController.cs" />
     <Compile Include="Interfaces\IGalleryView.cs" />
-    <Compile Include="Interfaces\IGenericFactory.cs" />
     <Compile Include="Interfaces\IImageManipulator.cs" />
     <Compile Include="Interfaces\IImageStorage.cs" />
     <Compile Include="Interfaces\IImageView.cs" />

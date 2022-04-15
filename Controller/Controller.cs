@@ -109,7 +109,6 @@ namespace Controller
             _view.ImageView.Commands.Add("ApplyFilter", applyFilterCommand);
             _view.ImageView.Commands.Add("RotateImage", rotateImageCommand);
             _view.ImageView.Commands.Add("FlipImage", flipImageCommand);
-
             #endregion
         }
     }

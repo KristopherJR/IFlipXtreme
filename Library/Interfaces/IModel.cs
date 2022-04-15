@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    interface IModel
+    /// <summary>
+    /// IModel Interface
+    /// </summary>
+    public interface IModel
     {
+        // do nothing for now
     }
 }

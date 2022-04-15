@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    interface IPublisher
+    /// <summary>
+    /// IPublisher Interface
+    /// </summary>
+    public interface IPublisher
     {
+        // do nothing for now
     }
 }

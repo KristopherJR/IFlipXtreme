@@ -7,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace Library
 {
+    /// <summary>
+    /// ICommandInvoker Interface
+    /// </summary>
     interface ICommandInvoker
     {
+        // do nothing for now
     }
 }
