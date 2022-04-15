@@ -6,10 +6,8 @@ D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Applica
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\obj\Debug\Application.csproj.AssemblyReference.cache
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Application.exe.config
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Application.exe
-D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Controller.exe
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Library.dll
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Controller.pdb
-D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Controller.exe.config
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Library.pdb
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Library.dll.config
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\obj\Debug\Application.csproj.CopyComplete
@@ -34,3 +32,11 @@ C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.csproj
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.csproj.CopyComplete
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.exe
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Controller.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Model.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\View.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Controller.dll.config
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Model.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Model.dll.config
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\View.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\View.dll.config

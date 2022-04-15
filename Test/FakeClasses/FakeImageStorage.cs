@@ -35,7 +35,7 @@ namespace Test
             try
             {
                 //  IF _imageStore already has 8 elements
-                if (_imageStore.Count == 8)
+                //if (_imageStore.Count == 8)
                 {
                     // FOR elements 7-1
                     for (int i = 7; i > 0; i--)
@@ -46,7 +46,7 @@ namespace Test
                     // SET the first image in the list to the new image
                     _imageStore[0] = Image.FromFile(pImagePath);
                 }
-                else
+                //else
                 {
                     // ADD new image to the end of _imageStore, if it is not full
                     _imageStore.Add(Image.FromFile(pImagePath));

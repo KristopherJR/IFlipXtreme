@@ -2,11 +2,8 @@ C:\Users\rank1_18\Source\Repos\IFlipXtreme\Controller\obj\Debug\Controller.cspro
 C:\Users\rank1_18\Source\Repos\IFlipXtreme\Controller\obj\Debug\Controller.csproj.AssemblyReference.cache
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\obj\Debug\Controller.csproj.AssemblyReference.cache
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\obj\Debug\Controller.csproj.CoreCompileInputs.cache
-D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Controller.exe.config
-D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Controller.exe
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Controller.pdb
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\obj\Debug\Controller.csproj.CopyComplete
-D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\obj\Debug\Controller.exe
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\obj\Debug\Controller.pdb
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Library.dll
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Model.dll
@@ -34,3 +31,6 @@ C:\Users\Alfie\Source\Repos\IFlipXtreme\Controller\obj\Debug\Controller.csproj.C
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Controller\obj\Debug\Controller.csproj.CopyComplete
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Controller\obj\Debug\Controller.dll
 C:\Users\Alfie\Source\Repos\IFlipXtreme\Controller\obj\Debug\Controller.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Controller.dll.config
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\bin\Debug\Controller.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Controller\obj\Debug\Controller.dll
