@@ -94,10 +94,10 @@ namespace Controller
             Command<int> applyFilterCommand = new Command<int>(applyFilterAction);
             Command<int> rotateImageCommand = new Command<int>(rotateImageAction);
             Command<int> flipImageCommand = new Command<int>(flipImageAction);
-
+            
             // ADD the relevant Command Objects to the Gallery View's list of commands
             _view.GalleryView.Commands.Add("LoadImage", loadImageCommand);
-            _view.GalleryView.Commands.Add("OpenImage", loadImageCommand);
+            _view.GalleryView.Commands.Add("OpenImage", openImageCommand);
 
             // ADD the relevant Command Objects to the Image View's list of commands
             _view.ImageView.Commands.Add("AdjustBrightness", adjustBrightnessCommand);

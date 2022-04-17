@@ -198,8 +198,32 @@ namespace View
         /// <param name="e">EventArgs.</param>
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            // TOGGLE the forms visibility:
-            _toggleFormPointer();
+            if(!(_selectedImageIndex == -1))
+            {
+                // TOGGLE the forms visibility:
+                _toggleFormPointer();
+                // FIRE a Command passing in the "_selectedImageIndex":
+
+
+                
+                // IF the command object "LoadImage" exists:
+                if (_commands.ContainsKey("OpenImage"))
+                {
+                    // SET the ParameterOne to path:
+                    ((ICommand<int>)_commands["OpenImage"]).ParameterOne = _selectedImageIndex;
+                    // SIGNAL to the CommandInvoker to fire the command:
+                    _executePointer(_commands["OpenImage"]);
+                    // RESET the users selection:
+                    ResetSelection();
+                }
+
+            }
+            else
+            {   
+                // CREATE A POP-UP SAYING THAT YOU HAVE TO SELECT AN IMAGE BEFORE CLICKING EDIT
+                Console.WriteLine("WARNING: You must select an Image before you can edit!");
+            }
+            
         }
 
         #region  ㅤ

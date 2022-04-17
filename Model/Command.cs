@@ -193,7 +193,7 @@ namespace Library
             // assign the parameter to _action:
             _action = pAction;
         }
-
+        
         /// <summary>
         /// Executes the Command by calling the method pointed to in _action.
         /// </summary>

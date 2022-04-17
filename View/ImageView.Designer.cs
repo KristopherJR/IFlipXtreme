@@ -44,7 +44,6 @@ namespace View
             this.buttonRotateLeft90 = new System.Windows.Forms.Button();
             this.buttonFlipVertical = new System.Windows.Forms.Button();
             this.buttonFlipHorizontal = new System.Windows.Forms.Button();
-            this.labelCrop = new System.Windows.Forms.Label();
             this.textBoxCropLocationX = new System.Windows.Forms.TextBox();
             this.textBoxCropWidth = new System.Windows.Forms.TextBox();
             this.textBoxCropLocationY = new System.Windows.Forms.TextBox();
@@ -53,6 +52,7 @@ namespace View
             this.labelCropBoxLocationY = new System.Windows.Forms.Label();
             this.labelCropBoxHeight = new System.Windows.Forms.Label();
             this.labelCropBoxWidth = new System.Windows.Forms.Label();
+            this.buttonCrop = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEditImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarBrightness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarContrast)).BeginInit();
@@ -65,6 +65,7 @@ namespace View
             this.pictureBoxEditImage.Location = new System.Drawing.Point(143, 12);
             this.pictureBoxEditImage.Name = "pictureBoxEditImage";
             this.pictureBoxEditImage.Size = new System.Drawing.Size(512, 512);
+            this.pictureBoxEditImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxEditImage.TabIndex = 0;
             this.pictureBoxEditImage.TabStop = false;
             // 
@@ -76,6 +77,7 @@ namespace View
             this.trackBarBrightness.Size = new System.Drawing.Size(512, 45);
             this.trackBarBrightness.TabIndex = 1;
             this.trackBarBrightness.Value = 50;
+            this.trackBarBrightness.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarBrightness_MouseUp);
             // 
             // buttonSave
             // 
@@ -100,12 +102,11 @@ namespace View
             // labelContrast
             // 
             this.labelContrast.AutoSize = true;
-            this.labelContrast.Location = new System.Drawing.Point(40, 562);
+            this.labelContrast.Location = new System.Drawing.Point(39, 562);
             this.labelContrast.Name = "labelContrast";
             this.labelContrast.Size = new System.Drawing.Size(46, 13);
             this.labelContrast.TabIndex = 4;
             this.labelContrast.Text = "Contrast";
-            //this.labelContrast.Click += new System.EventHandler(this.label1_Click);
             // 
             // labelBrightness
             // 
@@ -124,6 +125,7 @@ namespace View
             this.trackBarContrast.Size = new System.Drawing.Size(512, 45);
             this.trackBarContrast.TabIndex = 6;
             this.trackBarContrast.Value = 50;
+            this.trackBarContrast.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarContrast_MouseUp);
             // 
             // trackBarSaturation
             // 
@@ -133,6 +135,7 @@ namespace View
             this.trackBarSaturation.Size = new System.Drawing.Size(512, 45);
             this.trackBarSaturation.TabIndex = 8;
             this.trackBarSaturation.Value = 50;
+            this.trackBarSaturation.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarSaturation_MouseUp);
             // 
             // labelSaturation
             // 
@@ -151,11 +154,12 @@ namespace View
             this.trackBarScale.Size = new System.Drawing.Size(512, 45);
             this.trackBarScale.TabIndex = 10;
             this.trackBarScale.Value = 50;
+            this.trackBarScale.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBarScale_MouseUp);
             // 
             // labelScale
             // 
             this.labelScale.AutoSize = true;
-            this.labelScale.Location = new System.Drawing.Point(40, 626);
+            this.labelScale.Location = new System.Drawing.Point(44, 626);
             this.labelScale.Name = "labelScale";
             this.labelScale.Size = new System.Drawing.Size(34, 13);
             this.labelScale.TabIndex = 9;
@@ -163,80 +167,83 @@ namespace View
             // 
             // buttonRotateRight90
             // 
-            this.buttonRotateRight90.Location = new System.Drawing.Point(58, 783);
+            this.buttonRotateRight90.Location = new System.Drawing.Point(115, 783);
             this.buttonRotateRight90.Name = "buttonRotateRight90";
             this.buttonRotateRight90.Size = new System.Drawing.Size(62, 50);
             this.buttonRotateRight90.TabIndex = 11;
             this.buttonRotateRight90.Text = "Rotate Right 90";
             this.buttonRotateRight90.UseVisualStyleBackColor = true;
+            this.buttonRotateRight90.Click += new System.EventHandler(this.buttonRotateRight90_Click);
             // 
             // buttonRotateLeft90
             // 
-            this.buttonRotateLeft90.Location = new System.Drawing.Point(126, 783);
+            this.buttonRotateLeft90.Location = new System.Drawing.Point(47, 783);
             this.buttonRotateLeft90.Name = "buttonRotateLeft90";
             this.buttonRotateLeft90.Size = new System.Drawing.Size(62, 50);
             this.buttonRotateLeft90.TabIndex = 12;
             this.buttonRotateLeft90.Text = "Rotate Left 90";
             this.buttonRotateLeft90.UseVisualStyleBackColor = true;
+            this.buttonRotateLeft90.Click += new System.EventHandler(this.buttonRotateLeft90_Click);
             // 
             // buttonFlipVertical
             // 
-            this.buttonFlipVertical.Location = new System.Drawing.Point(213, 783);
+            this.buttonFlipVertical.Location = new System.Drawing.Point(194, 783);
             this.buttonFlipVertical.Name = "buttonFlipVertical";
-            this.buttonFlipVertical.Size = new System.Drawing.Size(62, 50);
+            this.buttonFlipVertical.Size = new System.Drawing.Size(81, 50);
             this.buttonFlipVertical.TabIndex = 13;
             this.buttonFlipVertical.Text = "Flip Vertical";
             this.buttonFlipVertical.UseVisualStyleBackColor = true;
+            this.buttonFlipVertical.Click += new System.EventHandler(this.buttonFlipVertical_Click);
             // 
             // buttonFlipHorizontal
             // 
             this.buttonFlipHorizontal.Location = new System.Drawing.Point(281, 783);
             this.buttonFlipHorizontal.Name = "buttonFlipHorizontal";
-            this.buttonFlipHorizontal.Size = new System.Drawing.Size(62, 50);
+            this.buttonFlipHorizontal.Size = new System.Drawing.Size(81, 50);
             this.buttonFlipHorizontal.TabIndex = 14;
             this.buttonFlipHorizontal.Text = "Flip Horizontal";
             this.buttonFlipHorizontal.UseVisualStyleBackColor = true;
-            // 
-            // labelCrop
-            // 
-            this.labelCrop.AutoSize = true;
-            this.labelCrop.Location = new System.Drawing.Point(40, 702);
-            this.labelCrop.Name = "labelCrop";
-            this.labelCrop.Size = new System.Drawing.Size(29, 13);
-            this.labelCrop.TabIndex = 15;
-            this.labelCrop.Text = "Crop";
+            this.buttonFlipHorizontal.Click += new System.EventHandler(this.buttonFlipHorizontal_Click);
             // 
             // textBoxCropLocationX
             // 
             this.textBoxCropLocationX.Location = new System.Drawing.Point(213, 675);
+            this.textBoxCropLocationX.MaxLength = 5;
             this.textBoxCropLocationX.Name = "textBoxCropLocationX";
             this.textBoxCropLocationX.Size = new System.Drawing.Size(100, 20);
             this.textBoxCropLocationX.TabIndex = 16;
             this.textBoxCropLocationX.TextChanged += new System.EventHandler(this.textBoxCropLocationX_TextChanged);
+            this.textBoxCropLocationX.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCropLocationX_KeyPress);
             // 
             // textBoxCropWidth
             // 
             this.textBoxCropWidth.Location = new System.Drawing.Point(503, 724);
+            this.textBoxCropWidth.MaxLength = 5;
             this.textBoxCropWidth.Name = "textBoxCropWidth";
             this.textBoxCropWidth.Size = new System.Drawing.Size(100, 20);
-            this.textBoxCropWidth.TabIndex = 17;
+            this.textBoxCropWidth.TabIndex = 19;
             this.textBoxCropWidth.TextChanged += new System.EventHandler(this.textBoxCropWidth_TextChanged);
+            this.textBoxCropWidth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCropLocationX_KeyPress);
             // 
             // textBoxCropLocationY
             // 
             this.textBoxCropLocationY.Location = new System.Drawing.Point(213, 724);
+            this.textBoxCropLocationY.MaxLength = 5;
             this.textBoxCropLocationY.Name = "textBoxCropLocationY";
             this.textBoxCropLocationY.Size = new System.Drawing.Size(100, 20);
-            this.textBoxCropLocationY.TabIndex = 18;
+            this.textBoxCropLocationY.TabIndex = 17;
             this.textBoxCropLocationY.TextChanged += new System.EventHandler(this.textBoxCropLocationY_TextChanged);
+            this.textBoxCropLocationY.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCropLocationX_KeyPress);
             // 
             // textBoxCropHeight
             // 
             this.textBoxCropHeight.Location = new System.Drawing.Point(503, 675);
+            this.textBoxCropHeight.MaxLength = 5;
             this.textBoxCropHeight.Name = "textBoxCropHeight";
             this.textBoxCropHeight.Size = new System.Drawing.Size(100, 20);
-            this.textBoxCropHeight.TabIndex = 19;
+            this.textBoxCropHeight.TabIndex = 18;
             this.textBoxCropHeight.TextChanged += new System.EventHandler(this.textBoxCropHeight_TextChanged);
+            this.textBoxCropHeight.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCropLocationX_KeyPress);
             // 
             // labelCropBoxLocationX
             // 
@@ -274,11 +281,22 @@ namespace View
             this.labelCropBoxWidth.TabIndex = 23;
             this.labelCropBoxWidth.Text = "Crop Box Width:";
             // 
+            // buttonCrop
+            // 
+            this.buttonCrop.Location = new System.Drawing.Point(657, 690);
+            this.buttonCrop.Name = "buttonCrop";
+            this.buttonCrop.Size = new System.Drawing.Size(53, 39);
+            this.buttonCrop.TabIndex = 24;
+            this.buttonCrop.Text = "Crop";
+            this.buttonCrop.UseVisualStyleBackColor = true;
+            this.buttonCrop.Click += new System.EventHandler(this.buttonCrop_Click);
+            // 
             // ImageView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 854);
+            this.Controls.Add(this.buttonCrop);
             this.Controls.Add(this.labelCropBoxWidth);
             this.Controls.Add(this.labelCropBoxHeight);
             this.Controls.Add(this.labelCropBoxLocationY);
@@ -287,7 +305,6 @@ namespace View
             this.Controls.Add(this.textBoxCropLocationY);
             this.Controls.Add(this.textBoxCropWidth);
             this.Controls.Add(this.textBoxCropLocationX);
-            this.Controls.Add(this.labelCrop);
             this.Controls.Add(this.buttonFlipHorizontal);
             this.Controls.Add(this.buttonFlipVertical);
             this.Controls.Add(this.buttonRotateLeft90);
@@ -335,7 +352,6 @@ namespace View
         private System.Windows.Forms.Button buttonRotateLeft90;
         private System.Windows.Forms.Button buttonFlipVertical;
         private System.Windows.Forms.Button buttonFlipHorizontal;
-        private System.Windows.Forms.Label labelCrop;
         private System.Windows.Forms.TextBox textBoxCropLocationX;
         private System.Windows.Forms.TextBox textBoxCropWidth;
         private System.Windows.Forms.TextBox textBoxCropLocationY;
@@ -344,5 +360,6 @@ namespace View
         private System.Windows.Forms.Label labelCropBoxLocationY;
         private System.Windows.Forms.Label labelCropBoxHeight;
         private System.Windows.Forms.Label labelCropBoxWidth;
+        private System.Windows.Forms.Button buttonCrop;
     }
 }

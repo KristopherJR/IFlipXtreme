@@ -27,9 +27,6 @@ namespace View
         // DECLARE an Action to hold a pointer to Form's "ToggleForms" Method.  Call it "_toggleFormPointer".
         private Action _toggleFormPointer;
 
-        // DECLARE an Action to hold the Image that is currently being edited.  Call it "_image".
-        private Image _image;
-
         #endregion
 
         #region Properties
@@ -37,7 +34,7 @@ namespace View
         // DECLARE a set property for "_image".  Call it "Image".
         public Image Image
         {
-            set { _image = value; }
+            set { pictureBoxEditImage.Image = value; }
         }
 
         // DECLARE a set property for "_toggleFormPointer".  Call it "ToggleFormPointer".
@@ -89,29 +86,38 @@ namespace View
         private void ImageView_Load(object sender, EventArgs e)
         {
 
+
+        }
+
+        private void ResetEditor()
+        {
+            trackBarBrightness.Value = 50;
+            trackBarContrast.Value = 50;
+            trackBarSaturation.Value = 50;
+            trackBarScale.Value = 50;
+
+            textBoxCropLocationX.Text = "";
+            textBoxCropLocationY.Text = "";
+            textBoxCropHeight.Text = "";
+            textBoxCropWidth.Text = "";
+
         }
 
         /// <summary>
-        /// Windows Forms Method:  Called when the form is loaded.
+        /// 
+        /// 
+        /// Code adapted from: https://ourcodeworld.com/articles/read/507/how-to-allow-only-numbers-inside-a-textbox-in-winforms-c-sharp
         /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">Event arguments</param>
-        private void buttonDiscard_Click(object sender, EventArgs e)
+        /// <param name="pEnteredChar"></param>
+        /// <returns></returns>
+        private bool isNumerical(Char pEnteredChar)
         {
-            _toggleFormPointer();
+            if(!char.IsControl(pEnteredChar) && !char.IsDigit(pEnteredChar))
+            {
+                return true;
+            }
+            else return false;
         }
-
-        /// <summary>
-        /// Windows Forms Method:  Called when the Save Button is clicked.
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">Event arguments</param>
-        private void buttonSave_Click(object sender, EventArgs e)
-        {
-            _toggleFormPointer();
-        }
-
-        
 
         /// <summary>
         /// Windows Forms Method:  Called when text is changed in the Crop Location Y box
@@ -120,7 +126,7 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void textBoxCropLocationY_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         /// <summary>
@@ -152,6 +158,117 @@ namespace View
 
         }
 
+        private void trackBarBrightness_MouseUp(object sender, MouseEventArgs e)
+        {
+            // SET the ParameterOne to path:
+            ((ICommand<int>)_commands["AdjustBrightness"]).ParameterOne = trackBarBrightness.Value;
+            // SIGNAL to the CommandInvoker to fire the command:
+            _executePointer(_commands["AdjustBrightness"]);
+
+            trackBarBrightness.Value = 50;
+        }
+
         #endregion
+
+        private void trackBarContrast_MouseUp(object sender, MouseEventArgs e)
+        {
+            // SET the ParameterOne to path:
+            ((ICommand<int>)_commands["AdjustContrast"]).ParameterOne = trackBarContrast.Value;
+            // SIGNAL to the CommandInvoker to fire the command:
+            _executePointer(_commands["AdjustContrast"]);
+        }
+
+        private void trackBarSaturation_MouseUp(object sender, MouseEventArgs e)
+        {
+            // SET the ParameterOne to path:
+            ((ICommand<int>)_commands["AdjustSaturation"]).ParameterOne = trackBarSaturation.Value;
+            // SIGNAL to the CommandInvoker to fire the command:
+            _executePointer(_commands["AdjustSaturation"]);
+        }
+
+        private void trackBarScale_MouseUp(object sender, MouseEventArgs e)
+        {
+            // SET the ParameterOne to path:
+            ((ICommand<int>)_commands["AdjustScale"]).ParameterOne = trackBarScale.Value;
+            // SIGNAL to the CommandInvoker to fire the command:
+            _executePointer(_commands["AdjustScale"]);
+        }
+
+        private void buttonCrop_Click(object sender, EventArgs e)
+        {
+            // SET the ParameterOne to path:
+            ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterOne = Int32.Parse(this.textBoxCropLocationX.Text);
+            // SET the ParameterOne to path:
+            ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterTwo = Int32.Parse(this.textBoxCropLocationY.Text);
+            // SET the ParameterOne to path:
+            ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterThree = Int32.Parse(this.textBoxCropWidth.Text);
+            // SET the ParameterOne to path:
+            ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterFour = Int32.Parse(this.textBoxCropHeight.Text);
+            // SIGNAL to the CommandInvoker to fire the command:
+            _executePointer(_commands["CropImage"]);
+        }
+
+        private void buttonRotateRight90_Click(object sender, EventArgs e)
+        {
+            // SET the ParameterOne to the correct rotate value:
+            ((ICommand<int>)_commands["RotateImage"]).ParameterOne = -1;
+
+            _executePointer((ICommand<int>)_commands["RotateImage"]);
+        }
+
+        private void buttonRotateLeft90_Click(object sender, EventArgs e)
+        {
+            // SET the ParameterOne to the correct rotate value:
+            ((ICommand<int>)_commands["RotateImage"]).ParameterOne = 1;
+
+            _executePointer((ICommand<int>)_commands["RotateImage"]);
+        }
+
+        private void buttonFlipVertical_Click(object sender, EventArgs e)
+        {
+            // SET the ParameterOne to the correct flip value:
+            ((ICommand<int>)_commands["FlipImage"]).ParameterOne = 0;
+
+            _executePointer((ICommand<int>)_commands["FlipImage"]);
+        }
+
+        private void buttonFlipHorizontal_Click(object sender, EventArgs e)
+        {
+            // SET the ParameterOne to the correct flip value:
+            ((ICommand<int>)_commands["FlipImage"]).ParameterOne = 1;
+
+            _executePointer((ICommand<int>)_commands["FlipImage"]);
+        }
+
+        private void textBoxCropLocationX_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (isNumerical(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        /// <summary>
+        /// Windows Forms Method:  Called when the form is loaded.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
+        private void buttonDiscard_Click(object sender, EventArgs e)
+        {
+            _toggleFormPointer();
+            ResetEditor();
+        }
+
+        /// <summary>
+        /// Windows Forms Method:  Called when the Save Button is clicked.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            _executePointer((ICommand)_commands["SaveImage"]);
+            _toggleFormPointer();
+            ResetEditor();
+        }
     }
 }

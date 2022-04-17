@@ -94,6 +94,7 @@ namespace View
             {
                 // TRY to Inject the thumbnails passed from the Model to the Views ImageList:
                 _gallery.InjectThumbnails((e as UpdateViewEventArgs).ImageList);
+
                 // SET the editors Image to the currently selected Image provided by Model:
                 _editor.Image = ((e as UpdateViewEventArgs).Image);
             }

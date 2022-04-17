@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 
 namespace Model
 {
@@ -23,6 +24,7 @@ namespace Model
         }
         #endregion
 
+
         /// <summary>
         /// Constructor for class ImageStorage.
         /// </summary>
@@ -30,6 +32,14 @@ namespace Model
         {
             // INSTANTIATE _imageStore as a new List of type Image
             _imageStore = new List<Image>();
+        }
+
+        public Image GetImage(int pIndex)
+        {
+            Image wtf = _imageStore[pIndex];
+
+
+            return wtf;
         }
 
         /// <summary>
@@ -51,14 +61,38 @@ namespace Model
                         // REPLACE this image with the previous image in the list (Shift all images up by 1, final image gets deleted)
                         _imageStore[i] = _imageStore[i - 1];
                     }
+
+                    Image newImage;
+
+                    using (FileStream file = new FileStream(pImagePath, FileMode.Open))
+                    {
+                        newImage = Image.FromStream(file);
+                        file.Close();
+                    }
+
                     // SET the first image in the list to the new image
-                    _imageStore[0] = Image.FromFile(pImagePath);
+                    _imageStore[0] = newImage;
+
+                    // STORE the path of the imported image as the object's tag
+                    _imageStore[0].Tag = pImagePath;
                 }
                 // ELSE (If _imageStore != 8)
                 else
                 {
+                  
+                    Image newImage;
+
+                    using (FileStream file = new FileStream(pImagePath, FileMode.Open))
+                    {
+                        newImage = Image.FromStream(file);
+                        file.Close();
+                    }
+
                     // INSERT the image at the start of the List and push all elements along by 1
-                    _imageStore.Insert(0,Image.FromFile(pImagePath));
+                    _imageStore.Insert(0, newImage);
+
+                    // STORE the path of the imported image as the object's tag
+                    _imageStore[0].Tag = pImagePath;
                 }
             }
             // CATCH if exception is thrown
@@ -73,6 +107,25 @@ namespace Model
 
             // RETURN True (As the import ran successfully)
             return true;
+        }
+
+        /// <summary>
+        /// SaveImage Method: Saves a passed image to its original path, and in to the image list
+        /// </summary>
+        /// <param name="pImage"></param>
+        public void SaveImage(Image pImage, int pIndex)
+        {
+            // GET the path of the image from the tag in the relevant element in Image List
+            string path = (_imageStore[pIndex].Tag).ToString();
+
+            // SET the path of the edited image back to its path, to put in back into the list
+            pImage.Tag = path;
+
+            // SET the image in the image list to the newly edited image
+            _imageStore[pIndex] = pImage;
+
+            // SAVE the edited image to path
+            (pImage as Bitmap).Save(path);
         }
     }
 }

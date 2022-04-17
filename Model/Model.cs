@@ -11,6 +11,7 @@ namespace Model
     public class Model
     {
         #region Fields
+
         // DECLARE a reference to ImageManipulator.  Call it "_imageManipulator".
         private ImageManipulator _imageManipulator;
 
@@ -19,7 +20,15 @@ namespace Model
 
         // DECLARE a List of type ISubscriber to hold the list of subscribed objects.  Call it "_subscribers".
         private IList<ISubscriber> _subscribers;
-      
+
+        private int _currentImageIndex;
+
+        // DECLARE a int to hold the list index of the image currently being edited.
+        private Image _currentImage;
+
+        // DECLARE a int to hold the list index of the image currently being edited, with changes shows.
+        private Image _currentAdjustedImage;
+
         #endregion
 
         #region Properties
@@ -72,7 +81,10 @@ namespace Model
         /// <param name="pBrightnessVal">The amount to increase brightness by.</param>
         public void AdjustBrightness(int pBrightnessVal)
         {
+            _currentImage = _imageManipulator.AdjustBrightness(_currentImage, pBrightnessVal);
 
+            // UPDATE subscribers (view) of any changes that have been made 
+            UpdateSubscribers();
         }
 
         /// <summary>
@@ -115,20 +127,13 @@ namespace Model
         }
 
         /// <summary>
-        /// SaveImage Method: Saves the currently opened image.
-        /// </summary>
-        public void SaveImage()
-        {
-
-        }
-
-        /// <summary>
         /// ApplyFilter Method: Apply a certain pre-made filter to the current image.
         /// </summary>
         /// <param name="pFilterIndex">Number to specify which filter to be applied</param>
         public void ApplyFilter(int pFilterIndex)
         {
-
+            // UPDATE subscribers (view) of any changes that have been made
+            UpdateSubscribers();
         }
 
         /// <summary>
@@ -137,7 +142,14 @@ namespace Model
         /// <param name="pRotateVal">The amount to rotate the image by in 90 degree steps. (Total rotation = 90*pRotateVal degrees)</param>
         public void RotateImage(int pRotateVal)
         {
+            // CALL rotate method in Image Manipulator and pass in the current image and the rotate value, and store its value in _currentAdjustedImage
+            _currentImage = _imageManipulator.Rotate(_currentImage, pRotateVal);
 
+            // UPDATE current image to be equal to _currentAdjustedImage, this is because multiple rotates do not impact image information (Unlike brightness changes) and we want multiple roatate steps to work
+            //_currentImage = _currentAdjustedImage;
+
+            // UPDATE subscribers (view) of any changes that have been made
+            UpdateSubscribers();
         }
 
         /// <summary>
@@ -146,7 +158,14 @@ namespace Model
         /// <param name="pFlipVal">The axis to flip in, 0=X, 1=Y</param>
         public void FlipImage(int pFlipVal)
         {
+            // CALL flip method in Image Manipulator and pass in the current image and the flip, and store its value in _currentAdjustedImage
+            _currentImage = _imageManipulator.Flip(_currentImage, pFlipVal);
 
+            // UPDATE current image to be equal to _currentAdjustedImage, this is because multiple flips do not impact image information (Unlike brightness changes) and we want multiple flip steps to work
+            //_currentImage = _currentAdjustedImage;
+
+            // UPDATE subscribers (view) of any changes that have been made
+            UpdateSubscribers();
         }
 
         /// <summary>
@@ -155,8 +174,26 @@ namespace Model
         /// <param name="pPos">The position in the image list of the image to open</param>
         public void OpenImage(int pPos)
         {
-            
+            // IF the Image Storage's image list is not empty
+            if (_imageStorage.ImageStore.Count > 0)
+            {
+                // SET the current image to the image at the given index in Image Storage's image list
+                //_currentImage = (Image)_imageStorage.GetImage(pPos);
 
+
+                _currentImage = new Bitmap(_imageStorage.GetImage(pPos));
+               
+
+                // SET the tag of the current image to its position in the ImageList, this is used to save back to the list
+                _currentImageIndex = pPos;
+
+                // UPDATE subscribers (view) of any changes that have been made
+                UpdateSubscribers();
+            }
+            else
+            {
+                // THROW HERE
+            }
         }
 
         /// <summary>
@@ -185,8 +222,8 @@ namespace Model
         /// <returns>The current image that's open for editing.</returns>
         public Image GetCurrentImage()
         {
-            // RETURN TEMPORARY EMPTY 1x1 BITMAP.........................................LINE NEEDS CHANGING
-            return (new Bitmap(1,1));
+                // RETURN the adjusted current image
+                return (_currentImage);
         }
 
         /// <summary>
@@ -220,6 +257,20 @@ namespace Model
         {
             // REMOVE the specifed subscriber from the subscribers list
             _subscribers.Remove(pSubscriber);
+        }
+
+        /// <summary>
+        /// SaveImage Method: Saves the currently opened image.
+        /// </summary>
+        public void SaveImage()
+        {
+            //_currentImage.Dispose();
+
+            // CALL SaveImage in image storage 
+            _imageStorage.SaveImage(_currentImage, _currentImageIndex);
+
+            // UPDATE subscribers (view) of any changes that have been made
+            UpdateSubscribers();
         }
 
         #endregion
