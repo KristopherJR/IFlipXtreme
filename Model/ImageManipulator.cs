@@ -2,6 +2,8 @@
 using System;
 using System.Drawing;
 using System.Drawing.Imaging;
+using Aspose.Imaging;
+
 
 namespace Model
 {
@@ -19,22 +21,20 @@ namespace Model
         }
 
         /// <summary>
-        /// Adjusts the brightness of an Image to the brightness value provided and returns it.
+        /// Adjusts the brightness of an System.Drawing.Image to the brightness value provided and returns it.
         /// 
         /// Code adapted from: https://ukacademe.com/TutorialExamples/CSharp/Image_Brightness_in_CSharp#:~:text=Image%20Brightness%20In%20C%23&text=The%20idea%20is%20easy%3A%20move,to%2064%2C%2016%2C%20127.
         /// </summary>
-        /// <param name="pImageToAdjust">The Image to adjust.</param>
+        /// <param name="pImageToAdjust">The System.Drawing.Image to adjust.</param>
         /// <param name="pNewBrightness">The new brightness value for the Image.</param>
         /// <returns></returns>
-        public Image AdjustBrightness(Image pImageToAdjust, int pNewBrightness)
+        public System.Drawing.Image AdjustBrightness(System.Drawing.Image pImageToAdjust, int pNewBrightness)
         {
             // DECLARE a new float and assign the value call it "newBrightness"
             float newBrightness = ((float)pNewBrightness) / 50f;
 
-            Console.WriteLine(newBrightness);
-
             // DECLARE & INSTANTIATE
-            ColorMatrix colourMatrix = new ColorMatrix(new float[][]
+            System.Drawing.Imaging.ColorMatrix colourMatrix = new System.Drawing.Imaging.ColorMatrix(new float[][]
                 {
                     new float[] { newBrightness, 0, 0, 0, 0},
                     new float[] {0, newBrightness, 0, 0, 0},
@@ -43,24 +43,24 @@ namespace Model
                     new float[] {0, 0, 0, 0, 1},
                 });
 
-            ImageAttributes attributes = new ImageAttributes();
+            System.Drawing.Imaging.ImageAttributes attributes = new System.Drawing.Imaging.ImageAttributes();
             attributes.SetColorMatrix(colourMatrix);
 
-            // Draw the image onto the new bitmap while applying the new ColorMatrix.
-            Point[] points =
+            // Draw the Image onto the new bitmap while applying the new ColorMatrix.
+            System.Drawing.Point[] points =
             {
-                new Point(0, 0),
-                new Point(pImageToAdjust.Width, 0),
-                new Point(0, pImageToAdjust.Height),
+                new System.Drawing.Point(0, 0),
+                new System.Drawing.Point(pImageToAdjust.Width, 0),
+                new System.Drawing.Point(0, pImageToAdjust.Height),
             };
 
-            Rectangle rect = new Rectangle(0, 0, pImageToAdjust.Width, pImageToAdjust.Height);
+            System.Drawing.Rectangle rect = new System.Drawing.Rectangle(0, 0, pImageToAdjust.Width, pImageToAdjust.Height);
 
             // Make the result bitmap.
             Bitmap adjustedImage = new Bitmap(pImageToAdjust.Width, pImageToAdjust.Height);
-            using (Graphics gr = Graphics.FromImage(adjustedImage))
+            using (System.Drawing.Graphics gr = System.Drawing.Graphics.FromImage(adjustedImage))
             {
-                gr.DrawImage(pImageToAdjust, points, rect, GraphicsUnit.Pixel, attributes);
+                gr.DrawImage(pImageToAdjust, points, rect, System.Drawing.GraphicsUnit.Pixel, attributes);
             }
 
 
@@ -70,16 +70,16 @@ namespace Model
         /// <summary>
         /// Resize Method: Returns an Image resized to a specified size.
         /// </summary>
-        /// <param name="pImageToResize">The input image to be resized</param>
-        /// <param name="pSize">The new size that the output image should be</param>
+        /// <param name="pImageToResize">The input Image to be resized</param>
+        /// <param name="pSize">The new size that the output System.Drawing.Image should be</param>
         /// <returns>The newly resized image</returns>
-        public Image Resize(Image pImageToResize, Size pSize)
+        public System.Drawing.Image Resize(System.Drawing.Image pImageToResize, System.Drawing.Size pSize)
         {
             // DECLARE & INSTANTIATE a new Bitmap with the size specified in pSize.
             Bitmap bitmap = new Bitmap(pSize.Width, pSize.Height);
 
             // DECLARE & INSTANTIATE a new Graphics object, pass in the empty bitmap object made prior.
-            Graphics graphic = Graphics.FromImage(bitmap);
+            System.Drawing.Graphics graphic = System.Drawing.Graphics.FromImage(bitmap);
 
             // CALL DrawImage on the Graphics Object to redraw pImageToResize onto the bitmap with the specified size
             graphic.DrawImage(pImageToResize, 0, 0, pSize.Width, pSize.Height);
@@ -89,29 +89,29 @@ namespace Model
         }
 
         /// <summary>
-        /// Rotate Method:  Rotates the supplied image by a selected amount od 90 degree steps
+        /// Rotate Method:  Rotates the supplied System.Drawing.Image by a selected amount od 90 degree steps
         /// </summary>
-        /// <param name="pImage">The image to be rotated</param>
+        /// <param name="pImage">The System.Drawing.Image to be rotated</param>
         /// <param name="pRotateVal">The amount to roate by (in 90 degree steps)</param>
         /// <returns></returns>
-        public Image Rotate(Image pImage, int pRotateVal)
+        public System.Drawing.Image Rotate(System.Drawing.Image pImage, int pRotateVal)
         {
-            Image adjustedImage = pImage;
-            // IF image should be rotated by 90 degrees
+            System.Drawing.Image adjustedImage = pImage;
+            // IF System.Drawing.Image should be rotated by 90 degrees
             if (pRotateVal == 1)
             {
-                adjustedImage.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                adjustedImage.RotateFlip(System.Drawing.RotateFlipType.Rotate90FlipNone);
                 return adjustedImage;
             }
 
-            // IF image should be rotated by 270 degrees
+            // IF System.Drawing.Image should be rotated by 270 degrees
             else if (pRotateVal == -1)
             {
-                adjustedImage.RotateFlip(RotateFlipType.Rotate270FlipNone);
+                adjustedImage.RotateFlip(System.Drawing.RotateFlipType.Rotate270FlipNone);
                 return adjustedImage;
             }
 
-            // IF image should be rotated by 0 degrees / invalid rotateVal
+            // IF System.Drawing.Image should be rotated by 0 degrees / invalid rotateVal
             else
             {
                 // RETURN the image
@@ -121,17 +121,17 @@ namespace Model
         }
 
         /// <summary>
-        /// Flip Method: Flips a supplied image in the specified axis
+        /// Flip Method: Flips a supplied System.Drawing.Image in the specified axis
         /// </summary>
-        /// <param name="pImage">The image to be flipped</param>
+        /// <param name="pImage">The System.Drawing.Image to be flipped</param>
         /// <param name="pAxis">The axis to be flipped</param>
         /// <returns></returns>
-        public Image Flip(Image pImage, int pAxis)
+        public System.Drawing.Image Flip(System.Drawing.Image pImage, int pAxis)
         {
             if (pAxis == 1)
             {
                 // ROTATE the image
-                pImage.RotateFlip(RotateFlipType.RotateNoneFlipY);
+                pImage.RotateFlip(System.Drawing.RotateFlipType.RotateNoneFlipY);
 
                 // RETURN the image
                 return pImage;
@@ -140,7 +140,7 @@ namespace Model
             else
             {
                 // ROTATE the image
-                pImage.RotateFlip(RotateFlipType.RotateNoneFlipX);
+                pImage.RotateFlip(System.Drawing.RotateFlipType.RotateNoneFlipX);
 
                 // RETURN the image
                 return pImage;

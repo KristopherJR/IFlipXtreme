@@ -51,6 +51,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Aspose.Imaging">
+      <HintPath>..\packages\Aspose.Imaging.22.4.0\lib\net5.0\Aspose.Imaging.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

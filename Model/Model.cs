@@ -11,7 +11,7 @@ namespace Model
     public class Model
     {
         #region Fields
-
+        
         // DECLARE a reference to ImageManipulator.  Call it "_imageManipulator".
         private ImageManipulator _imageManipulator;
 
@@ -111,7 +111,14 @@ namespace Model
         /// <param name="pScaleVal">The amount to change Scale by.</param>
         public void AdjustScale(int pScaleVal)
         {
+            float scaler = (float)pScaleVal  /  50;
 
+            float newHeight = _currentImage.Height * scaler;
+            float newWidth = _currentImage.Width * scaler;
+
+            _currentImage = _imageManipulator.Resize(_currentImage,  new Size((int)newWidth,  (int)newHeight));
+
+            UpdateSubscribers();
         }
 
         /// <summary>

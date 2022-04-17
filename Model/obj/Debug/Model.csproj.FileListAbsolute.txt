@@ -43,3 +43,5 @@ C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Model\obj\Debug\Model.cspro
 C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Model\obj\Debug\Model.csproj.CopyComplete
 C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Model\obj\Debug\Model.dll
 C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Model\obj\Debug\Model.pdb
+C:\Users\tixor\source\repos\KristopherJR\IFlipXtreme\Model\bin\Debug\Aspose.Imaging.dll
+C:\Users\tixor\source\repos\KristopherJR\IFlipXtreme\Model\bin\Debug\Aspose.Imaging.xml

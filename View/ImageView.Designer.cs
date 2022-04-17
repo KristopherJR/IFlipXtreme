@@ -65,7 +65,7 @@ namespace View
             this.pictureBoxEditImage.Location = new System.Drawing.Point(143, 12);
             this.pictureBoxEditImage.Name = "pictureBoxEditImage";
             this.pictureBoxEditImage.Size = new System.Drawing.Size(512, 512);
-            this.pictureBoxEditImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxEditImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBoxEditImage.TabIndex = 0;
             this.pictureBoxEditImage.TabStop = false;
             // 
@@ -73,6 +73,7 @@ namespace View
             // 
             this.trackBarBrightness.Location = new System.Drawing.Point(143, 530);
             this.trackBarBrightness.Maximum = 100;
+            this.trackBarBrightness.Minimum = 1;
             this.trackBarBrightness.Name = "trackBarBrightness";
             this.trackBarBrightness.Size = new System.Drawing.Size(512, 45);
             this.trackBarBrightness.TabIndex = 1;
@@ -121,6 +122,7 @@ namespace View
             // 
             this.trackBarContrast.Location = new System.Drawing.Point(143, 562);
             this.trackBarContrast.Maximum = 100;
+            this.trackBarContrast.Minimum = 1;
             this.trackBarContrast.Name = "trackBarContrast";
             this.trackBarContrast.Size = new System.Drawing.Size(512, 45);
             this.trackBarContrast.TabIndex = 6;
@@ -131,6 +133,7 @@ namespace View
             // 
             this.trackBarSaturation.Location = new System.Drawing.Point(143, 594);
             this.trackBarSaturation.Maximum = 100;
+            this.trackBarSaturation.Minimum = 1;
             this.trackBarSaturation.Name = "trackBarSaturation";
             this.trackBarSaturation.Size = new System.Drawing.Size(512, 45);
             this.trackBarSaturation.TabIndex = 8;
@@ -150,6 +153,7 @@ namespace View
             // 
             this.trackBarScale.Location = new System.Drawing.Point(143, 624);
             this.trackBarScale.Maximum = 100;
+            this.trackBarScale.Minimum = 1;
             this.trackBarScale.Name = "trackBarScale";
             this.trackBarScale.Size = new System.Drawing.Size(512, 45);
             this.trackBarScale.TabIndex = 10;

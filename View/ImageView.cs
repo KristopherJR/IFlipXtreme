@@ -176,6 +176,8 @@ namespace View
             ((ICommand<int>)_commands["AdjustContrast"]).ParameterOne = trackBarContrast.Value;
             // SIGNAL to the CommandInvoker to fire the command:
             _executePointer(_commands["AdjustContrast"]);
+
+            trackBarContrast.Value = 50;
         }
 
         private void trackBarSaturation_MouseUp(object sender, MouseEventArgs e)
@@ -184,14 +186,23 @@ namespace View
             ((ICommand<int>)_commands["AdjustSaturation"]).ParameterOne = trackBarSaturation.Value;
             // SIGNAL to the CommandInvoker to fire the command:
             _executePointer(_commands["AdjustSaturation"]);
+
+            trackBarSaturation.Value = 50;
         }
 
         private void trackBarScale_MouseUp(object sender, MouseEventArgs e)
         {
+            int scaleValue = trackBarScale.Value;
+            if (scaleValue < 25)
+            {
+                scaleValue = 25;
+            }
             // SET the ParameterOne to path:
-            ((ICommand<int>)_commands["AdjustScale"]).ParameterOne = trackBarScale.Value;
+            ((ICommand<int>)_commands["AdjustScale"]).ParameterOne = scaleValue;
             // SIGNAL to the CommandInvoker to fire the command:
             _executePointer(_commands["AdjustScale"]);
+
+            trackBarScale.Value = 50;
         }
 
         private void buttonCrop_Click(object sender, EventArgs e)

@@ -80,3 +80,5 @@ C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Application\obj\Debug\Appli
 C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Application\obj\Debug\Application.csproj.CopyComplete
 C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Application\obj\Debug\Application.exe
 C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Application\obj\Debug\Application.pdb
+C:\Users\tixor\source\repos\KristopherJR\IFlipXtreme\Application\bin\Debug\Aspose.Imaging.dll
+C:\Users\tixor\source\repos\KristopherJR\IFlipXtreme\Application\bin\Debug\Aspose.Imaging.xml
