@@ -146,7 +146,7 @@ namespace Library
     /// <summary>
     /// Class Command<T1,T2,T3,T4>. Takes four parameters for the Action delegate.
     /// </summary>
-    public class Command<T1, T2, T3, T4> : ICommand
+    public class Command<T1, T2, T3, T4> : ICommand<T1, T2, T3, T4>
     {
         #region FIELDS
         // DECLARE an Action<T1,T2,T3,T4>, call it _action:

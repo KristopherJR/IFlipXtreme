@@ -34,7 +34,15 @@ namespace View
         // DECLARE a set property for "_image".  Call it "Image".
         public Image Image
         {
-            set { pictureBoxEditImage.Image = value; }
+            set {
+                    pictureBoxEditImage.SizeMode = PictureBoxSizeMode.CenterImage;
+                    pictureBoxEditImage.Image = value;
+
+                    if  (pictureBoxEditImage.Image != null && (pictureBoxEditImage.Image.Height > pictureBoxEditImage.Height || pictureBoxEditImage.Image.Width > pictureBoxEditImage.Width))
+                    {
+                        //pictureBoxEditImage.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                }
         }
 
         // DECLARE a set property for "_toggleFormPointer".  Call it "ToggleFormPointer".
@@ -53,7 +61,7 @@ namespace View
         public Dictionary<string, ICommand> Commands
         {
             set { _commands = value; }
-            get { return _commands;  }
+            get { return _commands; }
         }
 
         #endregion
@@ -95,12 +103,6 @@ namespace View
             trackBarContrast.Value = 50;
             trackBarSaturation.Value = 50;
             trackBarScale.Value = 50;
-
-            textBoxCropLocationX.Text = "";
-            textBoxCropLocationY.Text = "";
-            textBoxCropHeight.Text = "";
-            textBoxCropWidth.Text = "";
-
         }
 
         /// <summary>
@@ -112,7 +114,7 @@ namespace View
         /// <returns></returns>
         private bool isNumerical(Char pEnteredChar)
         {
-            if(!char.IsControl(pEnteredChar) && !char.IsDigit(pEnteredChar))
+            if (!char.IsControl(pEnteredChar) && !char.IsDigit(pEnteredChar))
             {
                 return true;
             }
@@ -126,7 +128,7 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void textBoxCropLocationY_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         /// <summary>
@@ -205,19 +207,19 @@ namespace View
             trackBarScale.Value = 50;
         }
 
-        private void buttonCrop_Click(object sender, EventArgs e)
-        {
-            // SET the ParameterOne to path:
-            ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterOne = Int32.Parse(this.textBoxCropLocationX.Text);
-            // SET the ParameterOne to path:
-            ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterTwo = Int32.Parse(this.textBoxCropLocationY.Text);
-            // SET the ParameterOne to path:
-            ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterThree = Int32.Parse(this.textBoxCropWidth.Text);
-            // SET the ParameterOne to path:
-            ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterFour = Int32.Parse(this.textBoxCropHeight.Text);
-            // SIGNAL to the CommandInvoker to fire the command:
-            _executePointer(_commands["CropImage"]);
-        }
+        //private void buttonCrop_Click(object sender, EventArgs e)
+        //{
+        //    // SET the ParameterOne to path:
+        //    ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterOne = Int32.Parse(this.textBoxCropLocationX.Text);
+        //    // SET the ParameterOne to path:
+        //    ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterTwo = Int32.Parse(this.textBoxCropLocationY.Text);
+        //    // SET the ParameterOne to path:
+        //    ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterThree = Int32.Parse(this.textBoxCropWidth.Text);
+        //    // SET the ParameterOne to path:
+        //    ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterFour = Int32.Parse(this.textBoxCropHeight.Text);
+        //    // SIGNAL to the CommandInvoker to fire the command:
+        //    _executePointer(_commands["CropImage"]);
+        //}
 
         private void buttonRotateRight90_Click(object sender, EventArgs e)
         {
@@ -280,6 +282,175 @@ namespace View
             _executePointer((ICommand)_commands["SaveImage"]);
             _toggleFormPointer();
             ResetEditor();
+        }
+
+        /// <summary>
+        /// Insert Reference from here onwards
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void buttonStartCrop_Click(object sender, EventArgs e)
+        {
+            pictureBoxEditImage.MouseDown += new MouseEventHandler(pictureBoxEditImage_MouseDown);
+
+            pictureBoxEditImage.MouseMove += new MouseEventHandler(pictureBoxEditImage_MouseMove);
+
+            pictureBoxEditImage.MouseEnter += new EventHandler(pictureBoxEditImage_MouseEnter);
+            Controls.Add(pictureBoxEditImage);
+        }
+
+        private void buttonEndCrop_Click(object sender, EventArgs e)
+        {
+            int pictureBoxCentreX = pictureBoxEditImage.Width / 2;
+            int pictureBoxCentreY = pictureBoxEditImage.Height / 2;
+
+            int imageLeft = pictureBoxCentreX - (pictureBoxEditImage.Image.Width / 2);
+            int imageRight = pictureBoxCentreX + (pictureBoxEditImage.Image.Width / 2) - 2;
+            int imageTop = pictureBoxCentreY - (pictureBoxEditImage.Image.Height / 2);
+            int imageBottom = pictureBoxCentreY + (pictureBoxEditImage.Image.Height / 2) - 2;
+
+            if (rectangleWidth > 0 && rectangleHeight > 0 && cropX > 0 && cropY > 0)
+            {
+                Cursor = Cursors.Default;
+
+                // SET the ParameterOne to path:
+                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterOne = cropX-imageLeft;
+                // SET the ParameterOne to path:
+                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterTwo = cropY-imageTop;
+                // SET the ParameterOne to path:
+                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterThree = rectangleWidth;
+                // SET the ParameterOne to path:
+                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterFour = rectangleHeight;
+                // SIGNAL to the CommandInvoker to fire the command:
+                _executePointer(_commands["CropImage"]);
+
+                //pictureBoxEditImage.DrawToBitmap(bmp2, pictureBoxEditImage.ClientRectangle);
+
+                //pictureBoxEditImage.Image = (Image)crpImg;
+                pictureBoxEditImage.SizeMode = PictureBoxSizeMode.CenterImage;
+
+
+                cropX = 0;
+                cropY = 0;
+                rectangleWidth = 0;
+                rectangleHeight = 0;
+
+            }
+            
+        }
+
+        int cropX, cropY, rectangleWidth, rectangleHeight;
+
+        public Pen cropPen = new Pen(Color.White);
+
+        private void pictureBoxEditImage_MouseDown(object sender, MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+                Cursor = Cursors.Cross;
+                cropPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+
+                cropX = e.X;
+                cropY = e.Y;
+                
+                //Console.WriteLine(cropX);
+
+                //Console.WriteLine(cropY);
+
+
+
+                //int pictureBoxCentreX = pictureBoxEditImage.Location.X + pictureBoxEditImage.Width  /  2;
+                //int pictureBoxCentreY = pictureBoxEditImage.Location.Y + pictureBoxEditImage.Height / 2;
+
+                int pictureBoxCentreX = pictureBoxEditImage.Width / 2;
+                int pictureBoxCentreY =  pictureBoxEditImage.Height / 2;
+
+                int imageLeft = pictureBoxCentreX - (pictureBoxEditImage.Image.Width / 2); 
+                int imageRight = pictureBoxCentreX + (pictureBoxEditImage.Image.Width / 2) -2;
+                int imageTop = pictureBoxCentreY - (pictureBoxEditImage.Image.Height  /  2);
+                int imageBottom = pictureBoxCentreY + (pictureBoxEditImage.Image.Height / 2)-2;
+
+                //if (cropX > imageRight)
+                //{
+                 //   cropX = imageRight;
+                //}
+
+                // PREVENTS crop on left boundary
+                if (cropX < imageLeft)
+                {
+                    cropX = imageLeft;
+                }
+
+                //if (cropY > imageBottom)
+                //{
+                 //   cropY = imageBottom;
+                //}
+
+                if (cropY < imageTop)
+                {
+                    cropY = imageTop;
+                }
+            }
+        }
+
+        
+
+        private void pictureBoxEditImage_MouseMove(object sender, MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            if(e.Button == System.Windows.Forms.MouseButtons.Left)
+            {
+
+                int mouseLocationX = e.X;
+                int mouseLocationY = e.Y;
+
+                pictureBoxEditImage.Refresh();
+
+                int pictureBoxCentreX = pictureBoxEditImage.Width / 2;
+                int pictureBoxCentreY = pictureBoxEditImage.Height / 2;
+
+                int imageLeft = pictureBoxCentreX - (pictureBoxEditImage.Image.Width / 2);
+                int imageRight = pictureBoxCentreX + (pictureBoxEditImage.Image.Width / 2);
+                int imageTop = pictureBoxCentreY - (pictureBoxEditImage.Image.Height / 2);
+                int imageBottom = pictureBoxCentreY + (pictureBoxEditImage.Image.Height / 2);
+
+                if (mouseLocationX > imageRight)
+                {
+                    mouseLocationX = imageRight;
+                }
+
+                if (mouseLocationY > imageBottom)
+                {
+                    mouseLocationY = imageBottom;
+                }
+
+                
+
+                rectangleWidth = mouseLocationX - cropX;
+                rectangleHeight = mouseLocationY - cropY;
+                
+
+
+
+                Graphics g = pictureBoxEditImage.CreateGraphics();
+                g.DrawRectangle(cropPen, cropX, cropY, rectangleWidth, rectangleHeight);
+                g.Dispose();
+            }
+        }
+
+        private void pictureBoxEditImage_MouseEnter(object sender, EventArgs e)
+        {
+            base.OnMouseEnter(e);
+            Cursor = Cursors.Cross;
+        }
+
+        protected override void OnMouseEnter(EventArgs e)
+        {
+            base.OnMouseEnter(e);
+            Cursor = Cursors.Default;
         }
     }
 }

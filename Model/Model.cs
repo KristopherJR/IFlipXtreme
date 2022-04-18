@@ -93,7 +93,9 @@ namespace Model
         /// <param name="pContrastVal">The amount to increase Contrast by.</param>
         public void AdjustContrast(int pContrastVal)
         {
+            _currentImage = _imageManipulator.AdjustContrast(_currentImage, pContrastVal);
 
+            UpdateSubscribers();
         }
 
         /// <summary>
@@ -102,7 +104,9 @@ namespace Model
         /// <param name="pSaturationVal">The amount to increase Saturation by.</param>
         public void AdjustSaturation(int pSaturationVal)
         {
+            _imageManipulator.AdjustSaturation(_currentImage,pSaturationVal);
 
+            UpdateSubscribers();
         }
 
         /// <summary>
@@ -130,7 +134,9 @@ namespace Model
         /// <param name="pNewHeight">Height of the crop box</param>
         public void CropImage(int pOriginX, int pOriginY, int pNewWidth, int pNewHeight)
         {
+            _currentImage = _imageManipulator.Crop(_currentImage, pOriginX, pOriginY, pNewWidth, pNewHeight);
 
+            UpdateSubscribers();
         }
 
         /// <summary>
