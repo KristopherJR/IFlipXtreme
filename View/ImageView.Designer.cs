@@ -46,6 +46,12 @@ namespace View
             this.buttonFlipHorizontal = new System.Windows.Forms.Button();
             this.buttonStartCrop = new System.Windows.Forms.Button();
             this.buttonEndCrop = new System.Windows.Forms.Button();
+            this.labelResolution = new System.Windows.Forms.Label();
+            this.labelIsStretched = new System.Windows.Forms.Label();
+            this.buttonGrayscaleFilter = new System.Windows.Forms.Button();
+            this.buttonSunburnFilter = new System.Windows.Forms.Button();
+            this.buttonBlurFilter = new System.Windows.Forms.Button();
+            this.buttonRevertChanges = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEditImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarBrightness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarContrast)).BeginInit();
@@ -76,9 +82,9 @@ namespace View
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(655, 695);
+            this.buttonSave.Location = new System.Drawing.Point(723, 694);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(96, 48);
+            this.buttonSave.Size = new System.Drawing.Size(100, 50);
             this.buttonSave.TabIndex = 2;
             this.buttonSave.Text = "Save and Exit";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -86,9 +92,9 @@ namespace View
             // 
             // buttonDiscard
             // 
-            this.buttonDiscard.Location = new System.Drawing.Point(542, 695);
+            this.buttonDiscard.Location = new System.Drawing.Point(617, 694);
             this.buttonDiscard.Name = "buttonDiscard";
-            this.buttonDiscard.Size = new System.Drawing.Size(95, 48);
+            this.buttonDiscard.Size = new System.Drawing.Size(100, 50);
             this.buttonDiscard.TabIndex = 3;
             this.buttonDiscard.Text = "Exit and Discard Changes";
             this.buttonDiscard.UseVisualStyleBackColor = true;
@@ -165,9 +171,9 @@ namespace View
             // 
             // buttonRotateRight90
             // 
-            this.buttonRotateRight90.Location = new System.Drawing.Point(121, 694);
+            this.buttonRotateRight90.Location = new System.Drawing.Point(118, 694);
             this.buttonRotateRight90.Name = "buttonRotateRight90";
-            this.buttonRotateRight90.Size = new System.Drawing.Size(62, 50);
+            this.buttonRotateRight90.Size = new System.Drawing.Size(100, 50);
             this.buttonRotateRight90.TabIndex = 11;
             this.buttonRotateRight90.Text = "Rotate Right 90";
             this.buttonRotateRight90.UseVisualStyleBackColor = true;
@@ -175,9 +181,9 @@ namespace View
             // 
             // buttonRotateLeft90
             // 
-            this.buttonRotateLeft90.Location = new System.Drawing.Point(53, 694);
+            this.buttonRotateLeft90.Location = new System.Drawing.Point(12, 694);
             this.buttonRotateLeft90.Name = "buttonRotateLeft90";
-            this.buttonRotateLeft90.Size = new System.Drawing.Size(62, 50);
+            this.buttonRotateLeft90.Size = new System.Drawing.Size(100, 50);
             this.buttonRotateLeft90.TabIndex = 12;
             this.buttonRotateLeft90.Text = "Rotate Left 90";
             this.buttonRotateLeft90.UseVisualStyleBackColor = true;
@@ -185,9 +191,9 @@ namespace View
             // 
             // buttonFlipVertical
             // 
-            this.buttonFlipVertical.Location = new System.Drawing.Point(256, 694);
+            this.buttonFlipVertical.Location = new System.Drawing.Point(268, 694);
             this.buttonFlipVertical.Name = "buttonFlipVertical";
-            this.buttonFlipVertical.Size = new System.Drawing.Size(81, 50);
+            this.buttonFlipVertical.Size = new System.Drawing.Size(100, 50);
             this.buttonFlipVertical.TabIndex = 13;
             this.buttonFlipVertical.Text = "Flip Vertical";
             this.buttonFlipVertical.UseVisualStyleBackColor = true;
@@ -195,9 +201,9 @@ namespace View
             // 
             // buttonFlipHorizontal
             // 
-            this.buttonFlipHorizontal.Location = new System.Drawing.Point(343, 694);
+            this.buttonFlipHorizontal.Location = new System.Drawing.Point(374, 694);
             this.buttonFlipHorizontal.Name = "buttonFlipHorizontal";
-            this.buttonFlipHorizontal.Size = new System.Drawing.Size(81, 50);
+            this.buttonFlipHorizontal.Size = new System.Drawing.Size(100, 50);
             this.buttonFlipHorizontal.TabIndex = 14;
             this.buttonFlipHorizontal.Text = "Flip Horizontal";
             this.buttonFlipHorizontal.UseVisualStyleBackColor = true;
@@ -223,11 +229,75 @@ namespace View
             this.buttonEndCrop.UseVisualStyleBackColor = true;
             this.buttonEndCrop.Click += new System.EventHandler(this.buttonEndCrop_Click);
             // 
+            // labelResolution
+            // 
+            this.labelResolution.AutoSize = true;
+            this.labelResolution.Location = new System.Drawing.Point(698, 486);
+            this.labelResolution.Name = "labelResolution";
+            this.labelResolution.Size = new System.Drawing.Size(35, 13);
+            this.labelResolution.TabIndex = 26;
+            this.labelResolution.Text = "label1";
+            // 
+            // labelIsStretched
+            // 
+            this.labelIsStretched.AutoSize = true;
+            this.labelIsStretched.Location = new System.Drawing.Point(698, 511);
+            this.labelIsStretched.Name = "labelIsStretched";
+            this.labelIsStretched.Size = new System.Drawing.Size(35, 13);
+            this.labelIsStretched.TabIndex = 27;
+            this.labelIsStretched.Text = "label2";
+            // 
+            // buttonGrayscaleFilter
+            // 
+            this.buttonGrayscaleFilter.Location = new System.Drawing.Point(29, 139);
+            this.buttonGrayscaleFilter.Name = "buttonGrayscaleFilter";
+            this.buttonGrayscaleFilter.Size = new System.Drawing.Size(77, 59);
+            this.buttonGrayscaleFilter.TabIndex = 28;
+            this.buttonGrayscaleFilter.Text = "Grayscale Filter";
+            this.buttonGrayscaleFilter.UseVisualStyleBackColor = true;
+            this.buttonGrayscaleFilter.Click += new System.EventHandler(this.buttonGrayscaleFilter_Click);
+            // 
+            // buttonSunburnFilter
+            // 
+            this.buttonSunburnFilter.Location = new System.Drawing.Point(29, 239);
+            this.buttonSunburnFilter.Name = "buttonSunburnFilter";
+            this.buttonSunburnFilter.Size = new System.Drawing.Size(77, 59);
+            this.buttonSunburnFilter.TabIndex = 29;
+            this.buttonSunburnFilter.Text = "Sunburn Filter";
+            this.buttonSunburnFilter.UseVisualStyleBackColor = true;
+            this.buttonSunburnFilter.Click += new System.EventHandler(this.buttonSunburnFilter_Click);
+            // 
+            // buttonBlurFilter
+            // 
+            this.buttonBlurFilter.Location = new System.Drawing.Point(29, 329);
+            this.buttonBlurFilter.Name = "buttonBlurFilter";
+            this.buttonBlurFilter.Size = new System.Drawing.Size(77, 59);
+            this.buttonBlurFilter.TabIndex = 30;
+            this.buttonBlurFilter.Text = "Blur Filter";
+            this.buttonBlurFilter.UseVisualStyleBackColor = true;
+            this.buttonBlurFilter.Click += new System.EventHandler(this.buttonBlurFilter_Click);
+            // 
+            // buttonRevertChanges
+            // 
+            this.buttonRevertChanges.Location = new System.Drawing.Point(511, 694);
+            this.buttonRevertChanges.Name = "buttonRevertChanges";
+            this.buttonRevertChanges.Size = new System.Drawing.Size(100, 50);
+            this.buttonRevertChanges.TabIndex = 31;
+            this.buttonRevertChanges.Text = "Revert Changes";
+            this.buttonRevertChanges.UseVisualStyleBackColor = true;
+            this.buttonRevertChanges.Click += new System.EventHandler(this.buttonRevertChanges_Click);
+            // 
             // ImageView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(773, 760);
+            this.ClientSize = new System.Drawing.Size(846, 760);
+            this.Controls.Add(this.buttonRevertChanges);
+            this.Controls.Add(this.buttonBlurFilter);
+            this.Controls.Add(this.buttonSunburnFilter);
+            this.Controls.Add(this.buttonGrayscaleFilter);
+            this.Controls.Add(this.labelIsStretched);
+            this.Controls.Add(this.labelResolution);
             this.Controls.Add(this.buttonEndCrop);
             this.Controls.Add(this.buttonStartCrop);
             this.Controls.Add(this.buttonFlipHorizontal);
@@ -249,7 +319,6 @@ namespace View
             this.MinimizeBox = false;
             this.Name = "ImageView";
             this.Text = "ImageView";
-            this.Load += new System.EventHandler(this.ImageView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEditImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarBrightness)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarContrast)).EndInit();
@@ -279,5 +348,11 @@ namespace View
         private System.Windows.Forms.Button buttonFlipHorizontal;
         private System.Windows.Forms.Button buttonStartCrop;
         private System.Windows.Forms.Button buttonEndCrop;
+        private System.Windows.Forms.Label labelResolution;
+        private System.Windows.Forms.Label labelIsStretched;
+        private System.Windows.Forms.Button buttonGrayscaleFilter;
+        private System.Windows.Forms.Button buttonSunburnFilter;
+        private System.Windows.Forms.Button buttonBlurFilter;
+        private System.Windows.Forms.Button buttonRevertChanges;
     }
 }

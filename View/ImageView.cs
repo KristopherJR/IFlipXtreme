@@ -27,6 +27,20 @@ namespace View
         // DECLARE an Action to hold a pointer to Form's "ToggleForms" Method.  Call it "_toggleFormPointer".
         private Action _toggleFormPointer;
 
+        private bool isImageStretched = false;
+
+        private int pictureBoxCentreX;
+        private int pictureBoxCentreY;
+
+        private int imageLeft;
+        private int imageRight;
+        private int imageTop;
+        private int imageBottom;
+
+        private Size _originalImageSize;
+
+        private bool cropping;
+
         #endregion
 
         #region Properties
@@ -35,14 +49,31 @@ namespace View
         public Image Image
         {
             set {
-                    pictureBoxEditImage.SizeMode = PictureBoxSizeMode.CenterImage;
-                    pictureBoxEditImage.Image = value;
+                labelIsStretched.Text = "";
 
-                    if  (pictureBoxEditImage.Image != null && (pictureBoxEditImage.Image.Height > pictureBoxEditImage.Height || pictureBoxEditImage.Image.Width > pictureBoxEditImage.Width))
+                pictureBoxEditImage.SizeMode = PictureBoxSizeMode.CenterImage;
+                isImageStretched = false;
+                   
+                    
+                pictureBoxEditImage.Image = value;
+                    
+
+                if  (pictureBoxEditImage.Image != null )
+                {
+                    _originalImageSize = pictureBoxEditImage.Image.Size;
+                    if (pictureBoxEditImage.Image.Height > pictureBoxEditImage.Height || pictureBoxEditImage.Image.Width > pictureBoxEditImage.Width)
                     {
-                        //pictureBoxEditImage.SizeMode = PictureBoxSizeMode.StretchImage;
+                        pictureBoxEditImage.SizeMode = PictureBoxSizeMode.StretchImage;
+                        isImageStretched = true;
+                        pictureBoxEditImage.Refresh();
                     }
+
+
+                    if (pictureBoxEditImage.SizeMode == PictureBoxSizeMode.CenterImage) labelIsStretched.Text = "This image is Centered";
+                    else if (pictureBoxEditImage.SizeMode == PictureBoxSizeMode.StretchImage) labelIsStretched.Text = "This image is Stretched";
+                    labelResolution.Text = pictureBoxEditImage.Image.Height.ToString() + ":" + pictureBoxEditImage.Image.Width.ToString();
                 }
+            }
         }
 
         // DECLARE a set property for "_toggleFormPointer".  Call it "ToggleFormPointer".
@@ -84,17 +115,43 @@ namespace View
 
             // Remove the control box so the form will only display client area.
             this.ControlBox = false;
+
+            
         }
 
-        /// <summary>
-        /// Windows Forms Method:  Called when the form is loaded.
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">Event arguments</param>
-        private void ImageView_Load(object sender, EventArgs e)
+        private void CalculateImageBoundaries()
         {
+            if (!isImageStretched)
+            {
+                pictureBoxCentreX = pictureBoxEditImage.Width / 2;
+                pictureBoxCentreY = pictureBoxEditImage.Height / 2;
 
+                imageLeft = pictureBoxCentreX - (pictureBoxEditImage.Image.Width / 2);
+                imageRight = pictureBoxCentreX + (pictureBoxEditImage.Image.Width / 2);
+                imageTop = pictureBoxCentreY - (pictureBoxEditImage.Image.Height / 2);
+                imageBottom = pictureBoxCentreY + (pictureBoxEditImage.Image.Height / 2);
+            }
+            else
+            {
+                imageRight = pictureBoxEditImage.Width;
+                imageLeft = 0;
+                imageBottom = pictureBoxEditImage.Height;
+                imageTop = 0;
+            }
+        }
 
+        private float[] CalculateStretchReverseMultiplier(Size pOriginal, Size pStretched)
+        {
+            float xMultiplier = 1f;
+            float yMultiplier = 1f;
+
+            if (pStretched.Height < pOriginal.Height || pStretched.Width < pOriginal.Width)
+            {
+                xMultiplier = (float)pOriginal.Width / (float)pStretched.Width;
+                yMultiplier = (float)pOriginal.Height / (float)pStretched.Height;            
+            }
+
+            return new float[] {  xMultiplier,  yMultiplier  };
         }
 
         private void ResetEditor()
@@ -119,45 +176,6 @@ namespace View
                 return true;
             }
             else return false;
-        }
-
-        /// <summary>
-        /// Windows Forms Method:  Called when text is changed in the Crop Location Y box
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">Event arguments</param>
-        private void textBoxCropLocationY_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// Windows Forms Method:  Called when text is changed in the Crop Location X box
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">Event arguments</param>
-        private void textBoxCropLocationX_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// Windows Forms Method:  Called when text is changed in the Crop Height box
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">Event arguments</param>
-        private void textBoxCropHeight_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// Windows Forms Method:  Called when text is changed in the Crop Width box
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        private void textBoxCropWidth_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void trackBarBrightness_MouseUp(object sender, MouseEventArgs e)
@@ -194,32 +212,22 @@ namespace View
 
         private void trackBarScale_MouseUp(object sender, MouseEventArgs e)
         {
-            int scaleValue = trackBarScale.Value;
-            if (scaleValue < 25)
+            // IF neither size value is bigger than 3840, biggest image that can be resized is 3840*3840, resulting in largest possible of ~8000*8000
+            if (pictureBoxEditImage.Image.Size.Width <= 3840 && pictureBoxEditImage.Image.Size.Height <= 3840)
             {
-                scaleValue = 25;
+                int scaleValue = trackBarScale.Value;
+                if (scaleValue < 25)
+                {
+                    scaleValue = 25;
+                }
+                // SET the ParameterOne to path:
+                ((ICommand<int>)_commands["AdjustScale"]).ParameterOne = scaleValue;
+                // SIGNAL to the CommandInvoker to fire the command:
+                _executePointer(_commands["AdjustScale"]);
             }
-            // SET the ParameterOne to path:
-            ((ICommand<int>)_commands["AdjustScale"]).ParameterOne = scaleValue;
-            // SIGNAL to the CommandInvoker to fire the command:
-            _executePointer(_commands["AdjustScale"]);
 
             trackBarScale.Value = 50;
         }
-
-        //private void buttonCrop_Click(object sender, EventArgs e)
-        //{
-        //    // SET the ParameterOne to path:
-        //    ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterOne = Int32.Parse(this.textBoxCropLocationX.Text);
-        //    // SET the ParameterOne to path:
-        //    ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterTwo = Int32.Parse(this.textBoxCropLocationY.Text);
-        //    // SET the ParameterOne to path:
-        //    ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterThree = Int32.Parse(this.textBoxCropWidth.Text);
-        //    // SET the ParameterOne to path:
-        //    ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterFour = Int32.Parse(this.textBoxCropHeight.Text);
-        //    // SIGNAL to the CommandInvoker to fire the command:
-        //    _executePointer(_commands["CropImage"]);
-        //}
 
         private void buttonRotateRight90_Click(object sender, EventArgs e)
         {
@@ -284,12 +292,15 @@ namespace View
             ResetEditor();
         }
 
+        // Code adapted from: https://www.youtube.com/watch?v=7IR6J8Kw8cE&ab_channel=SundayNotice
+        #region Crop functionality
+
         /// <summary>
-        /// Insert Reference from here onwards
+        /// 
+        /// 
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
         private void buttonStartCrop_Click(object sender, EventArgs e)
         {
             pictureBoxEditImage.MouseDown += new MouseEventHandler(pictureBoxEditImage_MouseDown);
@@ -298,38 +309,54 @@ namespace View
 
             pictureBoxEditImage.MouseEnter += new EventHandler(pictureBoxEditImage_MouseEnter);
             Controls.Add(pictureBoxEditImage);
+
+            cropping = true;
         }
 
         private void buttonEndCrop_Click(object sender, EventArgs e)
         {
-            int pictureBoxCentreX = pictureBoxEditImage.Width / 2;
-            int pictureBoxCentreY = pictureBoxEditImage.Height / 2;
+            cropping = false;
 
-            int imageLeft = pictureBoxCentreX - (pictureBoxEditImage.Image.Width / 2);
-            int imageRight = pictureBoxCentreX + (pictureBoxEditImage.Image.Width / 2) - 2;
-            int imageTop = pictureBoxCentreY - (pictureBoxEditImage.Image.Height / 2);
-            int imageBottom = pictureBoxCentreY + (pictureBoxEditImage.Image.Height / 2) - 2;
+            CalculateImageBoundaries();
+
+            float cropOffsetX = cropX - imageLeft;
+            float cropOffsetY = cropY - imageTop;
+
+            float cropWidth = rectangleWidth;
+            float cropHeight = rectangleHeight;
+
+            if(isImageStretched)
+            {
+                float[] multipliers = CalculateStretchReverseMultiplier(_originalImageSize, pictureBoxEditImage.Size);
+
+                Console.WriteLine("Original Image Size: " + pictureBoxEditImage.Image.Size.ToString() + "Stretched Image Size: " + pictureBoxEditImage.Size.ToString());
+                Console.WriteLine("Mupltiply on X is: " + multipliers[0] + ", and multiply on Y is: " + multipliers[1]);
+
+                
+
+
+
+                cropOffsetX = cropOffsetX * multipliers[0];
+                cropWidth = cropWidth * multipliers[0];
+
+                cropOffsetY = cropOffsetY * multipliers[1];
+                cropHeight = cropHeight * multipliers[1];
+            }
 
             if (rectangleWidth > 0 && rectangleHeight > 0 && cropX > 0 && cropY > 0)
             {
                 Cursor = Cursors.Default;
 
                 // SET the ParameterOne to path:
-                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterOne = cropX-imageLeft;
+                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterOne = (int)cropOffsetX;
                 // SET the ParameterOne to path:
-                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterTwo = cropY-imageTop;
+                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterTwo = (int)cropOffsetY;
                 // SET the ParameterOne to path:
-                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterThree = rectangleWidth;
+                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterThree = (int)cropWidth;
                 // SET the ParameterOne to path:
-                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterFour = rectangleHeight;
+                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterFour = (int)cropHeight;
                 // SIGNAL to the CommandInvoker to fire the command:
                 _executePointer(_commands["CropImage"]);
-
-                //pictureBoxEditImage.DrawToBitmap(bmp2, pictureBoxEditImage.ClientRectangle);
-
-                //pictureBoxEditImage.Image = (Image)crpImg;
-                pictureBoxEditImage.SizeMode = PictureBoxSizeMode.CenterImage;
-
 
                 cropX = 0;
                 cropY = 0;
@@ -337,7 +364,11 @@ namespace View
                 rectangleHeight = 0;
 
             }
-            
+
+            //if (pictureBoxEditImage.SizeMode == PictureBoxSizeMode.CenterImage) buttonIsStretched
+            if (pictureBoxEditImage.SizeMode == PictureBoxSizeMode.StretchImage) Console.WriteLine("The image is stretched");
+            Cursor = Cursors.Default;
+
         }
 
         int cropX, cropY, rectangleWidth, rectangleHeight;
@@ -346,6 +377,7 @@ namespace View
 
         private void pictureBoxEditImage_MouseDown(object sender, MouseEventArgs e)
         {
+            //CalculateImageBoundaries();
             base.OnMouseDown(e);
 
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
@@ -355,39 +387,14 @@ namespace View
 
                 cropX = e.X;
                 cropY = e.Y;
-                
-                //Console.WriteLine(cropX);
 
-                //Console.WriteLine(cropY);
-
-
-
-                //int pictureBoxCentreX = pictureBoxEditImage.Location.X + pictureBoxEditImage.Width  /  2;
-                //int pictureBoxCentreY = pictureBoxEditImage.Location.Y + pictureBoxEditImage.Height / 2;
-
-                int pictureBoxCentreX = pictureBoxEditImage.Width / 2;
-                int pictureBoxCentreY =  pictureBoxEditImage.Height / 2;
-
-                int imageLeft = pictureBoxCentreX - (pictureBoxEditImage.Image.Width / 2); 
-                int imageRight = pictureBoxCentreX + (pictureBoxEditImage.Image.Width / 2) -2;
-                int imageTop = pictureBoxCentreY - (pictureBoxEditImage.Image.Height  /  2);
-                int imageBottom = pictureBoxCentreY + (pictureBoxEditImage.Image.Height / 2)-2;
-
-                //if (cropX > imageRight)
-                //{
-                 //   cropX = imageRight;
-                //}
+                CalculateImageBoundaries();
 
                 // PREVENTS crop on left boundary
                 if (cropX < imageLeft)
                 {
                     cropX = imageLeft;
                 }
-
-                //if (cropY > imageBottom)
-                //{
-                 //   cropY = imageBottom;
-                //}
 
                 if (cropY < imageTop)
                 {
@@ -396,10 +403,33 @@ namespace View
             }
         }
 
-        
+        private void buttonGrayscaleFilter_Click(object sender, EventArgs e)
+        {
+            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 0;
+            _executePointer(_commands["ApplyFilter"]);
+        }
+
+        private void buttonSunburnFilter_Click(object sender, EventArgs e)
+        {
+            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 1;
+            _executePointer(_commands["ApplyFilter"]);
+        }
+
+        private void buttonBlurFilter_Click(object sender, EventArgs e)
+        {
+            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 2;
+            _executePointer(_commands["ApplyFilter"]);
+        }
+
+        private void buttonRevertChanges_Click(object sender, EventArgs e)
+        {
+            _executePointer((ICommand)_commands["RevertChanges"]);
+        }
 
         private void pictureBoxEditImage_MouseMove(object sender, MouseEventArgs e)
         {
+            //CalculateImageBoundaries();
+
             base.OnMouseMove(e);
             if(e.Button == System.Windows.Forms.MouseButtons.Left)
             {
@@ -409,13 +439,7 @@ namespace View
 
                 pictureBoxEditImage.Refresh();
 
-                int pictureBoxCentreX = pictureBoxEditImage.Width / 2;
-                int pictureBoxCentreY = pictureBoxEditImage.Height / 2;
-
-                int imageLeft = pictureBoxCentreX - (pictureBoxEditImage.Image.Width / 2);
-                int imageRight = pictureBoxCentreX + (pictureBoxEditImage.Image.Width / 2);
-                int imageTop = pictureBoxCentreY - (pictureBoxEditImage.Image.Height / 2);
-                int imageBottom = pictureBoxCentreY + (pictureBoxEditImage.Image.Height / 2);
+                CalculateImageBoundaries();
 
                 if (mouseLocationX > imageRight)
                 {
@@ -443,14 +467,17 @@ namespace View
 
         private void pictureBoxEditImage_MouseEnter(object sender, EventArgs e)
         {
-            base.OnMouseEnter(e);
-            Cursor = Cursors.Cross;
+            if(cropping)
+            {
+                base.OnMouseEnter(e);
+                Cursor = Cursors.Cross;
+                
+            }
+            else
+            {
+                Cursor = Cursors.Default;
+            }
         }
-
-        protected override void OnMouseEnter(EventArgs e)
-        {
-            base.OnMouseEnter(e);
-            Cursor = Cursors.Default;
-        }
+        #endregion
     }
 }

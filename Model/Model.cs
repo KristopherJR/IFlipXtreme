@@ -145,6 +145,18 @@ namespace Model
         /// <param name="pFilterIndex">Number to specify which filter to be applied</param>
         public void ApplyFilter(int pFilterIndex)
         {
+            if (pFilterIndex == 0)
+            {
+                GreyScaleFilter();
+            }
+            else if (pFilterIndex == 1)
+            {
+                SunburnFilter();
+            }
+            else if (pFilterIndex == 2)
+            {
+                BlurFilter();
+            }
             // UPDATE subscribers (view) of any changes that have been made
             UpdateSubscribers();
         }
@@ -157,9 +169,6 @@ namespace Model
         {
             // CALL rotate method in Image Manipulator and pass in the current image and the rotate value, and store its value in _currentAdjustedImage
             _currentImage = _imageManipulator.Rotate(_currentImage, pRotateVal);
-
-            // UPDATE current image to be equal to _currentAdjustedImage, this is because multiple rotates do not impact image information (Unlike brightness changes) and we want multiple roatate steps to work
-            //_currentImage = _currentAdjustedImage;
 
             // UPDATE subscribers (view) of any changes that have been made
             UpdateSubscribers();
@@ -174,9 +183,6 @@ namespace Model
             // CALL flip method in Image Manipulator and pass in the current image and the flip, and store its value in _currentAdjustedImage
             _currentImage = _imageManipulator.Flip(_currentImage, pFlipVal);
 
-            // UPDATE current image to be equal to _currentAdjustedImage, this is because multiple flips do not impact image information (Unlike brightness changes) and we want multiple flip steps to work
-            //_currentImage = _currentAdjustedImage;
-
             // UPDATE subscribers (view) of any changes that have been made
             UpdateSubscribers();
         }
@@ -190,13 +196,8 @@ namespace Model
             // IF the Image Storage's image list is not empty
             if (_imageStorage.ImageStore.Count > 0)
             {
-                // SET the current image to the image at the given index in Image Storage's image list
-                //_currentImage = (Image)_imageStorage.GetImage(pPos);
-
-
                 _currentImage = new Bitmap(_imageStorage.GetImage(pPos));
                
-
                 // SET the tag of the current image to its position in the ImageList, this is used to save back to the list
                 _currentImageIndex = pPos;
 
@@ -239,6 +240,13 @@ namespace Model
                 return (_currentImage);
         }
 
+        public void RevertChanges()
+        {
+            OpenImage(_currentImageIndex);
+
+            UpdateSubscribers();
+        }
+
         /// <summary>
         /// UpdateSubscribers Method: Fires an event to subscribers which has the list of Thumbnails and the Current Image in the eventArgs
         /// </summary>
@@ -262,6 +270,31 @@ namespace Model
             _subscribers.Add(pSubscriber);
         }
 
+        public void GreyScaleFilter()
+        {
+            _currentImage = _imageManipulator.AdjustSaturation(_currentImage, -50);
+
+            UpdateSubscribers();
+        }
+
+        public void SunburnFilter()
+        {
+            _currentImage = _imageManipulator.AdjustContrast(_currentImage, 300);
+            _currentImage = _imageManipulator.AdjustSaturation(_currentImage, 300);
+            _currentImage = _imageManipulator.AdjustBrightness(_currentImage, 55);
+            System.Console.WriteLine("Ouch! That's hot!");
+
+            UpdateSubscribers();
+        }
+
+        public void BlurFilter()
+        {
+            _currentImage = _imageManipulator.Resize(_currentImage, new Size(32,  32));
+            _currentImage = _imageManipulator.Resize(_currentImage, new Size(512,  512));
+
+            UpdateSubscribers();
+        }
+
         /// <summary>
         /// Unsubscribe Method:  Removes an ISubscriber from the list of subscribers.
         /// </summary>
@@ -277,8 +310,6 @@ namespace Model
         /// </summary>
         public void SaveImage()
         {
-            //_currentImage.Dispose();
-
             // CALL SaveImage in image storage 
             _imageStorage.SaveImage(_currentImage, _currentImageIndex);
 

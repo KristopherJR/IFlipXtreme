@@ -77,6 +77,7 @@ namespace Controller
             Action<int> applyFilterAction = _model.ApplyFilter;
             Action<int> rotateImageAction = _model.RotateImage;
             Action<int> flipImageAction = _model.FlipImage;
+            Action revertChangesAction = _model.RevertChanges;
             #endregion
 
             #region Commands
@@ -94,7 +95,8 @@ namespace Controller
             Command<int> applyFilterCommand = new Command<int>(applyFilterAction);
             Command<int> rotateImageCommand = new Command<int>(rotateImageAction);
             Command<int> flipImageCommand = new Command<int>(flipImageAction);
-            
+            Command revertChangesCommand = new Command(revertChangesAction);
+
             // ADD the relevant Command Objects to the Gallery View's list of commands
             _view.GalleryView.Commands.Add("LoadImage", loadImageCommand);
             _view.GalleryView.Commands.Add("OpenImage", openImageCommand);
@@ -109,6 +111,7 @@ namespace Controller
             _view.ImageView.Commands.Add("ApplyFilter", applyFilterCommand);
             _view.ImageView.Commands.Add("RotateImage", rotateImageCommand);
             _view.ImageView.Commands.Add("FlipImage", flipImageCommand);
+            _view.ImageView.Commands.Add("RevertChanges", revertChangesCommand);
             #endregion
         }
     }

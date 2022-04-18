@@ -263,7 +263,16 @@ namespace Model
             }
 
         }
-
+        /// <summary>
+        /// 
+        /// Code adapted from: https://www.youtube.com/watch?v=7IR6J8Kw8cE&ab_channel=SundayNotice
+        /// </summary>
+        /// <param name="pImageToCrop"></param>
+        /// <param name="pCropBoxX"></param>
+        /// <param name="pCropBoxY"></param>
+        /// <param name="pCropWidth"></param>
+        /// <param name="pCropHeight"></param>
+        /// <returns></returns>
         public Image Crop(Image pImageToCrop, int pCropBoxX, int pCropBoxY, int pCropWidth, int pCropHeight)
         {
             Bitmap bmp2 = new Bitmap(pImageToCrop.Width, pImageToCrop.Height);
@@ -276,32 +285,16 @@ namespace Model
 
             Bitmap crpImg = new Bitmap(pCropWidth, pCropHeight);
 
-            //int xValueToCrop;
-            //int yValueToCrop;
+            Console.WriteLine("CropX: " + pCropBoxX + ", CropY: " + pCropBoxY + ", CropWidth: " + pCropWidth + ", CropHeight: " + pCropHeight);
+
 
             for (int i = 0; i < pCropWidth; i++)
-            {
+            {   
                 for (int j = 0; j < pCropHeight; j++)
                 {
-                    // if (!(pCropBoxX  +  i >= pImageToCrop.Width || pCropBoxY  +  j >= pImageToCrop.Height))
-                    //{
-                    //xValueToCrop = pCropBoxX + i;
-                    //yValueToCrop = pCropBoxY + j;
-
-                    //Console.WriteLine("pCropBoxX: " + (pCropBoxX).ToString());
-                    //Console.WriteLine("pCropBoxY: " + (pCropBoxY).ToString());
-                    //Console.WriteLine("pCropWidth: " + (pCropWidth).ToString());
-                    //Console.WriteLine("pCropHeight: " + (pCropHeight).ToString());
-
-                    //Console.WriteLine("X Pixel Targeted: " + (pCropBoxX + i).ToString());
-                    //Console.WriteLine("Y Pixel Targeted: " + (pCropBoxY + j).ToString());
-                    //Console.WriteLine("Crop Width is " + (crpImg.Width).ToString() + " and Crop Height is " + (crpImg.Height).ToString());
-                    //Console.WriteLine("Size of Image: " + (bmp2.Width).ToString() + " "+ (bmp2.Height).ToString());
-
                     Color pixelColor = bmp2.GetPixel(pCropBoxX + i, pCropBoxY + j);
                             crpImg.SetPixel(i, j, pixelColor);
-                    //}
-                    //if (pCropBoxX + i > pImageToCrop.Width) xValueToCrop = pImageToCrop.Width;
+
                 }
             }
             return crpImg;
