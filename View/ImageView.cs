@@ -329,8 +329,8 @@ namespace View
             {
                 float[] multipliers = CalculateStretchReverseMultiplier(_originalImageSize, pictureBoxEditImage.Size);
 
-                Console.WriteLine("Original Image Size: " + pictureBoxEditImage.Image.Size.ToString() + "Stretched Image Size: " + pictureBoxEditImage.Size.ToString());
-                Console.WriteLine("Mupltiply on X is: " + multipliers[0] + ", and multiply on Y is: " + multipliers[1]);
+                //Console.WriteLine("Original Image Size: " + pictureBoxEditImage.Image.Size.ToString() + "Stretched Image Size: " + pictureBoxEditImage.Size.ToString());
+                //Console.WriteLine("Mupltiply on X is: " + multipliers[0] + ", and multiply on Y is: " + multipliers[1]);
 
                 
 

@@ -214,14 +214,14 @@ namespace Model
         {
             Image adjustedImage = pImage;
             // IF Image should be rotated by 90 degrees
-            if (pRotateVal == 1)
+            if (pRotateVal == -1)
             {
                 adjustedImage.RotateFlip(RotateFlipType.Rotate90FlipNone);
                 return adjustedImage;
             }
 
             // IF Image should be rotated by 270 degrees
-            else if (pRotateVal == -1)
+            else if (pRotateVal == 1)
             {
                 adjustedImage.RotateFlip(RotateFlipType.Rotate270FlipNone);
                 return adjustedImage;

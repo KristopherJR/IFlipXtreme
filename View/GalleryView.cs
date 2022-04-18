@@ -103,8 +103,6 @@ namespace View
                         _selectedImageIndex = i;
                         // SET the backcolour to Green to show it has been selected:
                         selectedBox.BackColor = Color.YellowGreen;
-
-                        Console.WriteLine("you just clicked: " + selectedBox.Name);
                     }
                 }
             }                
