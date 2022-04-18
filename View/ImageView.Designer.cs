@@ -68,6 +68,7 @@ namespace View
             this.pictureBoxEditImage.TabIndex = 0;
             this.pictureBoxEditImage.TabStop = false;
             this.pictureBoxEditImage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBoxEditImage_MouseDown);
+            this.pictureBoxEditImage.MouseLeave += new System.EventHandler(this.pictureBoxEditImage_MouseLeave);
             // 
             // trackBarBrightness
             // 
@@ -315,6 +316,7 @@ namespace View
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.trackBarBrightness);
             this.Controls.Add(this.pictureBoxEditImage);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ImageView";

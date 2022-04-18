@@ -289,8 +289,9 @@ namespace Model
 
         public void BlurFilter()
         {
+            Size originalSize = _currentImage.Size;
             _currentImage = _imageManipulator.Resize(_currentImage, new Size(32,  32));
-            _currentImage = _imageManipulator.Resize(_currentImage, new Size(512,  512));
+            _currentImage = _imageManipulator.Resize(_currentImage, originalSize);
 
             UpdateSubscribers();
         }

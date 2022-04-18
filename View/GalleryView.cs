@@ -238,8 +238,8 @@ namespace View
             string path = "../../../Test/bin/Release/VersionControl/";
             // INCREMENT the version tag for indexing the image collection:
             labelVersion.Tag = labelVersion.Tag + "+";
-            // IF the image count = 8:
-            if(((String)labelVersion.Tag).Length == 8)
+            // IF the + count = 8:
+            if(((String)labelVersion.Tag).Length >= 8)
             {
                 // FOR LOOP: Repeats 8 times
                 for(int i = 0; i < 8; i++)

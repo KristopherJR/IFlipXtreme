@@ -478,6 +478,13 @@ namespace View
                 Cursor = Cursors.Default;
             }
         }
+
+        private void pictureBoxEditImage_MouseLeave(object sender, EventArgs e)
+        {
+            Cursor = Cursors.Default;
+        }
+
+
         #endregion
     }
 }
