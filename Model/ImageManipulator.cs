@@ -167,6 +167,8 @@ namespace Model
                 // FOR each row of the images pixels
                 for (int j = 0; j < bmap.Height; j++)
                 {
+                    //RED CHANNEL
+
                     // SET col to the colour of pixel i, j of the orginial image
                     col = bmap.GetPixel(i, j);
 
@@ -191,6 +193,8 @@ namespace Model
                     // IF the red value is more than 255, set it to 255
                     if (pRed > 255) pRed = 255;
 
+                    // GREEN CHANNEL
+
                     // GET the double green value (Value 0-1)
                     double pGreen = col.G / 255.0;
 
@@ -199,25 +203,51 @@ namespace Model
 
                     // MULTIPLY the green value by newContrast
                     pGreen *= newContrast;
+
+                    // ADD 0.5 back to the green value to "recalibrate" the adjustment
                     pGreen += 0.5;
+
+                    // CONVERT the green value from (0-1) to (0-255)
                     pGreen *= 255;
+
+                    // IF the green value is less than 0, set it to zero
                     if (pGreen < 0) pGreen = 0;
+
+                    // IF the red value is more than 255, set it to 255
                     if (pGreen > 255) pGreen = 255;
 
+                    // BLUE CHANNEL
+
+                    // GET the double blue value (Value 0-1)
                     double pBlue = col.B / 255.0;
+
+                    // SUBSTRACT 0.5 from the blue value to enable negative multiplication to work correctly
                     pBlue -= 0.5;
+
+                    // MULTIPLY the blue value by newContrast
                     pBlue *= newContrast;
+
+                    // ADD 0.5 back to the blue value to "recalibrate" the adjustment
                     pBlue += 0.5;
+
+                    // CONVERT the blue value from (0-1) to (0-255)
                     pBlue *= 255;
+
+                    // IF the blue value is less than 0, set it to zero
                     if (pBlue < 0) pBlue = 0;
+
+                    // IF the blue value is more than 255, set it to 255
                     if (pBlue > 255) pBlue = 255;
 
+                    // CALL SetPixel on bmap to set the pixel i, j to a pixel with the newly calculated RGB values
                     bmap.SetPixel(i, j,
-            Color.FromArgb((byte)pRed, (byte)pGreen, (byte)pBlue));
+                        Color.FromArgb((byte)pRed, (byte)pGreen, (byte)pBlue));
                 }
             }
+            // CLONE the adjusted image into pImageToAdjust
             pImageToAdjust = (Bitmap)bmap.Clone();
 
+            // RETURN the adjusted image
             return pImageToAdjust;
         }
 

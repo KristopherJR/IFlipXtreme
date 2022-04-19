@@ -139,12 +139,9 @@ namespace View
             this.StartPosition = FormStartPosition.CenterScreen;
 
             // Remove the control box so the form will only display client area.
-            this.ControlBox = false;
-
-            
+            this.ControlBox = false;            
         }
-
-       
+               
         /// <summary>
         /// CalculateImageBoundaries(): Calculates the boundaries of the Image for use when cropping and scaling.
         /// </summary>
@@ -153,10 +150,11 @@ namespace View
             // CHECK if the Image has been stretched:
             if (!_isImageStretched)
             {
-                // IF the Image is not stretched, centre it:
+                // CALCULATE the X and Y coords of the centre of the unstretched image
                 _pictureBoxCentreX = pictureBoxEditImage.Width / 2;
                 _pictureBoxCentreY = pictureBoxEditImage.Height / 2;
 
+                // CALCULATE the left, right, bottom and top corners of the image relative to the picturebox
                 _imageLeft = _pictureBoxCentreX - (pictureBoxEditImage.Image.Width / 2);
                 _imageRight = _pictureBoxCentreX + (pictureBoxEditImage.Image.Width / 2);
                 _imageTop = _pictureBoxCentreY - (pictureBoxEditImage.Image.Height / 2);
@@ -209,110 +207,182 @@ namespace View
         }
 
         /// <summary>
-        /// IsNumerical(): Checks if a provided Char is a number.
-        /// 
-        /// Code adapted from: https://ourcodeworld.com/articles/read/507/how-to-allow-only-numbers-inside-a-textbox-in-winforms-c-sharp
+        /// Windows Forms Method: Called when the user releases the Brightness Slider.
         /// </summary>
-        /// <param name="pEnteredChar">The Char to check if numerical.</param>
-        /// <returns></returns>
-        private bool IsNumerical(Char pEnteredChar)
-        {
-            if (!char.IsControl(pEnteredChar) && !char.IsDigit(pEnteredChar))
-            {
-                return true;
-            }
-            else return false;
-        }
-
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
         private void trackBarBrightness_MouseUp(object sender, MouseEventArgs e)
         {
             // SET the ParameterOne to path:
             ((ICommand<int>)_commands["AdjustBrightness"]).ParameterOne = trackBarBrightness.Value;
             // SIGNAL to the CommandInvoker to fire the command:
             _executePointer(_commands["AdjustBrightness"]);
-
+            // RESET to default value:
             trackBarBrightness.Value = 50;
         }
 
-        #endregion
-
+        /// <summary>
+        /// Windows Forms Method: Called when the user releases the Contrast Slider.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
         private void trackBarContrast_MouseUp(object sender, MouseEventArgs e)
         {
             // SET the ParameterOne to path:
             ((ICommand<int>)_commands["AdjustContrast"]).ParameterOne = trackBarContrast.Value;
             // SIGNAL to the CommandInvoker to fire the command:
             _executePointer(_commands["AdjustContrast"]);
-
+            // RESET to default value:
             trackBarContrast.Value = 50;
         }
 
+        /// <summary>
+        /// Windows Forms Method: Called when the user releases the Saturation Slider.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
         private void trackBarSaturation_MouseUp(object sender, MouseEventArgs e)
         {
             // SET the ParameterOne to path:
             ((ICommand<int>)_commands["AdjustSaturation"]).ParameterOne = trackBarSaturation.Value;
             // SIGNAL to the CommandInvoker to fire the command:
             _executePointer(_commands["AdjustSaturation"]);
-
+            // RESET to default value:
             trackBarSaturation.Value = 50;
         }
 
+        /// <summary>
+        /// Windows Forms Method: Called when the user releases the Scale Slider.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
         private void trackBarScale_MouseUp(object sender, MouseEventArgs e)
         {
             // IF neither size value is bigger than 3840, biggest image that can be resized is 3840*3840, resulting in largest possible of ~8000*8000
-            if ((pictureBoxEditImage.Image.Size.Width <= 3840 && pictureBoxEditImage.Image.Size.Height <= 3840) || trackBarScale.Value<51)
+            if ((pictureBoxEditImage.Image.Size.Width <= 3840 && pictureBoxEditImage.Image.Size.Height <= 3840) || trackBarScale.Value < 51)
             {
+                // SET scaleValue to the value of the scale track bar
                 int scaleValue = trackBarScale.Value;
+
+                // PREVENT the user setting a scale value less than 25:
                 if (scaleValue < 25)
                 {
                     scaleValue = 25;
                 }
+
                 // SET the ParameterOne to path:
                 ((ICommand<int>)_commands["AdjustScale"]).ParameterOne = scaleValue;
                 // SIGNAL to the CommandInvoker to fire the command:
                 _executePointer(_commands["AdjustScale"]);
             }
-
+            // RESET to default value:
             trackBarScale.Value = 50;
         }
 
+        /// <summary>
+        /// Windows Forms Method: Called when the user clicks rotate right button.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
         private void buttonRotateRight90_Click(object sender, EventArgs e)
         {
             // SET the ParameterOne to the correct rotate value:
             ((ICommand<int>)_commands["RotateImage"]).ParameterOne = -1;
-
+            // FIRE the "RotateImage" Command:
             _executePointer((ICommand<int>)_commands["RotateImage"]);
         }
 
+        /// <summary>
+        /// Windows Forms Method: Called when the user clicks rotate left button.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
         private void buttonRotateLeft90_Click(object sender, EventArgs e)
         {
             // SET the ParameterOne to the correct rotate value:
             ((ICommand<int>)_commands["RotateImage"]).ParameterOne = 1;
-
+            // FIRE the "RotateImage" Command:
             _executePointer((ICommand<int>)_commands["RotateImage"]);
         }
 
+        /// <summary>
+        /// Windows Forms Method: Called when the user clicks the vertical flip button.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
         private void buttonFlipVertical_Click(object sender, EventArgs e)
         {
             // SET the ParameterOne to the correct flip value:
             ((ICommand<int>)_commands["FlipImage"]).ParameterOne = 0;
-
+            // FIRE the "FlipImage" Command:
             _executePointer((ICommand<int>)_commands["FlipImage"]);
         }
 
+        /// <summary>
+        /// Windows Forms Method: Called when the user clicks the horizontal flip button.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
         private void buttonFlipHorizontal_Click(object sender, EventArgs e)
         {
             // SET the ParameterOne to the correct flip value:
             ((ICommand<int>)_commands["FlipImage"]).ParameterOne = 1;
-
+            // FIRE the "FlipImage" Command:
             _executePointer((ICommand<int>)_commands["FlipImage"]);
         }
 
-        private void textBoxCropLocationX_KeyPress(object sender, KeyPressEventArgs e)
+        /// <summary>
+        /// Windows Forms Method: Called when the Grayscale Filter button is clicked.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
+        private void buttonGrayscaleFilter_Click(object sender, EventArgs e)
         {
-            if (IsNumerical(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 0;
+            _executePointer(_commands["ApplyFilter"]);
+        }
+
+        /// <summary>
+        /// Windows Forms Method: Called when the Sunburn Filter button is clicked.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
+        private void buttonSunburnFilter_Click(object sender, EventArgs e)
+        {
+            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 1;
+            _executePointer(_commands["ApplyFilter"]);
+        }
+
+        /// <summary>
+        /// Windows Forms Method: Called when the Blur Filter button is clicked.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
+        private void buttonBlurFilter_Click(object sender, EventArgs e)
+        {
+            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 2;
+            _executePointer(_commands["ApplyFilter"]);
+        }
+
+        /// <summary>
+        /// Windows Forms Method: Called when the Blur Filter button is clicked.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
+        private void buttonRandomFilter_Click(object sender, EventArgs e)
+        {
+            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 3;
+            _executePointer(_commands["ApplyFilter"]);
+        }
+
+        /// <summary>
+        /// Windows Forms Method: Called when the Revert Changes button is clicked.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
+        private void buttonRevertChanges_Click(object sender, EventArgs e)
+        {
+            _executePointer((ICommand)_commands["RevertChanges"]);
         }
 
         /// <summary>
@@ -322,7 +392,9 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void buttonDiscard_Click(object sender, EventArgs e)
         {
+            // TOGGLE the form visibility:
             _toggleFormPointer();
+            // RESET the editor:
             ResetEditor();
         }
 
@@ -333,9 +405,11 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
+            // FIRE the "SaveImage" Command:
             _executePointer((ICommand)_commands["SaveImage"]);
-
+            // TOGGLE the form visibility:
             _toggleFormPointer();
+            // RESET the editor:
             ResetEditor();
         }
 
@@ -361,7 +435,7 @@ namespace View
                 string path = saveFileDialog.FileName;
                 // SET the Path in the Command object:
                 ((ICommand<string>)_commands["SaveImageToPath"]).ParameterOne = path;
-                // EXECUTE the SaveImageToPath Command:
+                // EXECUTE the "SaveImageToPath" Command:
                 _executePointer((ICommand)_commands["SaveImageToPath"]);
                 // TOGGLE the Form visibility:
                 _toggleFormPointer();
@@ -448,150 +522,130 @@ namespace View
             Cursor = Cursors.Default;
         }
 
-        
 
+        /// <summary>
+        /// Windows Forms Method: Call when the user clicks on the Image PictureBox.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
         private void pictureBoxEditImage_MouseDown(object sender, MouseEventArgs e)
         {
-            //CalculateImageBoundaries();
+            // PASS the MouseEventArgs to base:
             base.OnMouseDown(e);
-
+            // IF the user has pressed the left mouse button:
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
+                // SET their cursor to a Cross:
                 Cursor = Cursors.Cross;
+                // SET the "_cropPen" DashStyle to Dashed:
                 _cropPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-
+                // SET the "_cropX" and "_cropY" to the current Mouse position:
                 _cropX = e.X;
                 _cropY = e.Y;
-
+                // CALCULATE the current Image boundaries:
                 CalculateImageBoundaries();
 
-                // PREVENTS crop on left boundary
+                // PREVENT the user cropping past the left Image boundary:
                 if (_cropX < _imageLeft)
                 {
                     _cropX = _imageLeft;
                 }
-
+                // PREVENT the user cropping past the top Image boundary:
                 if (_cropY < _imageTop)
                 {
                     _cropY = _imageTop;
                 }
             }
         }
-
+                
         /// <summary>
-        /// Windows Forms Method: Called when the Grayscale Filter button is clicked.
+        /// Windows Forms Method: Called when the mouse is moved in the main picturebox.  Used for crop functionality
         /// </summary>
         /// <param name="sender">The sender</param>
         /// <param name="e">Event arguments</param>
-        private void buttonGrayscaleFilter_Click(object sender, EventArgs e)
-        {
-            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 0;
-            _executePointer(_commands["ApplyFilter"]);
-        }
-
-        /// <summary>
-        /// Windows Forms Method: Called when the Sunburn Filter button is clicked.
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">Event arguments</param>
-        private void buttonSunburnFilter_Click(object sender, EventArgs e)
-        {
-            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 1;
-            _executePointer(_commands["ApplyFilter"]);
-        }
-
-        /// <summary>
-        /// Windows Forms Method: Called when the Blur Filter button is clicked.
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">Event arguments</param>
-        private void buttonBlurFilter_Click(object sender, EventArgs e)
-        {
-            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 2;
-            _executePointer(_commands["ApplyFilter"]);
-        }
-
-        /// <summary>
-        /// Windows Forms Method: Called when the Blur Filter button is clicked.
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">Event arguments</param>
-        private void buttonRandomFilter_Click(object sender, EventArgs e)
-        {
-            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 3;
-            _executePointer(_commands["ApplyFilter"]);
-        }
-
-        /// <summary>
-        /// Windows Forms Method: Called when the Revert Changes button is clicked.
-        /// </summary>
-        /// <param name="sender">The sender</param>
-        /// <param name="e">Event arguments</param>
-        private void buttonRevertChanges_Click(object sender, EventArgs e)
-        {
-            _executePointer((ICommand)_commands["RevertChanges"]);
-        }
-
-        
         private void pictureBoxEditImage_MouseMove(object sender, MouseEventArgs e)
         {
-            //CalculateImageBoundaries();
-
+            // PASS eventargs to parent
             base.OnMouseMove(e);
+
+            // IF left mouse button is pressed down
             if(e.Button == System.Windows.Forms.MouseButtons.Left)
             {
-
+                // SET mouseLocation variables to the mouse location
                 int mouseLocationX = e.X;
                 int mouseLocationY = e.Y;
 
+                // RESET & REDRAW the pictureBoxEditImage, needed to update the rectangle crop box that is drawn
                 pictureBoxEditImage.Refresh();
 
+                // CALL CalculateImageBoundaries to recalculate the edges of the image relative to the picture box
                 CalculateImageBoundaries();
 
+                // IF mouse is off the right side of the image
                 if (mouseLocationX > _imageRight)
                 {
+                    // SET mouseLocationX to the right border of the image, to treat the mouse as if it is just at the edge of the image
                     mouseLocationX = _imageRight;
                 }
 
+                // IF mouse is off the bottom side of the image
                 if (mouseLocationY > _imageBottom)
                 {
+                    // SET mouseLocationy to the bottom border of the image, to treat the mouse as if it is just at the edge of the image
                     mouseLocationY = _imageBottom;
                 }
 
-                
-
+                // CALCULATE the width & height of the crop rectangle, the difference between where the mouse is now and where it was at the inital click
                 _rectangleWidth = mouseLocationX - _cropX;
                 _rectangleHeight = mouseLocationY - _cropY;
-                
 
-
-
+                // DECLARE and INSTANTIATE a new Graphics object.  Control of pictureBoxEditImage
                 Graphics g = pictureBoxEditImage.CreateGraphics();
+
+                // DRAW the crop rectangle
                 g.DrawRectangle(_cropPen, _cropX, _cropY, _rectangleWidth, _rectangleHeight);
+
+                // DISPOSE of the graphics object
                 g.Dispose();
             }
         }
 
+        /// <summary>
+        /// Windows Forms Method: Called when the the mouse enters the pictureBox.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
         private void pictureBoxEditImage_MouseEnter(object sender, EventArgs e)
         {
+            // IF the user is currently cropping (Crop button and been pressed and end crop has not)
             if(_cropping)
             {
+                // PASS eventargs to parent
                 base.OnMouseEnter(e);
-                Cursor = Cursors.Cross;
-                
+
+                // SET the cursor skin to a cross
+                Cursor = Cursors.Cross;          
             }
+
             else
             {
+                // SET the cursor skin to the default cursor if the user is not cropping
                 Cursor = Cursors.Default;
             }
         }
 
+        /// <summary>
+        /// Windows Forms Method: Called when the the mouse leaves the pictureBox.
+        /// </summary>
+        /// <param name="sender">The sender</param>
+        /// <param name="e">Event arguments</param>
         private void pictureBoxEditImage_MouseLeave(object sender, EventArgs e)
         {
+            // SET the cursor skin to the default cursor
             Cursor = Cursors.Default;
         }
 
-
+        #endregion
         #endregion
     }
 }
