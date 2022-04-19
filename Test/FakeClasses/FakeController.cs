@@ -11,8 +11,6 @@ namespace Test
 
         #region Properties
 
-
-
         public FakeGalleryView FakeGalleryView
         {
             get { return _fakeGalleryView; }
@@ -22,7 +20,8 @@ namespace Test
         {
             get { return _fakeModel; }
         }
-        #endregion
+
+        #endregion Properties
 
         public FakeController()
         {

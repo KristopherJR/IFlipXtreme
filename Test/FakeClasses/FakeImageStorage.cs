@@ -2,24 +2,25 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Test
 {
     public class FakeImageStorage
     {
         #region Fields
+
         private List<Image> _imageStore;
-        #endregion
+
+        #endregion Fields
 
         #region Properties
+
         public List<Image> ImageStore
         {
             get { return _imageStore; }
         }
-        #endregion
+
+        #endregion Properties
 
         public FakeImageStorage()
         {
@@ -61,8 +62,5 @@ namespace Test
 
             return true;
         }
-
-        
-
     }
 }

@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Test
@@ -12,16 +9,18 @@ namespace Test
     public class FakeGalleryView : ISubscriber
     {
         #region Fields
+
         private List<Image> _imageList;
         private Dictionary<string, ICommand> _commands;
 
         private Action<ICommand> _execute;
 
-        List<PictureBox> _thumbnailContainers;
-        
-        #endregion
+        private List<PictureBox> _thumbnailContainers;
+
+        #endregion Fields
 
         #region Properties
+
         public List<Image> ImageList
         {
             get { return _imageList; }
@@ -37,27 +36,26 @@ namespace Test
         {
             set { _execute = value; }
         }
-        #endregion
+
+        #endregion Properties
 
         #region Methods
+
         public FakeGalleryView()
         {
             _imageList = new List<Image>();
             _commands = new Dictionary<string, ICommand>();
             _thumbnailContainers = new List<PictureBox>();
-            
         }
 
         public void ImportButtonPressed()
         {
             // EXECUTE the Command object
-            if(_commands.ContainsKey("Import"))
+            if (_commands.ContainsKey("Import"))
             {
-    
-               ((ICommand<string>)_commands["Import"]).ParameterOne = "../../../assets/OrangeFish.png";
+                ((ICommand<string>)_commands["Import"]).ParameterOne = "../../../assets/OrangeFish.png";
 
                 _execute(_commands["Import"]);
-
             }
             //_execute(_importImage);
         }
@@ -68,7 +66,7 @@ namespace Test
         /// <param name="e">Event information</param>
         public void Update(EventArgs e)
         {
-            if(e is FakeImportImageEventArgs)
+            if (e is FakeImportImageEventArgs)
             {
                 _imageList = (e as FakeImportImageEventArgs).Images;
                 RefreshThumbnails();
@@ -90,6 +88,7 @@ namespace Test
                 _thumbnailContainers[i].Image = _imageList[i];
             }
         }
-        #endregion
+
+        #endregion Methods
     }
 }

@@ -12,7 +12,7 @@ namespace Model
     public class Model
     {
         #region Fields
-        
+
         // DECLARE a reference to ImageManipulator.  Call it "_imageManipulator".
         private ImageManipulator _imageManipulator;
 
@@ -34,9 +34,10 @@ namespace Model
         // DECLARE a random to randomize the values for the RandomFilter, call it _random;
         private Random _random;
 
-        #endregion
+        #endregion Fields
 
         #region Properties
+
         // DECLARE a get property to access ImageStorage, call it "ImageStorage".
         public ImageStorage ImageStorage
         {
@@ -48,9 +49,11 @@ namespace Model
         {
             get { return _subscribers; }
         }
-        #endregion
+
+        #endregion Properties
 
         #region Methods
+
         /// <summary>
         /// Constructor for Model class.
         /// </summary>
@@ -78,7 +81,7 @@ namespace Model
             // IF import was successful
             if (_imageStorage.LoadImage(pImagePath))
             {
-                // UPDATE subscribers (view) of any changes that have been made 
+                // UPDATE subscribers (view) of any changes that have been made
                 UpdateSubscribers();
             }
         }
@@ -92,7 +95,7 @@ namespace Model
             //CALL AdjustBrightness in the Image Manipulator and pass in the current image and the brightness adjustment value, store result in _currentImage
             _currentImage = _imageManipulator.AdjustBrightness(_currentImage, pBrightnessVal);
 
-            // UPDATE subscribers (view) of any changes that have been made 
+            // UPDATE subscribers (view) of any changes that have been made
             UpdateSubscribers();
         }
 
@@ -116,7 +119,7 @@ namespace Model
         public void AdjustSaturation(int pSaturationVal)
         {
             // CALL AdjustSaturation in the image manipulator and pass the current image, store the result in _currentImage
-            _imageManipulator.AdjustSaturation(_currentImage,pSaturationVal);
+            _imageManipulator.AdjustSaturation(_currentImage, pSaturationVal);
 
             // UPDATE Subscribers (View) of changed information
             UpdateSubscribers();
@@ -129,14 +132,14 @@ namespace Model
         public void AdjustScale(int pScaleVal)
         {
             // DECLARE a new float "scaler" to hold the multiplier for scaling, converts percentage into multiplier (50 turns to 1)
-            float scaler = (float)pScaleVal  /  50;
+            float scaler = (float)pScaleVal / 50;
 
             // DECLARE 2 new floats "newHeight" & "newWidth".  Calculate the new width and new height of the image and store them
             float newHeight = _currentImage.Height * scaler;
             float newWidth = _currentImage.Width * scaler;
 
             // CALL Resize in the image manipulator and pass the current image and new size, store the result in _currentImage
-            _currentImage = _imageManipulator.Resize(_currentImage,  new Size((int)newWidth,  (int)newHeight));
+            _currentImage = _imageManipulator.Resize(_currentImage, new Size((int)newWidth, (int)newHeight));
 
             // UPDATE Subscribers (View) of changed information
             UpdateSubscribers();
@@ -231,7 +234,7 @@ namespace Model
             if (_imageStorage.ImageStore.Count > 0)
             {
                 _currentImage = new Bitmap(_imageStorage.GetImage(pPos));
-               
+
                 // SET the tag of the current image to its position in the ImageList, this is used to save back to the list
                 _currentImageIndex = pPos;
 
@@ -270,8 +273,8 @@ namespace Model
         /// <returns>The current image that's open for editing.</returns>
         public Image GetCurrentImage()
         {
-                // RETURN the adjusted current image
-                return (_currentImage);
+            // RETURN the adjusted current image
+            return (_currentImage);
         }
 
         /// <summary>
@@ -295,7 +298,7 @@ namespace Model
             foreach (ISubscriber subscriber in _subscribers)
             {
                 // CALL Update on that subscriber and pass eventargs holding the thumnail list and full size current image
-                subscriber.Update(new UpdateViewEventArgs(GetThumbnails(),GetCurrentImage()));
+                subscriber.Update(new UpdateViewEventArgs(GetThumbnails(), GetCurrentImage()));
             }
         }
 
@@ -310,7 +313,7 @@ namespace Model
         }
 
         /// <summary>
-        /// GreyScaleFilter Method: Applies a grey scale filter by heavily undersaturating the image 
+        /// GreyScaleFilter Method: Applies a grey scale filter by heavily undersaturating the image
         /// </summary>
         public void GreyScaleFilter()
         {
@@ -347,7 +350,7 @@ namespace Model
             Size originalSize = _currentImage.Size;
 
             // CALL Resize in Image Manipulator and pass it the current image and the Size 32*32
-            _currentImage = _imageManipulator.Resize(_currentImage, new Size(32,  32));
+            _currentImage = _imageManipulator.Resize(_currentImage, new Size(32, 32));
 
             // CALL Resize in Image Manipulator and pass it the current image and the original image size
             _currentImage = _imageManipulator.Resize(_currentImage, originalSize);
@@ -369,10 +372,10 @@ namespace Model
             List<int> randomEdits = new List<int>();
 
             // FOR LOOP repeat 3 times to add the random numbers to the lists:
-            for (int i = 0; i <= 2; i++) 
-            { 
+            for (int i = 0; i <= 2; i++)
+            {
                 randomEdits.Add(_random.Next(1, 100));
-                randomScale.Add(_random.Next(1, 2000)); 
+                randomScale.Add(_random.Next(1, 2000));
             }
 
             // CALL the 4 relevant methods in Image Storage and pass them each the current image and random adjustment values, store the result in _currentImage each time
@@ -406,7 +409,7 @@ namespace Model
         /// </summary>
         public void SaveImage()
         {
-            // CALL SaveImage in image storage 
+            // CALL SaveImage in image storage
             _imageStorage.SaveImage(_currentImage, _currentImageIndex);
 
             // UPDATE subscribers (view) of any changes that have been made
@@ -418,14 +421,13 @@ namespace Model
         /// </summary>
         public void SaveImageToPath(string path)
         {
-            // CALL SaveImage in image storage 
+            // CALL SaveImage in image storage
             _imageStorage.SaveImage(_currentImage, _currentImageIndex, path);
 
             // UPDATE subscribers (view) of any changes that have been made
             UpdateSubscribers();
         }
 
-        #endregion
-
+        #endregion Methods
     }
 }

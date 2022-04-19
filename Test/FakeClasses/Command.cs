@@ -1,9 +1,5 @@
 ﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Test
 {
@@ -13,9 +9,12 @@ namespace Test
     public class Command : ICommand
     {
         #region FIELDS
+
         // DECLARE an Action, call it _action:
         private Action _action;
+
         #endregion FIELDS
+
         /// <summary>
         /// Constructor for Command.
         /// </summary>
@@ -42,20 +41,26 @@ namespace Test
     public class Command<T> : ICommand<T>
     {
         #region FIELDS
+
         // DECLARE an Action<T>, call it _action:
         private Action<T> _action;
+
         // DECLARE an object of type T, call it _parameterOne:
         private T _parameterOne;
+
         #endregion FIELDS
 
         #region PROPERTIES
+
         public T ParameterOne
         {
             set { _parameterOne = value; }
         }
-        #endregion
+
+        #endregion PROPERTIES
 
         #region METHODS
+
         /// <summary>
         /// Constructor for Command<T>. Assigns local Action.
         /// </summary>
@@ -83,20 +88,23 @@ namespace Test
                 throw new ParameterNotSetException("You can not Execute the Command without setting its parameter.");
             }
         }
+
         #endregion METHODS
     }
 
     /// <summary>
     /// Class Command<T1,T2>. Takes two parameters for the Action delegate.
     /// </summary>
-    public class Command<T1, T2> : ICommand<T1,T2>
+    public class Command<T1, T2> : ICommand<T1, T2>
     {
         #region FIELDS
 
         // DECLARE an Action<T1,T2>, call it _action:
         private Action<T1, T2> _action;
+
         // DECLARE an object of type T1, call it _parameterOne:
         private T1 _parameterOne;
+
         // DECLARE an object of type T2, call it _parameterTwo:
         private T2 _parameterTwo;
 
@@ -114,9 +122,10 @@ namespace Test
             set { _parameterTwo = value; }
         }
 
-        #endregion
+        #endregion PROPERTIES
 
         #region METHODS
+
         /// <summary>
         /// Constructor for Command<T1,T2>. Assigns local Action.
         /// </summary>
@@ -144,6 +153,7 @@ namespace Test
                 throw new ParameterNotSetException("You can not Execute the Command without setting its parameters.");
             }
         }
+
         #endregion METHODS
     }
 
@@ -153,19 +163,26 @@ namespace Test
     public class Command<T1, T2, T3, T4> : ICommand
     {
         #region FIELDS
+
         // DECLARE an Action<T1,T2,T3,T4>, call it _action:
         private Action<T1, T2, T3, T4> _action;
+
         // DECLARE an object of type T1, call it _parameterOne:
         private T1 _parameterOne;
+
         // DECLARE an object of type T2, call it _parameterTwo:
         private T2 _parameterTwo;
+
         // DECLARE an object of type T3, call it _parameterThree:
         private T3 _parameterThree;
+
         // DECLARE an object of type T3, call it _parameterThree:
         private T4 _parameterFour;
+
         #endregion FIELDS
 
         #region PROPERTIES
+
         public T1 ParameterOne
         {
             set { _parameterOne = value; }
@@ -185,9 +202,11 @@ namespace Test
         {
             set { _parameterFour = value; }
         }
-        #endregion
+
+        #endregion PROPERTIES
 
         #region METHODS
+
         /// <summary>
         /// Constructor for Command<T1,T2>. Assigns local Action.
         /// </summary>
@@ -215,6 +234,7 @@ namespace Test
                 throw new ParameterNotSetException("You can not Execute the Command without setting its parameters.");
             }
         }
+
         #endregion METHODS
     }
 }

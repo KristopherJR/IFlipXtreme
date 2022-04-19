@@ -1,9 +1,8 @@
 ﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
-using System;
 using System.Drawing;
 using System.Drawing.Imaging;
-//using Aspose.Imaging;
 
+//using Aspose.Imaging;
 
 namespace Model
 {
@@ -17,12 +16,11 @@ namespace Model
         /// </summary>
         public ImageManipulator()
         {
-
         }
 
         /// <summary>
         /// Adjusts the brightness of an Image to the brightness value provided and returns it.
-        /// 
+        ///
         /// Code adapted from: https://ukacademe.com/TutorialExamples/CSharp/Image_Brightness_in_CSharp#:~:text=Image%20Brightness%20In%20C%23&text=The%20idea%20is%20easy%3A%20move,to%2064%2C%2016%2C%20127.
         /// </summary>
         /// <param name="pImageToAdjust">The Image to adjust.</param>
@@ -65,17 +63,16 @@ namespace Model
 
             // INSTANTIATE a new Graphics.FromImage object, used for drawing the new image.  Pass it the empty adjustedImage bitmap
             Graphics gr = Graphics.FromImage(adjustedImage);
-            
+
             // CALL DrawImage method on the Graphics object and pass in needed params.  This redraws the image with our specified Image Attributes (Which includes the brightness change)
             gr.DrawImage(pImageToAdjust, points, rect, GraphicsUnit.Pixel, attributes);
-            
+
             // RETURN the newly drawn adjusted image
             return adjustedImage;
         }
 
-
         /// <summary>
-        /// 
+        ///
         /// CODE ADAPTED FROM: https://stackoverflow.com/questions/14364716/faster-algorithm-to-change-hue-saturation-lightness-in-a-bitmap
         /// </summary>
         /// <param name="pImageToAdjust">The image to be altered</param>
@@ -89,7 +86,7 @@ namespace Model
             float bwgt = 0.0820f;
 
             // DECLARE a float "s" that holds the saturation value to be added to the colour matrix.  Convert percantage to a multiplier, 50(middle) turns to 1 (Unchanged)
-            float s = ((float)pNewSaturation  /  100f) + 0.5f;
+            float s = ((float)pNewSaturation / 100f) + 0.5f;
 
             // CALCULATE the 9 values needed for the colour matrix, 3 for each channel Red, Green, Blue
             float a = (1.0f - s) * rwgt + s;
@@ -123,9 +120,9 @@ namespace Model
 
             // CALL DrawImage method on the Graphics object and pass in needed params.  This redraws the image with our specified Image Attributes (Which includes the saturation change)
             graphics.DrawImage(
-                pImageToAdjust,  
-                new Rectangle(0,0, pImageToAdjust.Width, pImageToAdjust.Height),
-                0,0,
+                pImageToAdjust,
+                new Rectangle(0, 0, pImageToAdjust.Width, pImageToAdjust.Height),
+                0, 0,
                 pImageToAdjust.Width,
                 pImageToAdjust.Height,
                 GraphicsUnit.Pixel,
@@ -135,10 +132,9 @@ namespace Model
             return pImageToAdjust;
         }
 
-
         /// <summary>
         /// Adjusts the contrast of an Image to the contrast value provided and returns it.
-        /// 
+        ///
         /// Code adapted from: https://www.c-sharpcorner.com/uploadfile/75a48f/control-image-contrast-using-asp-net/
         /// </summary>
         /// <param name="pImageToAdjust">The Image to adjust.</param>
@@ -251,8 +247,6 @@ namespace Model
             return pImageToAdjust;
         }
 
-
-
         /// <summary>
         /// Resize Method: Returns an Image resized to a specified size.
         /// </summary>
@@ -303,7 +297,6 @@ namespace Model
                 // RETURN the image
                 return pImage;
             }
-
         }
 
         /// <summary>
@@ -332,10 +325,10 @@ namespace Model
                 // RETURN the image
                 return pImage;
             }
-
         }
+
         /// <summary>
-        /// 
+        ///
         /// Code adapted from: https://www.youtube.com/watch?v=7IR6J8Kw8cE&ab_channel=SundayNotice
         /// </summary>
         /// <param name="pImageToCrop">The image to be cropped</param>
@@ -353,7 +346,7 @@ namespace Model
             Graphics graphic = Graphics.FromImage(bmp2);
 
             // CALL DrawImage on the Graphics Object to redraw pImageToResize onto the bitmap with the specified size
-            graphic.DrawImage(pImageToCrop, 0, 0, pImageToCrop.Width, pImageToCrop.Height);      
+            graphic.DrawImage(pImageToCrop, 0, 0, pImageToCrop.Width, pImageToCrop.Height);
 
             // INSTANTIATE a new empty bitmap with size equal to the crop box
             Bitmap crpImg = new Bitmap(pCropWidth, pCropHeight);
@@ -375,7 +368,5 @@ namespace Model
             // RETURN the cropped image
             return crpImg;
         }
-
-
     }
 }

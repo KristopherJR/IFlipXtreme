@@ -18,7 +18,7 @@ namespace Library
         {
             get { return _images; }
         }
-        
+
         /// <summary>
         /// Constructor for ImportImageEventArgs.
         /// </summary>

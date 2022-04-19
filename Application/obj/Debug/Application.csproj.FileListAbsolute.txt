@@ -82,3 +82,5 @@ C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Application\obj\Debug\Appli
 C:\Users\tixor\Source\Repos\KristopherJR\IFlipXtreme\Application\obj\Debug\Application.pdb
 C:\Users\tixor\source\repos\KristopherJR\IFlipXtreme\Application\bin\Debug\Aspose.Imaging.dll
 C:\Users\tixor\source\repos\KristopherJR\IFlipXtreme\Application\bin\Debug\Aspose.Imaging.xml
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Aspose.Imaging.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Aspose.Imaging.xml

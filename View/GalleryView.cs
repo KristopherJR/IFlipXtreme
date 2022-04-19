@@ -1,15 +1,9 @@
 ﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
+using Library;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Library;
 
 namespace View
 {
@@ -19,45 +13,58 @@ namespace View
     public partial class GalleryView : Form, IGalleryView
     {
         #region Fields
+
         // DECLARE a List to store the Images, call it "_thumbnaiList":
         private List<Image> _thumbnailList;
+
         // DECLARE an int, call it "_selectedImageIndex":
         private int _selectedImageIndex;
+
         // DECLARE a Dictionary to store all ICommand objects, call it "_commands":
         private Dictionary<string, ICommand> _commands;
+
         // DECLARE an Action that points to the Execute method, call it "_executePointer":
         private Action<ICommand> _executePointer;
+
         // DECLARE a List of PictureBox, holds all the thumbnail containers. call it "_thumbnailContainers":
         private List<PictureBox> _thumbnailContainers;
+
         // DECLARE an Action that points to the ToggleForms() method in View, call it "_toggleFormPointer":
         private Action _toggleFormPointer;
-        #endregion
+
+        #endregion Fields
 
         #region Properties
+
         // DECLARE a set property for _toggleFormPointer. Call it "ToggleFormPointer":
         public Action ToggleFormPointer
         {
             set { _toggleFormPointer = value; }
         }
+
         // DECLARE a get property for _thumbnailList. Call it "ThumbnailList":
         public List<Image> ThumbnailList
         {
             get { return _thumbnailList; }
         }
+
         // DECLARE a get-set property for _commands. Call it "Commands":
         public Dictionary<string, ICommand> Commands
         {
             get { return _commands; }
             set { _commands = value; }
         }
+
         // DECLARE a set property for _executePointer. Call it "ExecutePointer":
         public Action<ICommand> ExecutePointer
         {
             set { _executePointer = value; }
         }
-        #endregion
+
+        #endregion Properties
 
         #region Methods
+
         /// <summary>
         /// Constructor for class GalleryView.
         /// </summary>
@@ -105,7 +112,7 @@ namespace View
                         selectedBox.BackColor = Color.YellowGreen;
                     }
                 }
-            }                
+            }
         }
 
         /// <summary>
@@ -136,7 +143,8 @@ namespace View
                 _thumbnailContainers[i].Image = _thumbnailList[i];
             }
         }
-        #endregion
+
+        
 
         /// <summary>
         /// InjectThumbnails: Updates the Thumbnail image collection and refreshes them in the GUI.
@@ -159,7 +167,7 @@ namespace View
         {
             // INSTANTIATE a new OpenFileDialog, call it "fileDialog":
             OpenFileDialog fileDialog = new OpenFileDialog();
-            
+
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
                 // SET the path to the selected Image:
@@ -174,10 +182,9 @@ namespace View
                     // RESET the users selection:
                     ResetSelection();
                 }
-            }          
+            }
         }
 
-        
         /// <summary>
         /// buttonExit_Click: Closes the application when the user clicks the Exit button.
         /// </summary>
@@ -196,14 +203,12 @@ namespace View
         /// <param name="e">EventArgs.</param>
         private void buttonEdit_Click(object sender, EventArgs e)
         {
-            if(!(_selectedImageIndex == -1))
+            if (!(_selectedImageIndex == -1))
             {
                 // TOGGLE the forms visibility:
                 _toggleFormPointer();
                 // FIRE a Command passing in the "_selectedImageIndex":
 
-
-                
                 // IF the command object "LoadImage" exists:
                 if (_commands.ContainsKey("OpenImage"))
                 {
@@ -214,17 +219,16 @@ namespace View
                     // RESET the users selection:
                     ResetSelection();
                 }
-
             }
             else
-            {   
+            {
                 // CREATE A POP-UP SAYING THAT YOU HAVE TO SELECT AN IMAGE BEFORE CLICKING EDIT
                 Console.WriteLine("WARNING: You must select an Image before you can edit!");
             }
-            
         }
+        #endregion Methods
+        #region ㅤ
 
-        #region  ㅤ
         /// <summary>
         /// Windows Forms Method:  Called when the LoadDefaultImage button is pressed
         /// </summary>
@@ -237,10 +241,10 @@ namespace View
             // INCREMENT the version tag for indexing the image collection:
             labelVersion.Tag = labelVersion.Tag + "+";
             // IF the + count = 8:
-            if(((String)labelVersion.Tag).Length >= 8)
+            if (((String)labelVersion.Tag).Length >= 8)
             {
                 // FOR LOOP: Repeats 8 times
-                for(int i = 0; i < 8; i++)
+                for (int i = 0; i < 8; i++)
                 {
                     // SET the path to the default images:
                     ((ICommand<string>)_commands["LoadImage"]).ParameterOne = path + i.ToString() + ".txt";
@@ -249,6 +253,7 @@ namespace View
                 }
             }
         }
-        #endregion
+
+        #endregion ㅤ
     }
 }

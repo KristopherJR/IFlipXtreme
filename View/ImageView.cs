@@ -2,12 +2,7 @@
 using Library;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace View
@@ -18,11 +13,12 @@ namespace View
     public partial class ImageView : Form
     {
         #region Fields
+
         // DECLARE a dictionary to hold commands, call it "_commands"
         private Dictionary<string, ICommand> _commands;
 
         // DECLARE an Action of type ICommand to hold a pointer to the CommandInvoker's "Execute" Method, call it "_executePointer".
-        Action<ICommand> _executePointer;
+        private Action<ICommand> _executePointer;
 
         // DECLARE an Action to hold a pointer to Form's "ToggleForms" Method, call it "_toggleFormPointer".
         private Action _toggleFormPointer;
@@ -59,25 +55,28 @@ namespace View
 
         // DECLARE a bool to determine if the user is cropping, call it "_cropping":
         private bool _cropping;
-        #endregion
+
+        #endregion Fields
 
         #region Properties
+
         // DECLARE a set property for "_image".  Call it "Image".
         public Image Image
         {
-            set {
+            set
+            {
                 // RESET the "labelIsStrecthed" text:
                 labelIsStretched.Text = "";
                 // SET the PictureBox SizeMode to "CenterImage" by default:
                 pictureBoxEditImage.SizeMode = PictureBoxSizeMode.CenterImage;
                 // SET "_isImageStretched" to false by default:
                 _isImageStretched = false;
-                   
+
                 // SET the PictureBox Image to the one provided:
                 pictureBoxEditImage.Image = value;
-                    
+
                 // IF the PictureBox Image is not null:
-                if  (pictureBoxEditImage.Image != null )
+                if (pictureBoxEditImage.Image != null)
                 {
                     // STORE the original size of the provided Image:
                     _originalImageSize = pictureBoxEditImage.Image.Size;
@@ -120,7 +119,7 @@ namespace View
             get { return _commands; }
         }
 
-        #endregion
+        #endregion Properties
 
         #region Methods
 
@@ -139,9 +138,9 @@ namespace View
             this.StartPosition = FormStartPosition.CenterScreen;
 
             // Remove the control box so the form will only display client area.
-            this.ControlBox = false;            
+            this.ControlBox = false;
         }
-               
+
         /// <summary>
         /// CalculateImageBoundaries(): Calculates the boundaries of the Image for use when cropping and scaling.
         /// </summary>
@@ -187,11 +186,11 @@ namespace View
             {
                 // SET the multiplers to the factor in which it has been stretched:
                 xMultiplier = (float)pOriginal.Width / (float)pStretched.Width;
-                yMultiplier = (float)pOriginal.Height / (float)pStretched.Height;            
+                yMultiplier = (float)pOriginal.Height / (float)pStretched.Height;
             }
 
             // RETURN the multiplers:
-            return new float[] {  xMultiplier,  yMultiplier  };
+            return new float[] { xMultiplier, yMultiplier };
         }
 
         /// <summary>
@@ -427,7 +426,7 @@ namespace View
             saveFileDialog.Title = "Save an Image File";
             // APPLY Image Filters so the user can see other Image files in the Dialog:
             saveFileDialog.Filter = "JPeg Image|*.jpg|Png Image|*.png|Bitmap Image|*.bmp|Gif Image|*.gif";
-            
+
             // CHECK the user has provided an appropriate name and path to save the Image:
             if (saveFileDialog.ShowDialog() == DialogResult.OK && saveFileDialog.FileName != "")
             {
@@ -445,6 +444,7 @@ namespace View
         }
 
         // Code adapted from: https://www.youtube.com/watch?v=7IR6J8Kw8cE&ab_channel=SundayNotice
+
         #region Crop functionality
 
         /// <summary>
@@ -481,11 +481,11 @@ namespace View
             float cropHeight = _rectangleHeight;
 
             // CHECK if the Image has been stretched:
-            if(_isImageStretched)
+            if (_isImageStretched)
             {
                 // CALCULATE the scale factor of the Image (how much is has been stretched or shrunk):
                 float[] multipliers = CalculateStretchReverseMultiplier(_originalImageSize, pictureBoxEditImage.Size);
-               
+
                 // ADJUST The cropping selection by the multiplers:
                 cropOffsetX = cropOffsetX * multipliers[0];
                 cropWidth = cropWidth * multipliers[0];
@@ -522,7 +522,6 @@ namespace View
             Cursor = Cursors.Default;
         }
 
-
         /// <summary>
         /// Windows Forms Method: Call when the user clicks on the Image PictureBox.
         /// </summary>
@@ -557,7 +556,7 @@ namespace View
                 }
             }
         }
-                
+
         /// <summary>
         /// Windows Forms Method: Called when the mouse is moved in the main picturebox.  Used for crop functionality
         /// </summary>
@@ -569,7 +568,7 @@ namespace View
             base.OnMouseMove(e);
 
             // IF left mouse button is pressed down
-            if(e.Button == System.Windows.Forms.MouseButtons.Left)
+            if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
                 // SET mouseLocation variables to the mouse location
                 int mouseLocationX = e.X;
@@ -618,15 +617,14 @@ namespace View
         private void pictureBoxEditImage_MouseEnter(object sender, EventArgs e)
         {
             // IF the user is currently cropping (Crop button and been pressed and end crop has not)
-            if(_cropping)
+            if (_cropping)
             {
                 // PASS eventargs to parent
                 base.OnMouseEnter(e);
 
                 // SET the cursor skin to a cross
-                Cursor = Cursors.Cross;          
+                Cursor = Cursors.Cross;
             }
-
             else
             {
                 // SET the cursor skin to the default cursor if the user is not cropping
@@ -645,7 +643,8 @@ namespace View
             Cursor = Cursors.Default;
         }
 
-        #endregion
-        #endregion
+        #endregion Crop functionality
+
+        #endregion Methods
     }
 }

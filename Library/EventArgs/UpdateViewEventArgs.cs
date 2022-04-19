@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Library
 {
@@ -14,14 +11,17 @@ namespace Library
     public class UpdateViewEventArgs : EventArgs
     {
         #region FIELDS
+
         // DECLARE a List<Image>, call it _imageList:
         private List<Image> _imageList;
 
         // DECLARE a Image, call it _image:
         private Image _image;
-        #endregion
+
+        #endregion FIELDS
 
         #region PROPERTIES
+
         // DECLARE a GET property for _imageList:
         public List<Image> ImageList
         {
@@ -36,7 +36,8 @@ namespace Library
             get { return _image; }
         }
 
-        #endregion
+        #endregion PROPERTIES
+
         /// <summary>
         /// Constructor for UpdateImageListEventArgs.
         /// </summary>

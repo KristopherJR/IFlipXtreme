@@ -1,22 +1,21 @@
 ﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
-using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Test
 {
     public class FakeModel : IPublisher
     {
         #region Fields
+
         private FakeImageManipulator _fakeImageManipulator;
         private FakeImageStorage _fakeImageStorage;
         private IList<ISubscriber> _subscribers;
-        #endregion
+
+        #endregion Fields
 
         #region Properties
+
         public FakeImageStorage FakeImageStorage
         {
             get { return _fakeImageStorage; }
@@ -26,9 +25,11 @@ namespace Test
         {
             get { return _subscribers; }
         }
-        #endregion
+
+        #endregion Properties
 
         #region Methods
+
         public FakeModel()
         {
             _fakeImageManipulator = new FakeImageManipulator();
@@ -38,7 +39,7 @@ namespace Test
 
         public void LoadImage(string pImagePath)
         {
-            if(_fakeImageStorage.LoadImage(pImagePath))
+            if (_fakeImageStorage.LoadImage(pImagePath))
             {
                 UpdateSubscribers();
             }
@@ -50,8 +51,7 @@ namespace Test
 
             foreach (Image i in _fakeImageStorage.ImageStore)
             {
-                
-                thumbList.Add(_fakeImageManipulator.Resize(i, new Size(128,128)));  
+                thumbList.Add(_fakeImageManipulator.Resize(i, new Size(128, 128)));
             }
 
             return thumbList;
@@ -59,13 +59,12 @@ namespace Test
 
         private void UpdateSubscribers()
         {
-            foreach(ISubscriber subscriber in _subscribers)
+            foreach (ISubscriber subscriber in _subscribers)
             {
                 if (subscriber is FakeGalleryView)
-                    {
+                {
                     subscriber.Update(new FakeImportImageEventArgs(GetThumbnails()));
                 }
-                
             }
         }
 
@@ -79,6 +78,6 @@ namespace Test
             _subscribers.Remove(pSubscriber);
         }
 
-        #endregion
+        #endregion Methods
     }
 }

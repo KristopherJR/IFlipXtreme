@@ -1,14 +1,11 @@
 ﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
 using Library;
-using View;
 using System;
-using Model;
-using System.Windows.Forms;
 
 namespace Controller
 {
     /// <summary>
-    /// Controller Class: High level class.  Holds reference to both View and Model projects, and the commandInvoker. 
+    /// Controller Class: High level class.  Holds reference to both View and Model projects, and the commandInvoker.
     /// </summary>
     public class Controller : IController
     {
@@ -22,12 +19,14 @@ namespace Controller
         private CommandInvoker _commandInvoker;
 
         #region Properties
+
         // DECLARE a get property to access "_model"
         public Model.Model Model
         {
             get { return _model; }
         }
-        #endregion
+
+        #endregion Properties
 
         /// <summary>
         /// Constructor for Controller class
@@ -40,7 +39,7 @@ namespace Controller
             // INSTANTIATE "_view" as a new View
             _view = new View.View();
 
-            // INSTANTIATE "_commandInvoker" as a new Command Invoker            
+            // INSTANTIATE "_commandInvoker" as a new Command Invoker
             _commandInvoker = new CommandInvoker();
 
             // CALL the model's Subscribe Method and pass in the View object.  This subscribes the GUI to the server for updates
@@ -79,9 +78,11 @@ namespace Controller
             Action<int> rotateImageAction = _model.RotateImage;
             Action<int> flipImageAction = _model.FlipImage;
             Action revertChangesAction = _model.RevertChanges;
-            #endregion
+
+            #endregion Actions
 
             #region Commands
+
             // DECLARE & INSTANTIATE command objects that are used by the Gallery View, pass in the relevant Actions that were defined prior.
             Command<string> loadImageCommand = new Command<string>(loadImageAction);
             Command<int> openImageCommand = new Command<int>(openImageAction);
@@ -115,7 +116,8 @@ namespace Controller
             _view.ImageView.Commands.Add("RotateImage", rotateImageCommand);
             _view.ImageView.Commands.Add("FlipImage", flipImageCommand);
             _view.ImageView.Commands.Add("RevertChanges", revertChangesCommand);
-            #endregion
+
+            #endregion Commands
         }
     }
 }

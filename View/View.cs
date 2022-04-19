@@ -1,10 +1,6 @@
 ﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
 using Library;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace View
@@ -15,36 +11,44 @@ namespace View
     public class View : ISubscriber
     {
         #region Fields
+
         // DECLARE a GalleryView, call it "_gallery":
-        GalleryView _gallery;
+        private GalleryView _gallery;
+
         // DECLARE an ImageView, call it "_editor":
-        ImageView _editor;
+        private ImageView _editor;
+
         // DECLARE an Action<ICommand>, call it "_executePointer":
-        Action<ICommand> _executePointer;
-        #endregion
+        private Action<ICommand> _executePointer;
+
+        #endregion Fields
 
         #region Properties
+
         // DECLARE a set Property that sets the ExecutePointers:
         public Action<ICommand> ExecutePointer
         {
-            set 
+            set
             {
                 _executePointer = value;
                 _gallery.ExecutePointer = value;
                 _editor.ExecutePointer = value;
             }
         }
+
         // DECLARE a get Property for "_galleryView":
         public GalleryView GalleryView
         {
             get { return _gallery; }
         }
+
         // DECLARE a get Property for "_editor":
         public ImageView ImageView
         {
             get { return _editor; }
         }
-        #endregion
+
+        #endregion Properties
 
         #region Methods
 
@@ -82,8 +86,8 @@ namespace View
             _gallery.Visible = !_gallery.Visible;
             // INVERT the Visibility of "_editor":
             _editor.Visible = !_editor.Visible;
-        }    
-       
+        }
+
         /// <summary>
         /// Update: Called the update the View from the Model.
         /// </summary>
@@ -104,6 +108,7 @@ namespace View
                 Console.WriteLine(ex.Message);
             }
         }
-        #endregion
+
+        #endregion Methods
     }
 }

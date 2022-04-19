@@ -7,23 +7,26 @@ using System.IO;
 namespace Model
 {
     /// <summary>
-    /// ImageStorage Class: Holds the list of the full size imported images, and loads them 
+    /// ImageStorage Class: Holds the list of the full size imported images, and loads them
     /// </summary>
     public class ImageStorage
     {
         #region Fields
+
         // DECLARE a new List of type Image to hold the list of imported images.  Call it "_imageStore"
         private List<Image> _imageStore;
-        #endregion
+
+        #endregion Fields
 
         #region Properties
+
         //DECLARE a get property to access _imageStore
         public List<Image> ImageStore
         {
             get { return _imageStore; }
         }
-        #endregion
 
+        #endregion Properties
 
         /// <summary>
         /// Constructor for class ImageStorage.
@@ -37,7 +40,6 @@ namespace Model
         public Image GetImage(int pIndex)
         {
             Image wtf = _imageStore[pIndex];
-
 
             return wtf;
         }
@@ -79,7 +81,6 @@ namespace Model
                 // ELSE (If _imageStore != 8)
                 else
                 {
-                  
                     Image newImage;
 
                     using (FileStream file = new FileStream(pImagePath, FileMode.Open))

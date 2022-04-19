@@ -243,10 +243,9 @@ namespace View
             // 
             // labelIsStretched
             // 
-            this.labelIsStretched.AutoSize = true;
             this.labelIsStretched.Location = new System.Drawing.Point(698, 511);
             this.labelIsStretched.Name = "labelIsStretched";
-            this.labelIsStretched.Size = new System.Drawing.Size(35, 13);
+            this.labelIsStretched.Size = new System.Drawing.Size(125, 144);
             this.labelIsStretched.TabIndex = 27;
             this.labelIsStretched.Text = "label2";
             // 
