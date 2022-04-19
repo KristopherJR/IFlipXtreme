@@ -5,6 +5,9 @@ using System.Drawing;
 
 namespace Library
 {
+    /// <summary>
+    /// Class ImportImageEventArgs. Provides a List of Images from the ImageStorage that is passed to View on an Update event.
+    /// </summary>
     public class ImportImageEventArgs : EventArgs
     {
         // DECLARE a List<Image>, call it _images:

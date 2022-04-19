@@ -1,5 +1,6 @@
 ﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
 using Library;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 
@@ -21,13 +22,17 @@ namespace Model
         // DECLARE a List of type ISubscriber to hold the list of subscribed objects.  Call it "_subscribers".
         private IList<ISubscriber> _subscribers;
 
+        // DECLARE an int to hold the index of the currently open image
         private int _currentImageIndex;
 
-        // DECLARE a int to hold the list index of the image currently being edited.
+        // DECLARE an int to hold the list index of the image currently being edited.
         private Image _currentImage;
 
-        // DECLARE a int to hold the list index of the image currently being edited, with changes shows.
+        // DECLARE an int to hold the list index of the image currently being edited, with changes shows.
         private Image _currentAdjustedImage;
+
+        // DECLARE a random to randomize the values for the RandomFilter, call it _random;
+        private Random _random;
 
         #endregion
 
@@ -59,6 +64,9 @@ namespace Model
 
             // INSTANTIATE _subscribers as a new List of type ISubscriber
             _subscribers = new List<ISubscriber>();
+
+            // INSTANTIATE _random as a new Random
+            _random = new Random();
         }
 
         /// <summary>
@@ -70,7 +78,7 @@ namespace Model
             // IF import was successful
             if (_imageStorage.LoadImage(pImagePath))
             {
-                // CALL UpdateSubscibers to pass the updated thumbnail list
+                // UPDATE subscribers (view) of any changes that have been made 
                 UpdateSubscribers();
             }
         }
@@ -81,6 +89,7 @@ namespace Model
         /// <param name="pBrightnessVal">The amount to increase brightness by.</param>
         public void AdjustBrightness(int pBrightnessVal)
         {
+            //CALL AdjustBrightness in the Image Manipulator and pass in the current image and the brightness adjustment value, store result in _currentImage
             _currentImage = _imageManipulator.AdjustBrightness(_currentImage, pBrightnessVal);
 
             // UPDATE subscribers (view) of any changes that have been made 
@@ -93,8 +102,10 @@ namespace Model
         /// <param name="pContrastVal">The amount to increase Contrast by.</param>
         public void AdjustContrast(int pContrastVal)
         {
+            //CALL AdjustContrast in the Image Manipulator and pass in the current image and the Contrast adjustment value, store result in _currentImage
             _currentImage = _imageManipulator.AdjustContrast(_currentImage, pContrastVal);
 
+            // UPDATE Subscribers (View) of changed information
             UpdateSubscribers();
         }
 
@@ -104,8 +115,10 @@ namespace Model
         /// <param name="pSaturationVal">The amount to increase Saturation by.</param>
         public void AdjustSaturation(int pSaturationVal)
         {
+            // CALL AdjustSaturation in the image manipulator and pass the current image, store the result in _currentImage
             _imageManipulator.AdjustSaturation(_currentImage,pSaturationVal);
 
+            // UPDATE Subscribers (View) of changed information
             UpdateSubscribers();
         }
 
@@ -115,13 +128,17 @@ namespace Model
         /// <param name="pScaleVal">The amount to change Scale by.</param>
         public void AdjustScale(int pScaleVal)
         {
+            // DECLARE a new float "scaler" to hold the multiplier for scaling, converts percentage into multiplier (50 turns to 1)
             float scaler = (float)pScaleVal  /  50;
 
+            // DECLARE 2 new floats "newHeight" & "newWidth".  Calculate the new width and new height of the image and store them
             float newHeight = _currentImage.Height * scaler;
             float newWidth = _currentImage.Width * scaler;
 
+            // CALL Resize in the image manipulator and pass the current image and new size, store the result in _currentImage
             _currentImage = _imageManipulator.Resize(_currentImage,  new Size((int)newWidth,  (int)newHeight));
 
+            // UPDATE Subscribers (View) of changed information
             UpdateSubscribers();
         }
 
@@ -134,8 +151,10 @@ namespace Model
         /// <param name="pNewHeight">Height of the crop box</param>
         public void CropImage(int pOriginX, int pOriginY, int pNewWidth, int pNewHeight)
         {
+            // CALL Crop in the image manipulator and pass the current image, X & Y offset of crop box, and Height and Width of the crop box, store the result in _currentImage
             _currentImage = _imageManipulator.Crop(_currentImage, pOriginX, pOriginY, pNewWidth, pNewHeight);
 
+            // UPDATE Subscribers (View) of changed information
             UpdateSubscribers();
         }
 
@@ -145,17 +164,32 @@ namespace Model
         /// <param name="pFilterIndex">Number to specify which filter to be applied</param>
         public void ApplyFilter(int pFilterIndex)
         {
+            // IF GreyScaleFliter was pressed command param = 0
             if (pFilterIndex == 0)
             {
+                // CALL GreyScaleFilter
                 GreyScaleFilter();
             }
+
+            // IF GreyScaleFliter was pressed command param = 1
             else if (pFilterIndex == 1)
             {
+                // CALL SunburnFilter
                 SunburnFilter();
             }
+
+            // IF BlurFilter was pressed command param = 2
             else if (pFilterIndex == 2)
             {
+                // CALL BlurFilter
                 BlurFilter();
+            }
+
+            // IF RandomFiler was pressed command param = 3
+            else if (pFilterIndex == 3)
+            {
+                // CALL RandomFilter
+                RandomFilter();
             }
             // UPDATE subscribers (view) of any changes that have been made
             UpdateSubscribers();
@@ -240,10 +274,15 @@ namespace Model
                 return (_currentImage);
         }
 
+        /// <summary>
+        /// RevertChanges Method:  Reloads the current image from the unedited version in Image Storage
+        /// </summary>
         public void RevertChanges()
         {
+            // CALL OpenImage to Open the unedited copy of the current image
             OpenImage(_currentImageIndex);
 
+            // UPDATE Subscribers (View) of changed information
             UpdateSubscribers();
         }
 
@@ -270,29 +309,85 @@ namespace Model
             _subscribers.Add(pSubscriber);
         }
 
+        /// <summary>
+        /// GreyScaleFilter Method: Applies a grey scale filter by heavily undersaturating the image 
+        /// </summary>
         public void GreyScaleFilter()
         {
+            // CALL AdjustSaturation in the Image Manipulator and pass the current image and -50 as a saturation value
             _currentImage = _imageManipulator.AdjustSaturation(_currentImage, -50);
 
+            // UPDATE Subscribers (View) of changed information
             UpdateSubscribers();
         }
 
+        /// <summary>
+        /// SunburnFilter Method:  Applies a sunburn filter by increasing the contrast, saturation, and brightness of an image
+        /// </summary>
         public void SunburnFilter()
         {
+            // CALL the 3 relevant methods in Image Storage and pass them each the current image and adjustment values, store the result in _currentImage each time
             _currentImage = _imageManipulator.AdjustContrast(_currentImage, 300);
             _currentImage = _imageManipulator.AdjustSaturation(_currentImage, 300);
             _currentImage = _imageManipulator.AdjustBrightness(_currentImage, 55);
+
+            // PRINT useful progress message to the user
             System.Console.WriteLine("Ouch! That's hot!");
 
+            // UPDATE Subscribers (View) of changed information
             UpdateSubscribers();
         }
 
+        /// <summary>
+        /// BlurFilter Method: Applies a blur filter by shrinking the image and stretching the remaining pixels from the 32*32 image
+        /// </summary>
         public void BlurFilter()
         {
+            // DECLARE a new Size object to hold the original size of the image, call it "originalSize"
             Size originalSize = _currentImage.Size;
+
+            // CALL Resize in Image Manipulator and pass it the current image and the Size 32*32
             _currentImage = _imageManipulator.Resize(_currentImage, new Size(32,  32));
+
+            // CALL Resize in Image Manipulator and pass it the current image and the original image size
             _currentImage = _imageManipulator.Resize(_currentImage, originalSize);
 
+            // UPDATE Subscribers (View) of changed information
+            UpdateSubscribers();
+        }
+
+        /// <summary>
+        /// RandomFilter Method: Applies a random filter by randomly modifying all the values
+        /// </summary>
+        public void RandomFilter()
+        {
+            // DECLARE a new Size object to hold the original size of the image, call it "originalSize"
+            Size originalSize = _currentImage.Size;
+
+            // DECLARE two lists to store the random numbers for scale and adjustments, call them "randomScale" and "randomEdits"
+            List<int> randomScale = new List<int>();
+            List<int> randomEdits = new List<int>();
+
+            // FOR LOOP repeat 3 times to add the random numbers to the lists:
+            for (int i = 0; i <= 2; i++) 
+            { 
+                randomEdits.Add(_random.Next(1, 100));
+                randomScale.Add(_random.Next(1, 2000)); 
+            }
+
+            // CALL the 4 relevant methods in Image Storage and pass them each the current image and random adjustment values, store the result in _currentImage each time
+            _currentImage = _imageManipulator.Resize(_currentImage, new Size(randomScale[0], randomScale[1]));
+            _currentImage = _imageManipulator.AdjustContrast(_currentImage, randomEdits[0]);
+            _currentImage = _imageManipulator.AdjustSaturation(_currentImage, randomEdits[1]);
+            _currentImage = _imageManipulator.AdjustBrightness(_currentImage, randomEdits[2]);
+
+            randomEdits.Clear();
+            randomScale.Clear();
+
+            // CALL Resize in Image Manipulator and pass it the current image and the original image size
+            _currentImage = _imageManipulator.Resize(_currentImage, originalSize);
+
+            // UPDATE Subscribers (View) of changed information
             UpdateSubscribers();
         }
 
@@ -313,6 +408,18 @@ namespace Model
         {
             // CALL SaveImage in image storage 
             _imageStorage.SaveImage(_currentImage, _currentImageIndex);
+
+            // UPDATE subscribers (view) of any changes that have been made
+            UpdateSubscribers();
+        }
+
+        /// <summary>
+        /// SaveImage Method: Saves the currently opened image.
+        /// </summary>
+        public void SaveImageToPath(string path)
+        {
+            // CALL SaveImage in image storage 
+            _imageStorage.SaveImage(_currentImage, _currentImageIndex, path);
 
             // UPDATE subscribers (view) of any changes that have been made
             UpdateSubscribers();

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace Library
 {
+    /// <summary>
+    /// UpdateViewEventArgs Class. Contains the Images for the Gallery and Editor which is passed by Model to View on an Update.
+    /// </summary>
     public class UpdateViewEventArgs : EventArgs
     {
         #region FIELDS
@@ -19,17 +22,17 @@ namespace Library
         #endregion
 
         #region PROPERTIES
-        // DECLARE a GET property for ImageList:
+        // DECLARE a GET property for _imageList:
         public List<Image> ImageList
         {
             // RETURN _imageList:
             get { return _imageList; }
         }
 
-
+        // DECLARE a GET property for _image:
         public Image Image
         {
-            // RETURN _imageList:
+            // RETURN _image:
             get { return _image; }
         }
 
@@ -40,9 +43,9 @@ namespace Library
         /// <param name="pImageList">A List containing all Images in the Models ImageStorage.</param>
         public UpdateViewEventArgs(List<Image> pImageList, Image pImage)
         {
-            // ASSIGN _imageList:
+            // ASSIGN pImageList:
             _imageList = pImageList;
-
+            // ASSIGN pImage
             _image = pImage;
         }
     }

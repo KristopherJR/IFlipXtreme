@@ -74,6 +74,7 @@ namespace Controller
             Action<int> adjustScaleAction = _model.AdjustScale;
             Action<int, int, int, int> cropImageAction = _model.CropImage;
             Action saveImageAction = _model.SaveImage;
+            Action<string> saveImageToPathAction = _model.SaveImageToPath;
             Action<int> applyFilterAction = _model.ApplyFilter;
             Action<int> rotateImageAction = _model.RotateImage;
             Action<int> flipImageAction = _model.FlipImage;
@@ -92,6 +93,7 @@ namespace Controller
             Command<int> adjustScaleCommand = new Command<int>(adjustScaleAction);
             Command<int, int, int, int> cropImageCommand = new Command<int, int, int, int>(cropImageAction);
             Command saveImageCommand = new Command(saveImageAction);
+            Command<string> saveImageToPathCommand = new Command<string>(saveImageToPathAction);
             Command<int> applyFilterCommand = new Command<int>(applyFilterAction);
             Command<int> rotateImageCommand = new Command<int>(rotateImageAction);
             Command<int> flipImageCommand = new Command<int>(flipImageAction);
@@ -108,6 +110,7 @@ namespace Controller
             _view.ImageView.Commands.Add("AdjustScale", adjustScaleCommand);
             _view.ImageView.Commands.Add("CropImage", cropImageCommand);
             _view.ImageView.Commands.Add("SaveImage", saveImageCommand);
+            _view.ImageView.Commands.Add("SaveImageToPath", saveImageToPathCommand);
             _view.ImageView.Commands.Add("ApplyFilter", applyFilterCommand);
             _view.ImageView.Commands.Add("RotateImage", rotateImageCommand);
             _view.ImageView.Commands.Add("FlipImage", flipImageCommand);

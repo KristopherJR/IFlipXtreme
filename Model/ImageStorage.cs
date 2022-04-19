@@ -118,6 +118,15 @@ namespace Model
             // GET the path of the image from the tag in the relevant element in Image List
             string path = (_imageStore[pIndex].Tag).ToString();
 
+            SaveImage(pImage, pIndex, path);
+        }
+
+        /// <summary>
+        /// SaveImage Method: Saves a passed image to its original path, and in to the image list
+        /// </summary>
+        /// <param name="pImage"></param>
+        public void SaveImage(Image pImage, int pIndex, string path)
+        {
             // SET the path of the edited image back to its path, to put in back into the list
             pImage.Tag = path;
 

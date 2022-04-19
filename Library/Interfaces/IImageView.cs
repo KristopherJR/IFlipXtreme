@@ -12,6 +12,6 @@ namespace Library
     /// </summary>
     public interface IImageView
     {
-                // do nothing for now
+        // do nothing for now
     }
 }

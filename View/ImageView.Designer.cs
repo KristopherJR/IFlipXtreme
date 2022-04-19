@@ -52,6 +52,8 @@ namespace View
             this.buttonSunburnFilter = new System.Windows.Forms.Button();
             this.buttonBlurFilter = new System.Windows.Forms.Button();
             this.buttonRevertChanges = new System.Windows.Forms.Button();
+            this.buttonSaveAs = new System.Windows.Forms.Button();
+            this.buttonRandomFilter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEditImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarBrightness)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarContrast)).BeginInit();
@@ -83,9 +85,9 @@ namespace View
             // 
             // buttonSave
             // 
-            this.buttonSave.Location = new System.Drawing.Point(723, 694);
+            this.buttonSave.Location = new System.Drawing.Point(701, 694);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(100, 50);
+            this.buttonSave.Size = new System.Drawing.Size(58, 50);
             this.buttonSave.TabIndex = 2;
             this.buttonSave.Text = "Save and Exit";
             this.buttonSave.UseVisualStyleBackColor = true;
@@ -93,9 +95,9 @@ namespace View
             // 
             // buttonDiscard
             // 
-            this.buttonDiscard.Location = new System.Drawing.Point(617, 694);
+            this.buttonDiscard.Location = new System.Drawing.Point(615, 694);
             this.buttonDiscard.Name = "buttonDiscard";
-            this.buttonDiscard.Size = new System.Drawing.Size(100, 50);
+            this.buttonDiscard.Size = new System.Drawing.Size(80, 50);
             this.buttonDiscard.TabIndex = 3;
             this.buttonDiscard.Text = "Exit and Discard Changes";
             this.buttonDiscard.UseVisualStyleBackColor = true;
@@ -250,7 +252,7 @@ namespace View
             // 
             // buttonGrayscaleFilter
             // 
-            this.buttonGrayscaleFilter.Location = new System.Drawing.Point(29, 139);
+            this.buttonGrayscaleFilter.Location = new System.Drawing.Point(30, 82);
             this.buttonGrayscaleFilter.Name = "buttonGrayscaleFilter";
             this.buttonGrayscaleFilter.Size = new System.Drawing.Size(77, 59);
             this.buttonGrayscaleFilter.TabIndex = 28;
@@ -260,7 +262,7 @@ namespace View
             // 
             // buttonSunburnFilter
             // 
-            this.buttonSunburnFilter.Location = new System.Drawing.Point(29, 239);
+            this.buttonSunburnFilter.Location = new System.Drawing.Point(30, 182);
             this.buttonSunburnFilter.Name = "buttonSunburnFilter";
             this.buttonSunburnFilter.Size = new System.Drawing.Size(77, 59);
             this.buttonSunburnFilter.TabIndex = 29;
@@ -270,7 +272,7 @@ namespace View
             // 
             // buttonBlurFilter
             // 
-            this.buttonBlurFilter.Location = new System.Drawing.Point(29, 329);
+            this.buttonBlurFilter.Location = new System.Drawing.Point(30, 282);
             this.buttonBlurFilter.Name = "buttonBlurFilter";
             this.buttonBlurFilter.Size = new System.Drawing.Size(77, 59);
             this.buttonBlurFilter.TabIndex = 30;
@@ -288,11 +290,33 @@ namespace View
             this.buttonRevertChanges.UseVisualStyleBackColor = true;
             this.buttonRevertChanges.Click += new System.EventHandler(this.buttonRevertChanges_Click);
             // 
+            // buttonSaveAs
+            // 
+            this.buttonSaveAs.Location = new System.Drawing.Point(765, 694);
+            this.buttonSaveAs.Name = "buttonSaveAs";
+            this.buttonSaveAs.Size = new System.Drawing.Size(58, 50);
+            this.buttonSaveAs.TabIndex = 32;
+            this.buttonSaveAs.Text = "Save as and Exit";
+            this.buttonSaveAs.UseVisualStyleBackColor = true;
+            this.buttonSaveAs.Click += new System.EventHandler(this.buttonSaveAs_Click);
+            // 
+            // buttonRandomFilter
+            // 
+            this.buttonRandomFilter.Location = new System.Drawing.Point(30, 382);
+            this.buttonRandomFilter.Name = "buttonRandomFilter";
+            this.buttonRandomFilter.Size = new System.Drawing.Size(77, 59);
+            this.buttonRandomFilter.TabIndex = 33;
+            this.buttonRandomFilter.Text = "Random Filter";
+            this.buttonRandomFilter.UseVisualStyleBackColor = true;
+            this.buttonRandomFilter.Click += new System.EventHandler(this.buttonRandomFilter_Click);
+            // 
             // ImageView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(846, 760);
+            this.Controls.Add(this.buttonRandomFilter);
+            this.Controls.Add(this.buttonSaveAs);
             this.Controls.Add(this.buttonRevertChanges);
             this.Controls.Add(this.buttonBlurFilter);
             this.Controls.Add(this.buttonSunburnFilter);
@@ -356,5 +380,7 @@ namespace View
         private System.Windows.Forms.Button buttonSunburnFilter;
         private System.Windows.Forms.Button buttonBlurFilter;
         private System.Windows.Forms.Button buttonRevertChanges;
+        private System.Windows.Forms.Button buttonSaveAs;
+        private System.Windows.Forms.Button buttonRandomFilter;
     }
 }
