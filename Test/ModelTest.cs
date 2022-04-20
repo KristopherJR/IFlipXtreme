@@ -66,7 +66,7 @@ namespace Test
             bool testpassed = false;
 
             // Create a new image list that will be injected into _imageStorage
-            string goodPath = "../../../assets/OrangeFish.png";
+            string goodPath = "../../../TestAssets/TestImage";
 
             //
             Model.Model model = new Model.Model();

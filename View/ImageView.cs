@@ -10,7 +10,7 @@ namespace View
     /// <summary>
     /// ImageView Form:  Main editing window for the Image Flipper application
     /// </summary>
-    public partial class ImageView : Form
+    public partial class ImageView : Form, IImageView
     {
         #region Fields
 

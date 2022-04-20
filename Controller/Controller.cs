@@ -9,24 +9,14 @@ namespace Controller
     /// </summary>
     public class Controller : IController
     {
-        // DECLARE a new Model object to hold a refence to the model (server) of the application.  Call it "_model".
-        private Model.Model _model;
+        // DECLARE a new IModel object to hold a refence to the model (server) of the application.  Call it "_model".
+        private IModel _model;
 
-        // DECLARE a new Model object to hold a refence to the view (GUI) of the application.  Call it "_view".
-        private View.View _view;
+        // DECLARE a new IView object to hold a refence to the view (GUI) of the application.  Call it "_view".
+        private IView _view;
 
         // DECLARE a new CommandInvoker object to hold a refence to the commandInvoker.  Call it "_commandInvoker".
-        private CommandInvoker _commandInvoker;
-
-        #region Properties
-
-        // DECLARE a get property to access "_model"
-        public Model.Model Model
-        {
-            get { return _model; }
-        }
-
-        #endregion Properties
+        private ICommandInvoker _commandInvoker;
 
         /// <summary>
         /// Constructor for Controller class

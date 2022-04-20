@@ -1,4 +1,5 @@
 ﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
+using Library;
 using System.Drawing;
 using System.Drawing.Imaging;
 
@@ -9,7 +10,7 @@ namespace Model
     /// <summary>
     /// ImageManipulator Class: Contains methods to manipulate Images.  Called from model.
     /// </summary>
-    public class ImageManipulator
+    public class ImageManipulator : IImageManipulator
     {
         /// <summary>
         /// Contructor for ImageManipulator Class.
@@ -25,7 +26,7 @@ namespace Model
         /// </summary>
         /// <param name="pImageToAdjust">The Image to adjust.</param>
         /// <param name="pNewBrightness">The new brightness value for the Image.</param>
-        /// <returns></returns>
+        /// <returns>The adjusted Image.</returns>
         public Image AdjustBrightness(Image pImageToAdjust, int pNewBrightness)
         {
             // DECLARE a new float and assign the value call it "newBrightness"
@@ -77,7 +78,7 @@ namespace Model
         /// </summary>
         /// <param name="pImageToAdjust">The image to be altered</param>
         /// <param name="pNewSaturation">The saturation adjustment value</param>
-        /// <returns></returns>
+        /// <returns>The adjusted Image.</returns>
         public Image AdjustSaturation(Image pImageToAdjust, int pNewSaturation)
         {
             // DECLARE values for the luminance vectors of each colour channel for linear RGB.  Needed for calculations

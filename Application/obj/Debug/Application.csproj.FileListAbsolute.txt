@@ -84,3 +84,25 @@ C:\Users\tixor\source\repos\KristopherJR\IFlipXtreme\Application\bin\Debug\Aspos
 C:\Users\tixor\source\repos\KristopherJR\IFlipXtreme\Application\bin\Debug\Aspose.Imaging.xml
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Aspose.Imaging.dll
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Application\bin\Debug\Aspose.Imaging.xml
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\Application.exe.config
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\Application.exe
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\Application.pdb
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\Aspose.Imaging.dll
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\Controller.dll
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\Library.dll
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\View.dll
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\Model.dll
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\Controller.pdb
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\Controller.dll.config
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\Library.pdb
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\Library.dll.config
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\Aspose.Imaging.xml
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\View.pdb
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\View.dll.config
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\Model.pdb
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\bin\Debug\Model.dll.config
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.csproj.AssemblyReference.cache
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.csproj.CoreCompileInputs.cache
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.csproj.CopyComplete
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.exe
+C:\Users\tixor\Source\Repos\IFlipXtreme\Application\obj\Debug\Application.pdb

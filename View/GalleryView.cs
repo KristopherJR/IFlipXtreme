@@ -144,8 +144,6 @@ namespace View
             }
         }
 
-        
-
         /// <summary>
         /// InjectThumbnails: Updates the Thumbnail image collection and refreshes them in the GUI.
         /// </summary>

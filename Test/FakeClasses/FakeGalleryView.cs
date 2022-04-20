@@ -53,11 +53,10 @@ namespace Test
             // EXECUTE the Command object
             if (_commands.ContainsKey("Import"))
             {
-                ((ICommand<string>)_commands["Import"]).ParameterOne = "../../../assets/OrangeFish.png";
-
-                _execute(_commands["Import"]);
+                ((ICommand<string>)_commands["Import"]).ParameterOne = "../../../TestAssets/TestImage";
+                ((ICommand<string>)_commands["Import"]).Execute();
             }
-            //_execute(_importImage);
+            
         }
 
         /// <summary>

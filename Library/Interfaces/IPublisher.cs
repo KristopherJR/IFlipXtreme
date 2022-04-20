@@ -7,6 +7,16 @@ namespace Library
     /// </summary>
     public interface IPublisher
     {
-        // do nothing for now
+        /// <summary>
+        /// Subscribe Method:  Adds an ISubscriber to the list of subscribers.
+        /// </summary>
+        /// <param name="pSubscriber">The ISubscriber object to be subscribed</param>
+        void Subscribe(ISubscriber pSubscriber);
+
+        /// <summary>
+        /// Unsubscribe Method:  Removes an ISubscriber from the list of subscribers.
+        /// </summary>
+        /// <param name="pSubscriber">The ISubscriber object to be unsubscribed</param>
+        void Unsubscribe(ISubscriber pSubscriber);
     }
 }

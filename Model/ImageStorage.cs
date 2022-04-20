@@ -3,13 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using Library;
 
 namespace Model
 {
     /// <summary>
     /// ImageStorage Class: Holds the list of the full size imported images, and loads them
     /// </summary>
-    public class ImageStorage
+    public class ImageStorage : IImageStorage
     {
         #region Fields
 
@@ -37,12 +38,6 @@ namespace Model
             _imageStore = new List<Image>();
         }
 
-        public Image GetImage(int pIndex)
-        {
-            Image wtf = _imageStore[pIndex];
-
-            return wtf;
-        }
 
         /// <summary>
         /// LoadImage Method: Loads an image from the path specified, stores it in _imageStore
@@ -113,7 +108,8 @@ namespace Model
         /// <summary>
         /// SaveImage Method: Saves a passed image to its original path, and in to the image list
         /// </summary>
-        /// <param name="pImage"></param>
+        /// <param name="pImage">The Image to save.</param>
+        /// <param name="pIndex">The Index of the Image in the ImageStorage List.</param>
         public void SaveImage(Image pImage, int pIndex)
         {
             // GET the path of the image from the tag in the relevant element in Image List
@@ -125,7 +121,9 @@ namespace Model
         /// <summary>
         /// SaveImage Method: Saves a passed image to its original path, and in to the image list
         /// </summary>
-        /// <param name="pImage"></param>
+        /// <param name="pImage">The Image to save.</param>
+        /// <param name="pIndex">The Index of the Image in the ImageStorage List.</param>
+        /// <param name="path">The path to save the new Image at.</param>
         public void SaveImage(Image pImage, int pIndex, string path)
         {
             // SET the path of the edited image back to its path, to put in back into the list

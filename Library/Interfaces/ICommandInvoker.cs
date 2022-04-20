@@ -5,8 +5,8 @@ namespace Library
     /// <summary>
     /// ICommandInvoker Interface
     /// </summary>
-    internal interface ICommandInvoker
+    public interface ICommandInvoker
     {
-        // do nothing for now
+        void Execute(ICommand pCommand);
     }
 }

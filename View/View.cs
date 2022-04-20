@@ -8,15 +8,15 @@ namespace View
     /// <summary>
     /// View:  Wrapper class for the application GUI Forms.
     /// </summary>
-    public class View : ISubscriber
+    public class View : IView
     {
         #region Fields
 
-        // DECLARE a GalleryView, call it "_gallery":
-        private GalleryView _gallery;
+        // DECLARE an IGalleryView, call it "_gallery":
+        private IGalleryView _gallery;
 
-        // DECLARE an ImageView, call it "_editor":
-        private ImageView _editor;
+        // DECLARE an IImageView, call it "_editor":
+        private IImageView _editor;
 
         // DECLARE an Action<ICommand>, call it "_executePointer":
         private Action<ICommand> _executePointer;
@@ -37,13 +37,13 @@ namespace View
         }
 
         // DECLARE a get Property for "_galleryView":
-        public GalleryView GalleryView
+        public IGalleryView GalleryView
         {
             get { return _gallery; }
         }
 
         // DECLARE a get Property for "_editor":
-        public ImageView ImageView
+        public IImageView ImageView
         {
             get { return _editor; }
         }
@@ -74,7 +74,7 @@ namespace View
         public void StartApp()
         {
             // RUN the "_gallery":
-            Application.Run(_gallery);
+            Application.Run(_gallery as Form);
         }
 
         /// <summary>
@@ -83,9 +83,9 @@ namespace View
         public void ToggleForms()
         {
             // INVERT the Visibility of "_gallery":
-            _gallery.Visible = !_gallery.Visible;
+            (_gallery as Form).Visible = !(_gallery as Form).Visible;
             // INVERT the Visibility of "_editor":
-            _editor.Visible = !_editor.Visible;
+            (_editor as Form).Visible = !(_editor as Form).Visible;
         }
 
         /// <summary>

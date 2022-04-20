@@ -9,15 +9,15 @@ namespace Model
     /// <summary>
     /// Model Class: Holds references to both the Image Storage and Image Manipulator.  These classes are accesses through this class (via a command object.).
     /// </summary>
-    public class Model
+    public class Model : IModel
     {
         #region Fields
 
-        // DECLARE a reference to ImageManipulator.  Call it "_imageManipulator".
-        private ImageManipulator _imageManipulator;
+        // DECLARE a reference to IImageManipulator.  Call it "_imageManipulator".
+        private IImageManipulator _imageManipulator;
 
         // DECLARE a reference to ImageStorage. Call it _imageStorage".
-        private ImageStorage _imageStorage;
+        private IImageStorage _imageStorage;
 
         // DECLARE a List of type ISubscriber to hold the list of subscribed objects.  Call it "_subscribers".
         private IList<ISubscriber> _subscribers;
@@ -39,7 +39,7 @@ namespace Model
         #region Properties
 
         // DECLARE a get property to access ImageStorage, call it "ImageStorage".
-        public ImageStorage ImageStorage
+        public IImageStorage ImageStorage
         {
             get { return _imageStorage; }
         }
@@ -81,8 +81,8 @@ namespace Model
             // IF import was successful
             if (_imageStorage.LoadImage(pImagePath))
             {
-                // UPDATE subscribers (view) of any changes that have been made
-                UpdateSubscribers();
+                // UPDATE View of any changes that have been made
+                UpdateView();
             }
         }
 
@@ -95,8 +95,8 @@ namespace Model
             //CALL AdjustBrightness in the Image Manipulator and pass in the current image and the brightness adjustment value, store result in _currentImage
             _currentImage = _imageManipulator.AdjustBrightness(_currentImage, pBrightnessVal);
 
-            // UPDATE subscribers (view) of any changes that have been made
-            UpdateSubscribers();
+            // UPDATE View of any changes that have been made
+            UpdateView();
         }
 
         /// <summary>
@@ -108,8 +108,8 @@ namespace Model
             //CALL AdjustContrast in the Image Manipulator and pass in the current image and the Contrast adjustment value, store result in _currentImage
             _currentImage = _imageManipulator.AdjustContrast(_currentImage, pContrastVal);
 
-            // UPDATE Subscribers (View) of changed information
-            UpdateSubscribers();
+            // UPDATE View of changed information
+            UpdateView();
         }
 
         /// <summary>
@@ -121,8 +121,8 @@ namespace Model
             // CALL AdjustSaturation in the image manipulator and pass the current image, store the result in _currentImage
             _imageManipulator.AdjustSaturation(_currentImage, pSaturationVal);
 
-            // UPDATE Subscribers (View) of changed information
-            UpdateSubscribers();
+            // UPDATE View of changed information
+            UpdateView();
         }
 
         /// <summary>
@@ -141,8 +141,8 @@ namespace Model
             // CALL Resize in the image manipulator and pass the current image and new size, store the result in _currentImage
             _currentImage = _imageManipulator.Resize(_currentImage, new Size((int)newWidth, (int)newHeight));
 
-            // UPDATE Subscribers (View) of changed information
-            UpdateSubscribers();
+            // UPDATE View of changed information
+            UpdateView();
         }
 
         /// <summary>
@@ -157,8 +157,8 @@ namespace Model
             // CALL Crop in the image manipulator and pass the current image, X & Y offset of crop box, and Height and Width of the crop box, store the result in _currentImage
             _currentImage = _imageManipulator.Crop(_currentImage, pOriginX, pOriginY, pNewWidth, pNewHeight);
 
-            // UPDATE Subscribers (View) of changed information
-            UpdateSubscribers();
+            // UPDATE View of changed information
+            UpdateView();
         }
 
         /// <summary>
@@ -194,8 +194,8 @@ namespace Model
                 // CALL RandomFilter
                 RandomFilter();
             }
-            // UPDATE subscribers (view) of any changes that have been made
-            UpdateSubscribers();
+            // UPDATE View of any changes that have been made
+            UpdateView();
         }
 
         /// <summary>
@@ -207,8 +207,8 @@ namespace Model
             // CALL rotate method in Image Manipulator and pass in the current image and the rotate value, and store its value in _currentAdjustedImage
             _currentImage = _imageManipulator.Rotate(_currentImage, pRotateVal);
 
-            // UPDATE subscribers (view) of any changes that have been made
-            UpdateSubscribers();
+            // UPDATE View of any changes that have been made
+            UpdateView();
         }
 
         /// <summary>
@@ -220,8 +220,8 @@ namespace Model
             // CALL flip method in Image Manipulator and pass in the current image and the flip, and store its value in _currentAdjustedImage
             _currentImage = _imageManipulator.Flip(_currentImage, pFlipVal);
 
-            // UPDATE subscribers (view) of any changes that have been made
-            UpdateSubscribers();
+            // UPDATE View of any changes that have been made
+            UpdateView();
         }
 
         /// <summary>
@@ -233,13 +233,13 @@ namespace Model
             // IF the Image Storage's image list is not empty
             if (_imageStorage.ImageStore.Count > 0)
             {
-                _currentImage = new Bitmap(_imageStorage.GetImage(pPos));
+                _currentImage = new Bitmap(_imageStorage.ImageStore[pPos]);
 
                 // SET the tag of the current image to its position in the ImageList, this is used to save back to the list
                 _currentImageIndex = pPos;
 
-                // UPDATE subscribers (view) of any changes that have been made
-                UpdateSubscribers();
+                // UPDATE View of any changes that have been made
+                UpdateView();
             }
             else
             {
@@ -285,14 +285,14 @@ namespace Model
             // CALL OpenImage to Open the unedited copy of the current image
             OpenImage(_currentImageIndex);
 
-            // UPDATE Subscribers (View) of changed information
-            UpdateSubscribers();
+            // UPDATE View of changed information
+            UpdateView();
         }
 
         /// <summary>
-        /// UpdateSubscribers Method: Fires an event to subscribers which has the list of Thumbnails and the Current Image in the eventArgs
+        /// UpdateView Method: Fires an event to subscribers which has the list of Thumbnails and the Current Image in the eventArgs
         /// </summary>
-        private void UpdateSubscribers()
+        private void UpdateView()
         {
             // FOREACH object that is subscribed
             foreach (ISubscriber subscriber in _subscribers)
@@ -320,8 +320,8 @@ namespace Model
             // CALL AdjustSaturation in the Image Manipulator and pass the current image and -50 as a saturation value
             _currentImage = _imageManipulator.AdjustSaturation(_currentImage, -50);
 
-            // UPDATE Subscribers (View) of changed information
-            UpdateSubscribers();
+            // UPDATE View of changed information
+            UpdateView();
         }
 
         /// <summary>
@@ -337,8 +337,8 @@ namespace Model
             // PRINT useful progress message to the user
             System.Console.WriteLine("Ouch! That's hot!");
 
-            // UPDATE Subscribers (View) of changed information
-            UpdateSubscribers();
+            // UPDATE View of changed information
+            UpdateView();
         }
 
         /// <summary>
@@ -355,8 +355,8 @@ namespace Model
             // CALL Resize in Image Manipulator and pass it the current image and the original image size
             _currentImage = _imageManipulator.Resize(_currentImage, originalSize);
 
-            // UPDATE Subscribers (View) of changed information
-            UpdateSubscribers();
+            // UPDATE View of changed information
+            UpdateView();
         }
 
         /// <summary>
@@ -390,8 +390,9 @@ namespace Model
             // CALL Resize in Image Manipulator and pass it the current image and the original image size
             _currentImage = _imageManipulator.Resize(_currentImage, originalSize);
 
-            // UPDATE Subscribers (View) of changed information
-            UpdateSubscribers();
+
+            // UPDATE View of changed information
+            UpdateView();
         }
 
         /// <summary>
@@ -412,20 +413,21 @@ namespace Model
             // CALL SaveImage in image storage
             _imageStorage.SaveImage(_currentImage, _currentImageIndex);
 
-            // UPDATE subscribers (view) of any changes that have been made
-            UpdateSubscribers();
+            // UPDATE View of any changes that have been made
+            UpdateView();
         }
 
         /// <summary>
-        /// SaveImage Method: Saves the currently opened image.
+        /// SaveImage Method: Saves the currently opened image to a user provided path.
         /// </summary>
+        /// <param name="path">The path to save the Image at.</param>
         public void SaveImageToPath(string path)
         {
             // CALL SaveImage in image storage
             _imageStorage.SaveImage(_currentImage, _currentImageIndex, path);
 
-            // UPDATE subscribers (view) of any changes that have been made
-            UpdateSubscribers();
+            // UPDATE View of any changes that have been made
+            UpdateView();
         }
 
         #endregion Methods

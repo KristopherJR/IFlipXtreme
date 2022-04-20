@@ -64,6 +64,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommandInvokerTest.cs" />
     <Compile Include="FakeClasses\Command.cs" />
     <Compile Include="FakeClasses\CommandInvoker.cs" />
     <Compile Include="FakeClasses\FakeController.cs" />
@@ -88,6 +89,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Controller\Controller.csproj">
+      <Project>{de47554b-dea0-49c3-adcd-98b3290c2ec1}</Project>
+      <Name>Controller</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Library\Library.csproj">
       <Project>{614993A5-AF49-44EB-9988-32E28442D0A8}</Project>
       <Name>Library</Name>
@@ -95,6 +100,10 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{74B53272-1704-4F2A-A1AF-2981BD3F4330}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\View\View.csproj">
+      <Project>{75c1e4bf-aa23-49ad-ac91-e9c02b866ec3}</Project>
+      <Name>View</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
