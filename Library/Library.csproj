@@ -39,7 +39,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventArgs\ImportImageEventArgs.cs" />
     <Compile Include="EventArgs\UpdateViewEventArgs.cs" />
     <Compile Include="Exceptions\CommandDoesNotExistException.cs" />
     <Compile Include="Exceptions\CurrentImageNotSetException.cs" />
