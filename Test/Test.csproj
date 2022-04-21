@@ -81,6 +81,7 @@
     <Compile Include="FakeClasses\IUpdatable.cs" />
     <Compile Include="FakeClasses\ParameterNotSetException.cs" />
     <Compile Include="ImageManipulatorTest.cs" />
+    <Compile Include="ImageStorageTest.cs" />
     <Compile Include="ImportImageIntegrationTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ModelTest.cs" />

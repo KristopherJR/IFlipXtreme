@@ -214,8 +214,20 @@ namespace View
         {
             // SET the ParameterOne to path:
             ((ICommand<int>)_commands["AdjustBrightness"]).ParameterOne = trackBarBrightness.Value;
-            // SIGNAL to the CommandInvoker to fire the command:
-            _executePointer(_commands["AdjustBrightness"]);
+
+            // TRY to execute the command
+            try
+            {
+                // SIGNAL to the CommandInvoker to fire the command:
+                _executePointer(_commands["AdjustBrightness"]);
+            }
+
+            // CATCH the InvalidParamterException if thrown:
+            catch(InvalidParameterException ex)
+            {
+                // PRINT the exception message:
+                Console.WriteLine(ex.Message);
+            }
             // RESET to default value:
             trackBarBrightness.Value = 50;
         }
@@ -227,10 +239,33 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void trackBarContrast_MouseUp(object sender, MouseEventArgs e)
         {
-            // SET the ParameterOne to path:
-            ((ICommand<int>)_commands["AdjustContrast"]).ParameterOne = trackBarContrast.Value;
-            // SIGNAL to the CommandInvoker to fire the command:
-            _executePointer(_commands["AdjustContrast"]);
+            // IF the command object "AdjustContrast" exists:
+            if (_commands.ContainsKey("AdjustContrast"))
+            {
+                // SET the ParameterOne to path:
+                ((ICommand<int>)_commands["AdjustContrast"]).ParameterOne = trackBarContrast.Value;
+
+                // TRY to execute the command
+                try
+                {
+                    // SIGNAL to the CommandInvoker to fire the command:
+                    _executePointer(_commands["AdjustContrast"]);
+                }
+
+                // CATCH the InvalidParamterException if thrown:
+                catch (InvalidParameterException ex)
+                {
+                    // PRINT the exception message:
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+            }
+
             // RESET to default value:
             trackBarContrast.Value = 50;
         }
@@ -242,10 +277,33 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void trackBarSaturation_MouseUp(object sender, MouseEventArgs e)
         {
-            // SET the ParameterOne to path:
-            ((ICommand<int>)_commands["AdjustSaturation"]).ParameterOne = trackBarSaturation.Value;
-            // SIGNAL to the CommandInvoker to fire the command:
-            _executePointer(_commands["AdjustSaturation"]);
+            // IF the command object "AdjustSaturation" exists:
+            if (_commands.ContainsKey("AdjustSaturation"))
+            {
+                // SET the ParameterOne to path:
+                ((ICommand<int>)_commands["AdjustSaturation"]).ParameterOne = trackBarSaturation.Value;
+
+                // TRY to execute the command
+                try
+                {
+                    // SIGNAL to the CommandInvoker to fire the command:
+                    _executePointer(_commands["AdjustSaturation"]);
+                }
+
+                // CATCH the InvalidParamterException if thrown:
+                catch (InvalidParameterException ex)
+                {
+                    // PRINT the exception message:
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+            }
+
             // RESET to default value:
             trackBarSaturation.Value = 50;
         }
@@ -257,23 +315,45 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void trackBarScale_MouseUp(object sender, MouseEventArgs e)
         {
-            // IF neither size value is bigger than 3840, biggest image that can be resized is 3840*3840, resulting in largest possible of ~8000*8000
-            if ((pictureBoxEditImage.Image.Size.Width <= 3840 && pictureBoxEditImage.Image.Size.Height <= 3840) || trackBarScale.Value < 51)
+            // IF the command object "AdjustScale" exists:
+            if (_commands.ContainsKey("AdjustScale"))
             {
-                // SET scaleValue to the value of the scale track bar
-                int scaleValue = trackBarScale.Value;
+                // IF neither size value is bigger than 3840, biggest image that can be resized is 3840*3840, resulting in largest possible of ~8000*8000
+                if ((pictureBoxEditImage.Image.Size.Width <= 3840 && pictureBoxEditImage.Image.Size.Height <= 3840) || trackBarScale.Value < 51)
+                    {
+                        // SET scaleValue to the value of the scale track bar
+                        int scaleValue = trackBarScale.Value;
 
-                // PREVENT the user setting a scale value less than 25:
-                if (scaleValue < 25)
-                {
-                    scaleValue = 25;
-                }
+                        // PREVENT the user setting a scale value less than 25:
+                        if (scaleValue < 25)
+                        {
+                            scaleValue = 25;
+                        }
 
-                // SET the ParameterOne to path:
-                ((ICommand<int>)_commands["AdjustScale"]).ParameterOne = scaleValue;
-                // SIGNAL to the CommandInvoker to fire the command:
-                _executePointer(_commands["AdjustScale"]);
+                        // SET the ParameterOne to path:
+                        ((ICommand<int>)_commands["AdjustScale"]).ParameterOne = scaleValue;
+
+                        // TRY to execute the command
+                        try
+                        {
+                            // SIGNAL to the CommandInvoker to fire the command:
+                            _executePointer(_commands["AdjustScale"]);
+                        }
+                        // CATCH the InvalidParamterException if thrown:
+                        catch (InvalidParameterException ex)
+                        {
+                            // PRINT the exception message:
+                            Console.WriteLine(ex.Message);
+                        }
+                    }
             }
+
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+            }
+
             // RESET to default value:
             trackBarScale.Value = 50;
         }
@@ -285,10 +365,30 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void buttonRotateRight90_Click(object sender, EventArgs e)
         {
-            // SET the ParameterOne to the correct rotate value:
-            ((ICommand<int>)_commands["RotateImage"]).ParameterOne = -1;
-            // FIRE the "RotateImage" Command:
-            _executePointer((ICommand<int>)_commands["RotateImage"]);
+            // IF the command object "RotateImage" exists:
+            if (_commands.ContainsKey("RotateImage"))
+            {
+                try
+                {
+                    // SET the ParameterOne to the correct rotate value:
+                    ((ICommand<int>)_commands["RotateImage"]).ParameterOne = -1;
+                     // FIRE the "RotateImage" Command:
+                     _executePointer((ICommand<int>)_commands["RotateImage"]);
+                }
+
+                // CATCH the InvalidParamterException if thrown:
+                catch (InvalidParameterException ex)
+                {
+                    // PRINT the exception message:
+                     Console.WriteLine(ex.Message);
+                }
+            }
+
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+            }
         }
 
         /// <summary>
@@ -298,10 +398,28 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void buttonRotateLeft90_Click(object sender, EventArgs e)
         {
-            // SET the ParameterOne to the correct rotate value:
-            ((ICommand<int>)_commands["RotateImage"]).ParameterOne = 1;
-            // FIRE the "RotateImage" Command:
-            _executePointer((ICommand<int>)_commands["RotateImage"]);
+            // IF the command object "RotateImage" exists:
+            if (_commands.ContainsKey("RotateImage"))
+            {
+                try
+                    {
+                        // SET the ParameterOne to the correct rotate value:
+                        ((ICommand<int>)_commands["RotateImage"]).ParameterOne = 1;
+                        // FIRE the "RotateImage" Command:
+                        _executePointer((ICommand<int>)_commands["RotateImage"]);
+                    }
+                    catch  (InvalidParameterException ex)
+                    {
+                        // PRINT the exception message:
+                        Console.WriteLine(ex.Message);
+                    }
+            }
+
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+            }
         }
 
         /// <summary>
@@ -311,10 +429,32 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void buttonFlipVertical_Click(object sender, EventArgs e)
         {
-            // SET the ParameterOne to the correct flip value:
-            ((ICommand<int>)_commands["FlipImage"]).ParameterOne = 0;
-            // FIRE the "FlipImage" Command:
-            _executePointer((ICommand<int>)_commands["FlipImage"]);
+            // IF the command object "FlipImage" exists:
+            if (_commands.ContainsKey("FlipImage"))
+            {
+                // SET the ParameterOne to the correct flip value:
+                ((ICommand<int>)_commands["FlipImage"]).ParameterOne = 0;
+
+                // TRY to execute the command
+                try
+                {
+                    // FIRE the "FlipImage" Command:
+                    _executePointer((ICommand<int>)_commands["FlipImage"]);
+                }
+
+                // CATCH the InvalidParamterException if thrown:
+                catch (InvalidParameterException ex)
+                {
+                    // PRINT the exception message:
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+            }
         }
 
         /// <summary>
@@ -324,10 +464,31 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void buttonFlipHorizontal_Click(object sender, EventArgs e)
         {
-            // SET the ParameterOne to the correct flip value:
-            ((ICommand<int>)_commands["FlipImage"]).ParameterOne = 1;
-            // FIRE the "FlipImage" Command:
-            _executePointer((ICommand<int>)_commands["FlipImage"]);
+            // IF the command object "FlipImage" exists:
+            if (_commands.ContainsKey("FlipImage"))
+            {
+                // SET the ParameterOne to the correct flip value:
+                ((ICommand<int>)_commands["FlipImage"]).ParameterOne = 1;
+
+                    // TRY to execute the command
+                    try
+                    {
+                        // FIRE the "FlipImage" Command:
+                        _executePointer((ICommand<int>)_commands["FlipImage"]);
+                    }
+                    // CATCH the InvalidParamterException if thrown:
+                    catch (InvalidParameterException ex)
+                    {
+                        // PRINT the exception message:
+                        Console.WriteLine(ex.Message);
+                    }
+            }
+
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+            }
         }
 
         /// <summary>
@@ -337,8 +498,31 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void buttonGrayscaleFilter_Click(object sender, EventArgs e)
         {
-            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 0;
-            _executePointer(_commands["ApplyFilter"]);
+            // IF the command object "ApplyFilter" exists:
+            if (_commands.ContainsKey("ApplyFilter"))
+            {
+                ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 0;
+
+                // TRY to execute the command
+                try
+                {
+                    // FIRE the "ApplyFilter" Command:
+                    _executePointer(_commands["ApplyFilter"]);
+                }
+
+                // CATCH the InvalidParamterException if thrown:
+                catch (InvalidParameterException ex)
+                {
+                    // PRINT the exception message:
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+            }
         }
 
         /// <summary>
@@ -348,8 +532,29 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void buttonSunburnFilter_Click(object sender, EventArgs e)
         {
-            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 1;
-            _executePointer(_commands["ApplyFilter"]);
+            // IF the command object "ApplyFilter" exists:
+            if (_commands.ContainsKey("ApplyFilter"))
+            {
+                ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 1;
+                // TRY to execute the command
+                try
+                {
+                    // FIRE the "ApplyFilter" Command:
+                    _executePointer(_commands["ApplyFilter"]);
+                }
+                // CATCH the InvalidParamterException if thrown:
+                catch (InvalidParameterException ex)
+                {
+                    // PRINT the exception message:
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+            }
         }
 
         /// <summary>
@@ -359,8 +564,31 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void buttonBlurFilter_Click(object sender, EventArgs e)
         {
-            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 2;
-            _executePointer(_commands["ApplyFilter"]);
+            // IF the command object "ApplyFilter" exists:
+            if (_commands.ContainsKey("ApplyFilter"))
+            {
+                ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 2;
+
+                // TRY to execute the command
+                try
+                {
+                    // FIRE the "ApplyFilter" Command:
+                    _executePointer(_commands["ApplyFilter"]);
+                }
+
+                // CATCH the InvalidParamterException if thrown:
+                catch (InvalidParameterException ex)
+                {
+                    // PRINT the exception message:
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+            }
         }
 
         /// <summary>
@@ -370,8 +598,31 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void buttonRandomFilter_Click(object sender, EventArgs e)
         {
-            ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 3;
-            _executePointer(_commands["ApplyFilter"]);
+            // IF the command object "ApplyFilter" exists:
+            if (_commands.ContainsKey("ApplyFilter"))
+            {
+                ((ICommand<int>)_commands["ApplyFilter"]).ParameterOne = 3;
+
+                // TRY to execute the command
+                try
+                {
+                    // FIRE the "ApplyFilter" Command:
+                    _executePointer(_commands["ApplyFilter"]);
+                }
+
+                // CATCH the InvalidParamterException if thrown:
+                catch (InvalidParameterException ex)
+                {
+                    // PRINT the exception message:
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+            }
         }
 
         /// <summary>
@@ -381,7 +632,17 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void buttonRevertChanges_Click(object sender, EventArgs e)
         {
-            _executePointer((ICommand)_commands["RevertChanges"]);
+            // IF the command object "RevertChanges" exists:
+            if (_commands.ContainsKey("RevertChanges"))
+            {
+                _executePointer((ICommand)_commands["RevertChanges"]);
+            }
+
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+            }
         }
 
         /// <summary>
@@ -404,11 +665,22 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            // FIRE the "SaveImage" Command:
-            _executePointer((ICommand)_commands["SaveImage"]);
-            // TOGGLE the form visibility:
-            _toggleFormPointer();
-            // RESET the editor:
+            // IF the command object "SaveImage" exists:
+            if (_commands.ContainsKey("SaveImage"))
+            {
+                // FIRE the "SaveImage" Command:
+                _executePointer((ICommand)_commands["SaveImage"]);
+                // TOGGLE the form visibility:
+                _toggleFormPointer();
+                // RESET the editor:
+            }
+
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+            }
+
             ResetEditor();
         }
 
@@ -420,27 +692,38 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void buttonSaveAs_Click(object sender, EventArgs e)
         {
-            // INSTANTIATE a new SaveFileDialog, call it "saveFileDialog":
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            // SET the Title of the SaveFileDialog:
-            saveFileDialog.Title = "Save an Image File";
-            // APPLY Image Filters so the user can see other Image files in the Dialog:
-            saveFileDialog.Filter = "JPeg Image|*.jpg|Png Image|*.png|Bitmap Image|*.bmp|Gif Image|*.gif";
-
-            // CHECK the user has provided an appropriate name and path to save the Image:
-            if (saveFileDialog.ShowDialog() == DialogResult.OK && saveFileDialog.FileName != "")
+            // IF the command object "SaveImage" exists:
+            if (_commands.ContainsKey("SaveImage"))
             {
-                // STORE the user-defined path:
-                string path = saveFileDialog.FileName;
-                // SET the Path in the Command object:
-                ((ICommand<string>)_commands["SaveImageToPath"]).ParameterOne = path;
-                // EXECUTE the "SaveImageToPath" Command:
-                _executePointer((ICommand)_commands["SaveImageToPath"]);
-                // TOGGLE the Form visibility:
-                _toggleFormPointer();
-                // RESET the Editor:
-                ResetEditor();
+                // INSTANTIATE a new SaveFileDialog, call it "saveFileDialog":
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                // SET the Title of the SaveFileDialog:
+                saveFileDialog.Title = "Save an Image File";
+                // APPLY Image Filters so the user can see other Image files in the Dialog:
+                saveFileDialog.Filter = "JPeg Image|*.jpg|Png Image|*.png|Bitmap Image|*.bmp|Gif Image|*.gif";
+
+                // CHECK the user has provided an appropriate name and path to save the Image:
+                if (saveFileDialog.ShowDialog() == DialogResult.OK && saveFileDialog.FileName != "")
+                {
+                    // STORE the user-defined path:
+                    string path = saveFileDialog.FileName;
+                    // SET the Path in the Command object:
+                    ((ICommand<string>)_commands["SaveImageToPath"]).ParameterOne = path;
+                    // EXECUTE the "SaveImageToPath" Command:
+                    _executePointer((ICommand)_commands["SaveImageToPath"]);
+                    // TOGGLE the Form visibility:
+                    _toggleFormPointer();            
+                }
             }
+
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+            }
+
+            // RESET the Editor:
+            ResetEditor();
         }
 
         // Code adapted from: https://www.youtube.com/watch?v=7IR6J8Kw8cE&ab_channel=SundayNotice
@@ -470,53 +753,73 @@ namespace View
         /// <param name="e">Event arguments</param>
         private void buttonEndCrop_Click(object sender, EventArgs e)
         {
-            // SET 'cropping' to false:
-            _cropping = false;
-            // CALCULATE the current Image Boundaries:
-            CalculateImageBoundaries();
-            // SET the Crop Offsets using the Image Boundaries and users crop selection:
-            float cropOffsetX = _cropX - _imageLeft;
-            float cropOffsetY = _cropY - _imageTop;
-            float cropWidth = _rectangleWidth;
-            float cropHeight = _rectangleHeight;
-
-            // CHECK if the Image has been stretched:
-            if (_isImageStretched)
+            // IF the command object "SaveImage" exists:
+            if (_commands.ContainsKey("SaveImage"))
             {
-                // CALCULATE the scale factor of the Image (how much is has been stretched or shrunk):
-                float[] multipliers = CalculateStretchReverseMultiplier(_originalImageSize, pictureBoxEditImage.Size);
+                // SET 'cropping' to false:
+                _cropping = false;
+                // CALCULATE the current Image Boundaries:
+                CalculateImageBoundaries();
+                // SET the Crop Offsets using the Image Boundaries and users crop selection:
+                float cropOffsetX = _cropX - _imageLeft;
+                float cropOffsetY = _cropY - _imageTop;
+                float cropWidth = _rectangleWidth;
+                float cropHeight = _rectangleHeight;
 
-                // ADJUST The cropping selection by the multiplers:
-                cropOffsetX = cropOffsetX * multipliers[0];
-                cropWidth = cropWidth * multipliers[0];
-                cropOffsetY = cropOffsetY * multipliers[1];
-                cropHeight = cropHeight * multipliers[1];
+                // CHECK if the Image has been stretched:
+                if (_isImageStretched)
+                {
+                    // CALCULATE the scale factor of the Image (how much is has been stretched or shrunk):
+                    float[] multipliers = CalculateStretchReverseMultiplier(_originalImageSize, pictureBoxEditImage.Size);
+
+                    // ADJUST The cropping selection by the multiplers:
+                    cropOffsetX = cropOffsetX * multipliers[0];
+                    cropWidth = cropWidth * multipliers[0];
+                    cropOffsetY = cropOffsetY * multipliers[1];
+                    cropHeight = cropHeight * multipliers[1];
+                }
+
+                // CHECK the user has drawn a cropping selection bigger than nothing:
+                if (_rectangleWidth > 0 && _rectangleHeight > 0 && _cropX > 0 && _cropY > 0)
+                {
+                    // RESET Their cursor back to default:
+                    Cursor = Cursors.Default;
+
+                    // SET the ParameterOne to path:
+                    ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterOne = (int)cropOffsetX;
+                    // SET the ParameterTwo to path:
+                    ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterTwo = (int)cropOffsetY;
+                    // SET the ParameterThree to path:
+                    ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterThree = (int)cropWidth;
+                    // SET the ParameterFour to path:
+                    ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterFour = (int)cropHeight;
+
+                    // TRY to execute the command
+                    try
+                    {
+                        // SIGNAL to the CommandInvoker to fire the command:
+                        _executePointer(_commands["CropImage"]);
+                    }
+
+                    // CATCH the InvalidParamterException if thorwn
+                    catch (InvalidParameterException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                }
+
+                // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+                else
+                {
+                    throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+                }
             }
-            // CHECK the user has drawn a cropping selection bigger than nothing:
-            if (_rectangleWidth > 0 && _rectangleHeight > 0 && _cropX > 0 && _cropY > 0)
-            {
-                // RESET Their cursor back to default:
-                Cursor = Cursors.Default;
 
-                // SET the ParameterOne to path:
-                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterOne = (int)cropOffsetX;
-                // SET the ParameterTwo to path:
-                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterTwo = (int)cropOffsetY;
-                // SET the ParameterThree to path:
-                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterThree = (int)cropWidth;
-                // SET the ParameterFour to path:
-                ((ICommand<int, int, int, int>)_commands["CropImage"]).ParameterFour = (int)cropHeight;
-                // SIGNAL to the CommandInvoker to fire the command:
-                _executePointer(_commands["CropImage"]);
-
-                // RESET the crop selection parameters:
-                _cropX = 0;
-                _cropY = 0;
-                _rectangleWidth = 0;
-                _rectangleHeight = 0;
-            }
-
-            if (pictureBoxEditImage.SizeMode == PictureBoxSizeMode.StretchImage) Console.WriteLine("The image is stretched");
+            // RESET the crop selection parameters:
+            _cropX = 0;
+            _cropY = 0;
+            _rectangleWidth = 0;
+            _rectangleHeight = 0;
 
             // RESET the cursor back to Default:
             Cursor = Cursors.Default;

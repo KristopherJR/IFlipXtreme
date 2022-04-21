@@ -11,7 +11,7 @@ namespace Library
         /// <summary>
         /// Constructor for ParameterNotSetException. Passes message to base.
         /// </summary>
-        /// <param name="pMessage"></param>
+        /// <param name="pMessage">The Exception error message.</param>
         public ParameterNotSetException(string pMessage) : base(pMessage)
         {
         }

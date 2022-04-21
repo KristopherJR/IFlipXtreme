@@ -91,6 +91,7 @@ namespace Model
                     _imageStore[0].Tag = pImagePath;
                 }
             }
+
             // CATCH if exception is thrown
             catch (Exception e)
             {

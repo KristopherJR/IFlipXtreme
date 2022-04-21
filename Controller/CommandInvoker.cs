@@ -1,5 +1,6 @@
 ﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
 using Library;
+using System;
 
 namespace Controller
 {
@@ -13,6 +14,7 @@ namespace Controller
         /// </summary>
         public CommandInvoker()
         {
+            
         }
 
         /// <summary>
@@ -21,7 +23,19 @@ namespace Controller
         /// <param name="pCommand">The command object to be executed</param>
         public void Execute(ICommand pCommand)
         {
-            pCommand.Execute();
+            // TRY to execute the Action
+            try
+            {
+                // EXECUTE the Command:
+                pCommand.Execute();
+            }
+
+            // CATCH the ParameterNotSetException is thrown
+            catch (ParameterNotSetException ex)
+            {
+                // PRINT the exception message:
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 }

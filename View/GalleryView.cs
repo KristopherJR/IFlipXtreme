@@ -170,6 +170,7 @@ namespace View
             {
                 // SET the path to the selected Image:
                 string path = fileDialog.FileName;
+
                 // IF the command object "LoadImage" exists:
                 if (_commands.ContainsKey("LoadImage"))
                 {
@@ -179,6 +180,12 @@ namespace View
                     _executePointer(_commands["LoadImage"]);
                     // RESET the users selection:
                     ResetSelection();
+                }
+
+                // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+                else
+                {
+                    throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
                 }
             }
         }
@@ -212,10 +219,28 @@ namespace View
                 {
                     // SET the ParameterOne to path:
                     ((ICommand<int>)_commands["OpenImage"]).ParameterOne = _selectedImageIndex;
-                    // SIGNAL to the CommandInvoker to fire the command:
-                    _executePointer(_commands["OpenImage"]);
+
+                    // TRY to fire the command
+                    try
+                    {
+                        // SIGNAL to the CommandInvoker to fire the command:
+                        _executePointer(_commands["OpenImage"]);
+                    }
+
+                    // CATCH the InvalidParamterException if thrown
+                    catch (InvalidParameterException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+
                     // RESET the users selection:
                     ResetSelection();
+                }
+
+                // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+                else
+                {
+                    throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
                 }
             }
             else

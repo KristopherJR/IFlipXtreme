@@ -28,9 +28,6 @@ namespace Model
         // DECLARE an int to hold the list index of the image currently being edited.
         private Image _currentImage;
 
-        // DECLARE an int to hold the list index of the image currently being edited, with changes shows.
-        private Image _currentAdjustedImage;
-
         // DECLARE a random to randomize the values for the RandomFilter, call it _random;
         private Random _random;
 
@@ -92,11 +89,20 @@ namespace Model
         /// <param name="pBrightnessVal">The amount to increase brightness by.</param>
         public void AdjustBrightness(int pBrightnessVal)
         {
-            //CALL AdjustBrightness in the Image Manipulator and pass in the current image and the brightness adjustment value, store result in _currentImage
-            _currentImage = _imageManipulator.AdjustBrightness(_currentImage, pBrightnessVal);
+            // CHECK that the provided brightness value is between the acceptable range:
+            if(pBrightnessVal >= 0 && pBrightnessVal <= 100)
+            {
+                //CALL AdjustBrightness in the Image Manipulator and pass in the current image and the brightness adjustment value, store result in _currentImage
+                _currentImage = _imageManipulator.AdjustBrightness(_currentImage, pBrightnessVal);
 
-            // UPDATE View of any changes that have been made
-            UpdateView();
+                // UPDATE View of any changes that have been made
+                UpdateView();
+            }
+            else
+            {
+                // THROW a new InvalidParameterException with a suitable message:
+                throw new InvalidParameterException("The brightness value you provided is not valid. It must be between 0-100. Value provided was: " + pBrightnessVal + ".");
+            } 
         }
 
         /// <summary>
@@ -105,11 +111,20 @@ namespace Model
         /// <param name="pContrastVal">The amount to increase Contrast by.</param>
         public void AdjustContrast(int pContrastVal)
         {
-            //CALL AdjustContrast in the Image Manipulator and pass in the current image and the Contrast adjustment value, store result in _currentImage
-            _currentImage = _imageManipulator.AdjustContrast(_currentImage, pContrastVal);
+            // CHECK that the provided contrast value is between the acceptable range:
+            if (pContrastVal >= 0 && pContrastVal <= 100)
+            {
+                //CALL AdjustContrast in the Image Manipulator and pass in the current image and the Contrast adjustment value, store result in _currentImage
+                _currentImage = _imageManipulator.AdjustContrast(_currentImage, pContrastVal);
 
-            // UPDATE View of changed information
-            UpdateView();
+                // UPDATE View of changed information
+                UpdateView();
+            }
+            else
+            {
+                // THROW a new InvalidParameterException with a suitable message:
+                throw new InvalidParameterException("The contrast value you provided is not valid. It must be between 0-100. Value provided was: " + pContrastVal + ".");
+            }
         }
 
         /// <summary>
@@ -118,11 +133,20 @@ namespace Model
         /// <param name="pSaturationVal">The amount to increase Saturation by.</param>
         public void AdjustSaturation(int pSaturationVal)
         {
-            // CALL AdjustSaturation in the image manipulator and pass the current image, store the result in _currentImage
-            _imageManipulator.AdjustSaturation(_currentImage, pSaturationVal);
+            // CHECK that the provided saturation value is between the acceptable range:
+            if (pSaturationVal >= 0 && pSaturationVal <= 100)
+            {
+                // CALL AdjustSaturation in the image manipulator and pass the current image, store the result in _currentImage
+                _imageManipulator.AdjustSaturation(_currentImage, pSaturationVal);
 
-            // UPDATE View of changed information
-            UpdateView();
+                // UPDATE View of changed information
+                UpdateView();
+            }
+            else
+            {
+                // THROW a new InvalidParameterException with a suitable message:
+                throw new InvalidParameterException("The saturation value you provided is not valid. It must be between 0-100. Value provided was: " + pSaturationVal + ".");
+            }
         }
 
         /// <summary>
@@ -131,18 +155,27 @@ namespace Model
         /// <param name="pScaleVal">The amount to change Scale by.</param>
         public void AdjustScale(int pScaleVal)
         {
-            // DECLARE a new float "scaler" to hold the multiplier for scaling, converts percentage into multiplier (50 turns to 1)
-            float scaler = (float)pScaleVal / 50;
+            // CHECK that the provided scale value is between the acceptable range:
+            if (pScaleVal >= 0 && pScaleVal <= 100)
+            {
+                // DECLARE a new float "scaler" to hold the multiplier for scaling, converts percentage into multiplier (50 turns to 1)
+                float scaler = (float)pScaleVal / 50;
 
-            // DECLARE 2 new floats "newHeight" & "newWidth".  Calculate the new width and new height of the image and store them
-            float newHeight = _currentImage.Height * scaler;
-            float newWidth = _currentImage.Width * scaler;
+                // DECLARE 2 new floats "newHeight" & "newWidth".  Calculate the new width and new height of the image and store them
+                float newHeight = _currentImage.Height * scaler;
+                float newWidth = _currentImage.Width * scaler;
 
-            // CALL Resize in the image manipulator and pass the current image and new size, store the result in _currentImage
-            _currentImage = _imageManipulator.Resize(_currentImage, new Size((int)newWidth, (int)newHeight));
+                // CALL Resize in the image manipulator and pass the current image and new size, store the result in _currentImage
+                _currentImage = _imageManipulator.Resize(_currentImage, new Size((int)newWidth, (int)newHeight));
 
-            // UPDATE View of changed information
-            UpdateView();
+                // UPDATE View of changed information
+                UpdateView();
+            }
+            else
+            {
+                // THROW a new InvalidParameterException with a suitable message:
+                throw new InvalidParameterException("The scale value you provided is not valid. It must be between 0-100. Value provided was: " + pScaleVal + ".");
+            }
         }
 
         /// <summary>
@@ -154,6 +187,13 @@ namespace Model
         /// <param name="pNewHeight">Height of the crop box</param>
         public void CropImage(int pOriginX, int pOriginY, int pNewWidth, int pNewHeight)
         {
+            // IF any paramter value is negative, or is larger than the Width / Height of the original image.
+            if (pOriginX  >  _currentImage.Width || pNewWidth > _currentImage.Width || pOriginY > _currentImage.Height || pNewHeight > _currentImage.Height || pOriginX < 0 || pOriginX < 0 || pOriginY < 0 || pNewHeight < 0)
+            {
+                    // THROW a InvalidParameterException
+                    throw new InvalidParameterException("The supplied values must be non negative and smaller than the Width or Height of the original image.");
+            }
+
             // CALL Crop in the image manipulator and pass the current image, X & Y offset of crop box, and Height and Width of the crop box, store the result in _currentImage
             _currentImage = _imageManipulator.Crop(_currentImage, pOriginX, pOriginY, pNewWidth, pNewHeight);
 
@@ -167,35 +207,48 @@ namespace Model
         /// <param name="pFilterIndex">Number to specify which filter to be applied</param>
         public void ApplyFilter(int pFilterIndex)
         {
-            // IF GreyScaleFliter was pressed command param = 0
-            if (pFilterIndex == 0)
+            // IF the pFilterIndex value is in  range 0-3
+            if (pFilterIndex >= 0 && pFilterIndex <= 3)
             {
-                // CALL GreyScaleFilter
-                GreyScaleFilter();
+                // IF GreyScaleFliter was pressed command param = 0
+                if (pFilterIndex == 0)
+                {
+                    // CALL GreyScaleFilter
+                    GreyScaleFilter();
+                }
+
+                // IF GreyScaleFliter was pressed command param = 1
+                else if (pFilterIndex == 1)
+                {
+                    // CALL SunburnFilter
+                    SunburnFilter();
+                }
+
+                // IF BlurFilter was pressed command param = 2
+                else if (pFilterIndex == 2)
+                {
+                    // CALL BlurFilter
+                    BlurFilter();
+                }
+
+                // IF RandomFiler was pressed command param = 3
+                else if (pFilterIndex == 3)
+                {
+                    // CALL RandomFilter
+                    RandomFilter();
+                }
+                // UPDATE View of any changes that have been made
+                UpdateView();
             }
 
-            // IF GreyScaleFliter was pressed command param = 1
-            else if (pFilterIndex == 1)
+            // IF the pFilterIndex value is out of range 0-3
+            else
             {
-                // CALL SunburnFilter
-                SunburnFilter();
+                // THROW a InvalidParameterException
+                throw new InvalidParameterException("The filter index value must be in range 0-3. Supplied value: " + pFilterIndex.ToString());
             }
 
-            // IF BlurFilter was pressed command param = 2
-            else if (pFilterIndex == 2)
-            {
-                // CALL BlurFilter
-                BlurFilter();
-            }
-
-            // IF RandomFiler was pressed command param = 3
-            else if (pFilterIndex == 3)
-            {
-                // CALL RandomFilter
-                RandomFilter();
-            }
-            // UPDATE View of any changes that have been made
-            UpdateView();
+            
         }
 
         /// <summary>
@@ -204,11 +257,24 @@ namespace Model
         /// <param name="pRotateVal">The amount to rotate the image by in 90 degree steps. (Total rotation = 90*pRotateVal degrees)</param>
         public void RotateImage(int pRotateVal)
         {
-            // CALL rotate method in Image Manipulator and pass in the current image and the rotate value, and store its value in _currentAdjustedImage
-            _currentImage = _imageManipulator.Rotate(_currentImage, pRotateVal);
+            // IF the pRotateVal value is in range -1-1
+            if(pRotateVal == -1 || pRotateVal == 1)
+            {
+                // CALL rotate method in Image Manipulator and pass in the current image and the rotate value, and store its value in _currentAdjustedImage:
+                _currentImage = _imageManipulator.Rotate(_currentImage, pRotateVal);
 
-            // UPDATE View of any changes that have been made
-            UpdateView();
+                // UPDATE View of any changes that have been made:
+                UpdateView();
+            }
+
+            // IF the pRotateVal value is out of range -1-1
+            else
+            {
+                // THROW a InvalidParameterException
+                throw new InvalidParameterException("The rotation value must be either -1 or 1. Supplied value: " + pRotateVal.ToString());
+            }
+
+            
         }
 
         /// <summary>
@@ -217,11 +283,22 @@ namespace Model
         /// <param name="pFlipVal">The axis to flip in, 0=X, 1=Y</param>
         public void FlipImage(int pFlipVal)
         {
-            // CALL flip method in Image Manipulator and pass in the current image and the flip, and store its value in _currentAdjustedImage
-            _currentImage = _imageManipulator.Flip(_currentImage, pFlipVal);
+            // IF the pFlipVal value is in range 0-1
+            if(pFlipVal == 0 || pFlipVal == 1)
+            {
+                // CALL flip method in Image Manipulator and pass in the current image and the flip, and store its value in _currentAdjustedImage
+                _currentImage = _imageManipulator.Flip(_currentImage, pFlipVal);
 
-            // UPDATE View of any changes that have been made
-            UpdateView();
+                // UPDATE View of any changes that have been made
+                UpdateView();
+            }
+
+            // IF the pFlipVal value is out of range 0-1
+            else
+            {
+                // THROW a InvalidParameterException
+                throw new InvalidParameterException("The flip value must be either 0 or 1. Supplied value: " + pFlipVal.ToString());
+            }        
         }
 
         /// <summary>
@@ -230,20 +307,33 @@ namespace Model
         /// <param name="pPos">The position in the image list of the image to open</param>
         public void OpenImage(int pPos)
         {
-            // IF the Image Storage's image list is not empty
-            if (_imageStorage.ImageStore.Count > 0)
+            // IF the pPos value is in range 0-7
+            if (0 >= pPos && pPos <= 7)
             {
-                _currentImage = new Bitmap(_imageStorage.ImageStore[pPos]);
+                // IF the Image Storage's image list is not empty
+                if (_imageStorage.ImageStore.Count > 0)
+                {
+                    // DECLARE a new Bitmap and copy the contents of the Image to be opened.  This avoids the Image Store's image being passed by reference.
+                    _currentImage = new Bitmap(_imageStorage.ImageStore[pPos]);
 
-                // SET the tag of the current image to its position in the ImageList, this is used to save back to the list
-                _currentImageIndex = pPos;
+                    // SET the tag of the current image to its position in the ImageList, this is used to save back to the list
+                    _currentImageIndex = pPos;
 
-                // UPDATE View of any changes that have been made
-                UpdateView();
+                    // UPDATE View of any changes that have been made
+                    UpdateView();
+                }
+                else
+                {
+                    // THROW a new CurrentImageNotSetException
+                    throw new CurrentImageNotSetException("Could not return the current image as no current image presently exists.");
+                }
             }
+
+            // IF the pPos value is out of range 0-7
             else
             {
-                // THROW HERE
+                // THROW a InvalidParameterException
+                throw new InvalidParameterException("List position of image to open must be between 0 & 7. Supplied value: " + pPos.ToString());
             }
         }
 

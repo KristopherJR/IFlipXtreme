@@ -41,6 +41,9 @@
   <ItemGroup>
     <Compile Include="EventArgs\ImportImageEventArgs.cs" />
     <Compile Include="EventArgs\UpdateViewEventArgs.cs" />
+    <Compile Include="Exceptions\CommandDoesNotExistException.cs" />
+    <Compile Include="Exceptions\CurrentImageNotSetException.cs" />
+    <Compile Include="Exceptions\InvalidParameterException.cs" />
     <Compile Include="Exceptions\ParameterNotSetException.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
     <Compile Include="Interfaces\ICommandInvoker.cs" />

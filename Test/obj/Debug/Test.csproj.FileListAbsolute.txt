@@ -132,3 +132,9 @@ C:\Users\tixor\Source\Repos\IFlipXtreme\Test\bin\Debug\Controller.pdb
 C:\Users\tixor\Source\Repos\IFlipXtreme\Test\bin\Debug\Controller.dll.config
 C:\Users\tixor\Source\Repos\IFlipXtreme\Test\bin\Debug\View.pdb
 C:\Users\tixor\Source\Repos\IFlipXtreme\Test\bin\Debug\View.dll.config
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\Controller.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\View.dll
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\Controller.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\Controller.dll.config
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\View.pdb
+D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Test\bin\Debug\View.dll.config
