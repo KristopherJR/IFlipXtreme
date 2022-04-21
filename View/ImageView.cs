@@ -808,12 +808,17 @@ namespace View
                         Console.WriteLine(ex.Message);
                     }
                 }
-
-                // THROW a CommandDoesNotExistException if the command is not found in the dictionary
                 else
                 {
-                    throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
+                    Console.WriteLine("Please draw a crop rectangle before ending your crop!");
                 }
+
+                
+            }
+            // THROW a CommandDoesNotExistException if the command is not found in the dictionary
+            else
+            {
+                throw new CommandDoesNotExistException("The requested command has not been added to the dictionary.");
             }
 
             // RESET the crop selection parameters:

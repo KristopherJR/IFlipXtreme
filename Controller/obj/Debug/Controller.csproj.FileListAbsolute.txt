@@ -85,3 +85,20 @@ C:\Users\tixor\Source\Repos\IFlipXtreme\Controller\obj\Debug\Controller.csproj.C
 C:\Users\tixor\Source\Repos\IFlipXtreme\Controller\obj\Debug\Controller.csproj.CopyComplete
 C:\Users\tixor\Source\Repos\IFlipXtreme\Controller\obj\Debug\Controller.dll
 C:\Users\tixor\Source\Repos\IFlipXtreme\Controller\obj\Debug\Controller.pdb
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\bin\Debug\Controller.dll.config
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\bin\Debug\Controller.dll
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\bin\Debug\Controller.pdb
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\bin\Debug\Library.dll
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\bin\Debug\Model.dll
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\bin\Debug\View.dll
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\bin\Debug\Library.pdb
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\bin\Debug\Library.dll.config
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\bin\Debug\Model.pdb
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\bin\Debug\Model.dll.config
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\bin\Debug\View.pdb
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\bin\Debug\View.dll.config
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\obj\Debug\Controller.csproj.AssemblyReference.cache
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\obj\Debug\Controller.csproj.CoreCompileInputs.cache
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\obj\Debug\Controller.csproj.CopyComplete
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\obj\Debug\Controller.dll
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Controller\obj\Debug\Controller.pdb

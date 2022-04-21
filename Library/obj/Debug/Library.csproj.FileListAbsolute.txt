@@ -32,3 +32,9 @@ C:\Users\tixor\Source\Repos\IFlipXtreme\Library\bin\Debug\Library.dll.config
 C:\Users\tixor\Source\Repos\IFlipXtreme\Library\bin\Debug\Library.dll
 C:\Users\tixor\Source\Repos\IFlipXtreme\Library\bin\Debug\Library.pdb
 D:\University\Year 3\COMP3404 - Applied Software Engineering\IFlipXtreme\Library\obj\Debug\Library.csproj.AssemblyReference.cache
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Library\bin\Debug\Library.dll.config
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Library\bin\Debug\Library.dll
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Library\bin\Debug\Library.pdb
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Library\obj\Debug\Library.csproj.CoreCompileInputs.cache
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Library\obj\Debug\Library.dll
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\Library\obj\Debug\Library.pdb

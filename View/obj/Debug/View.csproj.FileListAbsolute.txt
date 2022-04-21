@@ -77,3 +77,18 @@ C:\Users\tixor\Source\Repos\IFlipXtreme\View\obj\Debug\View.csproj.CoreCompileIn
 C:\Users\tixor\Source\Repos\IFlipXtreme\View\obj\Debug\View.csproj.CopyComplete
 C:\Users\tixor\Source\Repos\IFlipXtreme\View\obj\Debug\View.dll
 C:\Users\tixor\Source\Repos\IFlipXtreme\View\obj\Debug\View.pdb
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\bin\Debug\View.dll.config
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\bin\Debug\View.dll
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\bin\Debug\View.pdb
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\bin\Debug\Library.dll
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\bin\Debug\Library.pdb
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\bin\Debug\Library.dll.config
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\obj\Debug\View.csproj.AssemblyReference.cache
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\obj\Debug\View.GalleryView.resources
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\obj\Debug\View.ImageView.resources
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\obj\Debug\View.Properties.Resources.resources
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\obj\Debug\View.csproj.GenerateResource.cache
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\obj\Debug\View.csproj.CoreCompileInputs.cache
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\obj\Debug\View.csproj.CopyComplete
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\obj\Debug\View.dll
+C:\Users\krist\Desktop\ꓱꟽꓯИ ꟽꓯꓱꓕ_COMP3404_TeamPortfolio\IFlipXtreme\View\obj\Debug\View.pdb
