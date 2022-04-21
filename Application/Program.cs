@@ -1,9 +1,12 @@
 ﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
-using System;
 using Library;
+using System;
 
 namespace Application
 {
+    /// <summary>
+    /// Program class. Default entry point of the program, instantiates the Controller.
+    /// </summary>
     internal static class Program
     {
         /// <summary>

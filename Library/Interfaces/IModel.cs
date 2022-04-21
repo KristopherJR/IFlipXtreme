@@ -10,7 +10,6 @@ namespace Library
     /// </summary>
     public interface IModel : IPublisher
     {
-
         /// <summary>
         ///  LoadImage Method: Calls the Image Manipulator to import an image from the specified path
         /// </summary>

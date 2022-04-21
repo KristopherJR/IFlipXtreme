@@ -56,7 +56,6 @@ namespace Test
                 ((ICommand<string>)_commands["Import"]).ParameterOne = "../../../TestAssets/TestImage";
                 ((ICommand<string>)_commands["Import"]).Execute();
             }
-            
         }
 
         /// <summary>

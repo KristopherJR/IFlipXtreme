@@ -223,7 +223,7 @@ namespace View
             }
 
             // CATCH the InvalidParamterException if thrown:
-            catch(InvalidParameterException ex)
+            catch (InvalidParameterException ex)
             {
                 // PRINT the exception message:
                 Console.WriteLine(ex.Message);
@@ -320,32 +320,32 @@ namespace View
             {
                 // IF neither size value is bigger than 3840, biggest image that can be resized is 3840*3840, resulting in largest possible of ~8000*8000
                 if ((pictureBoxEditImage.Image.Size.Width <= 3840 && pictureBoxEditImage.Image.Size.Height <= 3840) || trackBarScale.Value < 51)
-                    {
-                        // SET scaleValue to the value of the scale track bar
-                        int scaleValue = trackBarScale.Value;
+                {
+                    // SET scaleValue to the value of the scale track bar
+                    int scaleValue = trackBarScale.Value;
 
-                        // PREVENT the user setting a scale value less than 25:
-                        if (scaleValue < 25)
-                        {
-                            scaleValue = 25;
-                        }
+                    // PREVENT the user setting a scale value less than 25:
+                    if (scaleValue < 25)
+                    {
+                        scaleValue = 25;
+                    }
 
                         // SET the ParameterOne to path:
                         ((ICommand<int>)_commands["AdjustScale"]).ParameterOne = scaleValue;
 
-                        // TRY to execute the command
-                        try
-                        {
-                            // SIGNAL to the CommandInvoker to fire the command:
-                            _executePointer(_commands["AdjustScale"]);
-                        }
-                        // CATCH the InvalidParamterException if thrown:
-                        catch (InvalidParameterException ex)
-                        {
-                            // PRINT the exception message:
-                            Console.WriteLine(ex.Message);
-                        }
+                    // TRY to execute the command
+                    try
+                    {
+                        // SIGNAL to the CommandInvoker to fire the command:
+                        _executePointer(_commands["AdjustScale"]);
                     }
+                    // CATCH the InvalidParamterException if thrown:
+                    catch (InvalidParameterException ex)
+                    {
+                        // PRINT the exception message:
+                        Console.WriteLine(ex.Message);
+                    }
+                }
             }
 
             // THROW a CommandDoesNotExistException if the command is not found in the dictionary
@@ -372,15 +372,15 @@ namespace View
                 {
                     // SET the ParameterOne to the correct rotate value:
                     ((ICommand<int>)_commands["RotateImage"]).ParameterOne = -1;
-                     // FIRE the "RotateImage" Command:
-                     _executePointer((ICommand<int>)_commands["RotateImage"]);
+                    // FIRE the "RotateImage" Command:
+                    _executePointer((ICommand<int>)_commands["RotateImage"]);
                 }
 
                 // CATCH the InvalidParamterException if thrown:
                 catch (InvalidParameterException ex)
                 {
                     // PRINT the exception message:
-                     Console.WriteLine(ex.Message);
+                    Console.WriteLine(ex.Message);
                 }
             }
 
@@ -402,17 +402,17 @@ namespace View
             if (_commands.ContainsKey("RotateImage"))
             {
                 try
-                    {
-                        // SET the ParameterOne to the correct rotate value:
-                        ((ICommand<int>)_commands["RotateImage"]).ParameterOne = 1;
-                        // FIRE the "RotateImage" Command:
-                        _executePointer((ICommand<int>)_commands["RotateImage"]);
-                    }
-                    catch  (InvalidParameterException ex)
-                    {
-                        // PRINT the exception message:
-                        Console.WriteLine(ex.Message);
-                    }
+                {
+                    // SET the ParameterOne to the correct rotate value:
+                    ((ICommand<int>)_commands["RotateImage"]).ParameterOne = 1;
+                    // FIRE the "RotateImage" Command:
+                    _executePointer((ICommand<int>)_commands["RotateImage"]);
+                }
+                catch (InvalidParameterException ex)
+                {
+                    // PRINT the exception message:
+                    Console.WriteLine(ex.Message);
+                }
             }
 
             // THROW a CommandDoesNotExistException if the command is not found in the dictionary
@@ -470,18 +470,18 @@ namespace View
                 // SET the ParameterOne to the correct flip value:
                 ((ICommand<int>)_commands["FlipImage"]).ParameterOne = 1;
 
-                    // TRY to execute the command
-                    try
-                    {
-                        // FIRE the "FlipImage" Command:
-                        _executePointer((ICommand<int>)_commands["FlipImage"]);
-                    }
-                    // CATCH the InvalidParamterException if thrown:
-                    catch (InvalidParameterException ex)
-                    {
-                        // PRINT the exception message:
-                        Console.WriteLine(ex.Message);
-                    }
+                // TRY to execute the command
+                try
+                {
+                    // FIRE the "FlipImage" Command:
+                    _executePointer((ICommand<int>)_commands["FlipImage"]);
+                }
+                // CATCH the InvalidParamterException if thrown:
+                catch (InvalidParameterException ex)
+                {
+                    // PRINT the exception message:
+                    Console.WriteLine(ex.Message);
+                }
             }
 
             // THROW a CommandDoesNotExistException if the command is not found in the dictionary
@@ -712,7 +712,7 @@ namespace View
                     // EXECUTE the "SaveImageToPath" Command:
                     _executePointer((ICommand)_commands["SaveImageToPath"]);
                     // TOGGLE the Form visibility:
-                    _toggleFormPointer();            
+                    _toggleFormPointer();
                 }
             }
 

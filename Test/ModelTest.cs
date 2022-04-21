@@ -27,7 +27,7 @@ namespace Test
             // INSTANTIATE a new Model
             Model.Model model = new Model.Model();
 
-            // INSTANTIATE a Mock ISubscriber 
+            // INSTANTIATE a Mock ISubscriber
             Mock mockGalleryView = new Mock<Library.ISubscriber>();
 
             #endregion ARRANGE
@@ -105,14 +105,17 @@ namespace Test
         public void TestAdjustBrightnessBadParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "false":
             bool testPassed = false;
 
             // CREATE a new Model, call it "model":
             Model.Model model = new Model.Model();
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the AdjustBrightness method with bad param values
             try
             {
@@ -120,16 +123,19 @@ namespace Test
             }
 
             // CATCH the InvalidParameterException if thrown
-            catch (InvalidParameterException)  
+            catch (InvalidParameterException)
             {
                 // SET testpassed to true
                 testPassed = true;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -140,6 +146,7 @@ namespace Test
         public void TestAdjustBrightnessGoodParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "false":
             bool testPassed = true;
 
@@ -151,9 +158,11 @@ namespace Test
 
             // CALL OpenImage to open the image at the first position in the list
             model.OpenImage(0);
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the AdjustBrightness method with good param values
             try
             {
@@ -166,14 +175,16 @@ namespace Test
                 // SET testpassed to true
                 testPassed = false;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
-
 
         /// <summary>
         ///  TEST calling TestAdjustContrastBadParams method, and pass bad params.  Test passed if InvalidParameterException is thrown.
@@ -182,14 +193,17 @@ namespace Test
         public void TestAdjustContrastBadParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "false":
             bool testPassed = false;
 
             // CREATE a new Model, call it "model":
             Model.Model model = new Model.Model();
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the AdjustContrast method with bad param values
             try
             {
@@ -202,11 +216,14 @@ namespace Test
                 // SET testpassed to true
                 testPassed = true;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -217,6 +234,7 @@ namespace Test
         public void TestAdjustContrastGoodParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "false":
             bool testPassed = true;
 
@@ -228,9 +246,11 @@ namespace Test
 
             // CALL OpenImage to open the image at the first position in the list
             model.OpenImage(0);
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the AdjustContrast method with good param values:
             try
             {
@@ -243,11 +263,14 @@ namespace Test
                 // SET testpassed to true
                 testPassed = false;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -258,14 +281,17 @@ namespace Test
         public void TestAdjustSaturationBadParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "false":
             bool testPassed = false;
 
             // CREATE a new Model, call it "model":
             Model.Model model = new Model.Model();
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the AdjustSaturation method with bad param values
             try
             {
@@ -278,11 +304,14 @@ namespace Test
                 // SET testpassed to true
                 testPassed = true;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -293,6 +322,7 @@ namespace Test
         public void TestAdjustSaturationGoodParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "false":
             bool testPassed = true;
 
@@ -304,9 +334,11 @@ namespace Test
 
             // CALL OpenImage to open the image at the first position in the list
             model.OpenImage(0);
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the AdjustSaturation method with good param values:
             try
             {
@@ -319,11 +351,14 @@ namespace Test
                 // SET testpassed to true
                 testPassed = false;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -334,14 +369,17 @@ namespace Test
         public void TestAdjustScaleBadParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "false":
             bool testPassed = false;
 
             // CREATE a new Model, call it "model":
             Model.Model model = new Model.Model();
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the AdjustScale method with bad param values
             try
             {
@@ -354,11 +392,14 @@ namespace Test
                 // SET testpassed to true
                 testPassed = true;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -369,6 +410,7 @@ namespace Test
         public void TestAdjustScaleGoodParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "false":
             bool testPassed = true;
 
@@ -380,9 +422,11 @@ namespace Test
 
             // CALL OpenImage to open the image at the first position in the list
             model.OpenImage(0);
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the AdjustScale method with good param values:
             try
             {
@@ -395,11 +439,14 @@ namespace Test
                 // SET testpassed to true
                 testPassed = false;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -410,6 +457,7 @@ namespace Test
         public void TestCropImageBadParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "false":
             bool testPassed = false;
 
@@ -421,13 +469,15 @@ namespace Test
 
             // CALL OpenImage to open the image at the first position in the list
             model.OpenImage(0);
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the CropImage method with bad param values
             try
             {
-                model.CropImage(-200,-200,-200,-200);
+                model.CropImage(-200, -200, -200, -200);
             }
 
             // CATCH the InvalidParameterException if thrown
@@ -436,11 +486,14 @@ namespace Test
                 // SET testpassed to true
                 testPassed = true;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -451,6 +504,7 @@ namespace Test
         public void TestCropImageGoodParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "true":
             bool testPassed = true;
 
@@ -462,9 +516,11 @@ namespace Test
 
             // CALL OpenImage to open the image at the first position in the list
             model.OpenImage(0);
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the CropImage method with bad param values
             try
             {
@@ -477,11 +533,14 @@ namespace Test
                 // SET testpassed to false
                 testPassed = false;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -492,14 +551,17 @@ namespace Test
         public void TestApplyFilterBadParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "false":
             bool testPassed = false;
 
             // CREATE a new Model, call it "model":
             Model.Model model = new Model.Model();
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the ApplyFilter method with bad param values
             try
             {
@@ -512,11 +574,14 @@ namespace Test
                 // SET testpassed to true
                 testPassed = true;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -527,6 +592,7 @@ namespace Test
         public void TestApplyFilterGoodParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "true":
             bool testPassed = true;
 
@@ -538,9 +604,11 @@ namespace Test
 
             // CALL OpenImage to open the image at the first position in the list
             model.OpenImage(0);
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the ApplyFilter method with good param values
             try
             {
@@ -553,11 +621,14 @@ namespace Test
                 // SET testpassed to false
                 testPassed = false;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -568,14 +639,17 @@ namespace Test
         public void TestRotateImageBadParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "false":
             bool testPassed = false;
 
             // CREATE a new Model, call it "model":
             Model.Model model = new Model.Model();
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the RotateImage method with bad param values
             try
             {
@@ -588,11 +662,14 @@ namespace Test
                 // SET testpassed to true
                 testPassed = true;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -603,6 +680,7 @@ namespace Test
         public void TestRotateImageGoodParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "true":
             bool testPassed = true;
 
@@ -614,9 +692,11 @@ namespace Test
 
             // CALL OpenImage to open the image at the first position in the list
             model.OpenImage(0);
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the RotateImage method with good param values
             try
             {
@@ -629,11 +709,14 @@ namespace Test
                 // SET testpassed to false
                 testPassed = false;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -644,14 +727,17 @@ namespace Test
         public void TestFlipImageBadParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "false":
             bool testPassed = false;
 
             // CREATE a new Model, call it "model":
             Model.Model model = new Model.Model();
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the FlipImage method with bad param values
             try
             {
@@ -664,11 +750,14 @@ namespace Test
                 // SET testpassed to true
                 testPassed = true;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -679,6 +768,7 @@ namespace Test
         public void TestFlipImageGoodParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "true":
             bool testPassed = true;
 
@@ -690,9 +780,11 @@ namespace Test
 
             // CALL OpenImage to open the image at the first position in the list
             model.OpenImage(0);
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the FlipImage method with good param values
             try
             {
@@ -705,11 +797,14 @@ namespace Test
                 // SET testpassed to false
                 testPassed = false;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -720,6 +815,7 @@ namespace Test
         public void TestOpenImageBadParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "false":
             bool testPassed = false;
 
@@ -732,6 +828,7 @@ namespace Test
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the OpenImage method with bad param values
             try
             {
@@ -744,11 +841,14 @@ namespace Test
                 // SET testpassed to true
                 testPassed = true;
             }
+
             #endregion ACT
 
             #region ASSERT
+
             // ASSERT "testPassed" is true:
             Assert.IsTrue(testPassed);
+
             #endregion ASSERT
         }
 
@@ -759,6 +859,7 @@ namespace Test
         public void TestOpenImageGoodParams()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "true":
             bool testPassed = true;
 
@@ -773,9 +874,11 @@ namespace Test
 
             // CALL OpenImage to open the image at the first position in the list
             model.OpenImage(0);
+
             #endregion ARRANGE
 
             #region ACT
+
             // TRY to call the OpenImage method with good param values
             try
             {
@@ -788,6 +891,7 @@ namespace Test
                 // SET testpassed to false
                 testPassed = false;
             }
+
             #endregion ACT
 
             #region ASSERT
@@ -797,6 +901,5 @@ namespace Test
 
             #endregion ASSERT
         }
-
     }
 }

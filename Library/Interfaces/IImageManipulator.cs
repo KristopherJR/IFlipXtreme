@@ -49,7 +49,6 @@ namespace Library
         /// <returns>The adjusted Image</returns>
         Image Rotate(Image pImage, int pRotateVal);
 
-
         /// <summary>
         /// Flip Method: Flips a supplied Image in the specified axis
         /// </summary>
@@ -57,7 +56,6 @@ namespace Library
         /// <param name="pAxis">The axis to be flipped</param>
         /// <returns>The adjusted Image</returns>
         Image Flip(Image pImage, int pAxis);
-
 
         /// </summary>
         /// <param name="pImageToCrop">The image to be cropped</param>
@@ -68,5 +66,4 @@ namespace Library
         /// <returns>The adjusted Image</returns>
         Image Crop(Image pImageToCrop, int pCropBoxX, int pCropBoxY, int pCropWidth, int pCropHeight);
     }
-    
 }

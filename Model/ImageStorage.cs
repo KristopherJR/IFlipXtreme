@@ -1,9 +1,9 @@
 ﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
+using Library;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
-using Library;
 
 namespace Model
 {
@@ -37,7 +37,6 @@ namespace Model
             // INSTANTIATE _imageStore as a new List of type Image
             _imageStore = new List<Image>();
         }
-
 
         /// <summary>
         /// LoadImage Method: Loads an image from the path specified, stores it in _imageStore

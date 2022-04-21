@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Model;
-using System;
 using System.Drawing;
 using System.IO;
 
@@ -19,18 +18,21 @@ namespace Test
         public void TestLoadImageGoodPath()
         {
             #region ARRANGE
+
             // DECLARE an ImageStorage, call it "imageStorage":
             ImageStorage imageStorage = new ImageStorage();
 
             #endregion ARRANGE
 
             #region ACT
+
             // CALL LoadImage() on imageStorage and pass a good path:
             imageStorage.LoadImage("../../../TestAssets/TestImage");
 
             #endregion ACT
 
             #region ASSERT
+
             // TEST passes if an Image was loaded into the collection when a good path was provided:
             Assert.IsNotNull(imageStorage.ImageStore[0]);
 
@@ -44,18 +46,21 @@ namespace Test
         public void TestLoadImageBadPath()
         {
             #region ARRANGE
+
             // DECLARE an ImageStorage, call it "imageStorage":
             ImageStorage imageStorage = new ImageStorage();
 
             #endregion ARRANGE
 
             #region ACT
+
             // CALL LoadImage() on imageStorage and pass a bad path:
             imageStorage.LoadImage("../../../NOT_A_REAL_PATH_HAHAHA");
-   
+
             #endregion ACT
 
             #region ASSERT
+
             // TEST passes if no Image was loaded into the collection when a bad path was provided:
             Assert.IsTrue(imageStorage.ImageStore.Count == 0);
 
@@ -69,6 +74,7 @@ namespace Test
         public void TestSaveImage()
         {
             #region ARRANGE
+
             // DECLARE an ImageStorage, call it "imageStorage":
             ImageStorage imageStorage = new ImageStorage();
 

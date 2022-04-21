@@ -11,7 +11,7 @@ namespace Library
     public interface IImageStorage
     {
         //DECLARE a get property to access _imageStore
-        List<Image> ImageStore  { get; }
+        List<Image> ImageStore { get; }
 
         /// <summary>
         /// LoadImage Method: Loads an image from the path specified, stores it in _imageStore

@@ -90,7 +90,7 @@ namespace Model
         public void AdjustBrightness(int pBrightnessVal)
         {
             // CHECK that the provided brightness value is between the acceptable range:
-            if(pBrightnessVal >= 0 && pBrightnessVal <= 100)
+            if (pBrightnessVal >= 0 && pBrightnessVal <= 100)
             {
                 //CALL AdjustBrightness in the Image Manipulator and pass in the current image and the brightness adjustment value, store result in _currentImage
                 _currentImage = _imageManipulator.AdjustBrightness(_currentImage, pBrightnessVal);
@@ -102,7 +102,7 @@ namespace Model
             {
                 // THROW a new InvalidParameterException with a suitable message:
                 throw new InvalidParameterException("The brightness value you provided is not valid. It must be between 0-100. Value provided was: " + pBrightnessVal + ".");
-            } 
+            }
         }
 
         /// <summary>
@@ -188,10 +188,10 @@ namespace Model
         public void CropImage(int pOriginX, int pOriginY, int pNewWidth, int pNewHeight)
         {
             // IF any paramter value is negative, or is larger than the Width / Height of the original image.
-            if (pOriginX  >  _currentImage.Width || pNewWidth > _currentImage.Width || pOriginY > _currentImage.Height || pNewHeight > _currentImage.Height || pOriginX < 0 || pOriginX < 0 || pOriginY < 0 || pNewHeight < 0)
+            if (pOriginX > _currentImage.Width || pNewWidth > _currentImage.Width || pOriginY > _currentImage.Height || pNewHeight > _currentImage.Height || pOriginX < 0 || pOriginX < 0 || pOriginY < 0 || pNewHeight < 0)
             {
-                    // THROW a InvalidParameterException
-                    throw new InvalidParameterException("The supplied values must be non negative and smaller than the Width or Height of the original image.");
+                // THROW a InvalidParameterException
+                throw new InvalidParameterException("The supplied values must be non negative and smaller than the Width or Height of the original image.");
             }
 
             // CALL Crop in the image manipulator and pass the current image, X & Y offset of crop box, and Height and Width of the crop box, store the result in _currentImage
@@ -247,8 +247,6 @@ namespace Model
                 // THROW a InvalidParameterException
                 throw new InvalidParameterException("The filter index value must be in range 0-3. Supplied value: " + pFilterIndex.ToString());
             }
-
-            
         }
 
         /// <summary>
@@ -258,7 +256,7 @@ namespace Model
         public void RotateImage(int pRotateVal)
         {
             // IF the pRotateVal value is in range -1-1
-            if(pRotateVal == -1 || pRotateVal == 1)
+            if (pRotateVal == -1 || pRotateVal == 1)
             {
                 // CALL rotate method in Image Manipulator and pass in the current image and the rotate value, and store its value in _currentAdjustedImage:
                 _currentImage = _imageManipulator.Rotate(_currentImage, pRotateVal);
@@ -273,8 +271,6 @@ namespace Model
                 // THROW a InvalidParameterException
                 throw new InvalidParameterException("The rotation value must be either -1 or 1. Supplied value: " + pRotateVal.ToString());
             }
-
-            
         }
 
         /// <summary>
@@ -284,7 +280,7 @@ namespace Model
         public void FlipImage(int pFlipVal)
         {
             // IF the pFlipVal value is in range 0-1
-            if(pFlipVal == 0 || pFlipVal == 1)
+            if (pFlipVal == 0 || pFlipVal == 1)
             {
                 // CALL flip method in Image Manipulator and pass in the current image and the flip, and store its value in _currentAdjustedImage
                 _currentImage = _imageManipulator.Flip(_currentImage, pFlipVal);
@@ -298,7 +294,7 @@ namespace Model
             {
                 // THROW a InvalidParameterException
                 throw new InvalidParameterException("The flip value must be either 0 or 1. Supplied value: " + pFlipVal.ToString());
-            }        
+            }
         }
 
         /// <summary>
@@ -479,7 +475,6 @@ namespace Model
 
             // CALL Resize in Image Manipulator and pass it the current image and the original image size
             _currentImage = _imageManipulator.Resize(_currentImage, originalSize);
-
 
             // UPDATE View of changed information
             UpdateView();

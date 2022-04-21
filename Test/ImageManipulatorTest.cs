@@ -19,6 +19,7 @@ namespace Test
         public void ResizeImageTest()
         {
             #region ARRANGE
+
             // DECLARE a bool, call it "testPassed" and set it to "false":
             bool testPassed = false;
             // DECLARE a new Size, call it newSize and set it to 100x100:
@@ -27,6 +28,7 @@ namespace Test
             FakeImageManipulator fakeImageManipulator = new FakeImageManipulator();
             // DECLARE an Image, call it "testImage". Set it's size to 50x50:
             Image testImage = new Bitmap(50, 50);
+
             #endregion ARRANGE
 
             #region ACT

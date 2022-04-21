@@ -1,8 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Library;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Library;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Test
 {
@@ -19,22 +16,29 @@ namespace Test
         public void TestCommandsExecuting()
         {
             #region ARRANGE
+
             // DECLARE an ICommandInvoker, call it "testCommandInvoker":
             ICommandInvoker testCommandInvoker = new Controller.CommandInvoker();
             // DECLARE an ICommand, call it "testCommand" and pass the "TestCommandsExecutingDelegateMethod" pointer:
             Library.ICommand testCommand = new Library.Command(TestCommandsExecutingDelegateMethod);
-            #endregion
+
+            #endregion ARRANGE
 
             #region ACT
+
             // EXECUTE the "testCommand" using the "testCommandInvoker":
             testCommandInvoker.Execute(testCommand);
-            #endregion
+
+            #endregion ACT
 
             #region ASSERT
+
             // ASSERT "TestCommandsExecutingTestPassed":
             Assert.IsTrue(TestCommandsExecutingTestPassed);
-            #endregion
+
+            #endregion ASSERT
         }
+
         /// <summary>
         /// Called from the "testCommandInvoker" in "TestCommandsExecuting()". If this is called the CommandInvoker is properly executing Command Objects.
         /// </summary>

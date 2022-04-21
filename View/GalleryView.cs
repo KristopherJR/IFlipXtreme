@@ -249,7 +249,9 @@ namespace View
                 Console.WriteLine("WARNING: You must select an Image before you can edit!");
             }
         }
+
         #endregion Methods
+
         #region ㅤ
 
         /// <summary>

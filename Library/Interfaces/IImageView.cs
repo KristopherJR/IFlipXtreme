@@ -1,12 +1,13 @@
-﻿using System;
+﻿//Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
+using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Library
 {
+    /// <summary>
+    /// IImageView Interface
+    /// </summary>
     public interface IImageView
     {
         // DECLARE a set property for "_image".  Call it "Image".
@@ -21,6 +22,5 @@ namespace Library
 
         // DECLARE a get-set property for "_commands".  Call it "Commands".
         Dictionary<string, ICommand> Commands { get; set; }
-
     }
 }

@@ -11,6 +11,7 @@ namespace View
     public class View : IView
     {
         #region Fields
+
         // DECLARE an IGalleryView, call it "_gallery":
         private IGalleryView _gallery;
 
@@ -19,6 +20,7 @@ namespace View
 
         // DECLARE an Action<ICommand>, call it "_executePointer":
         private Action<ICommand> _executePointer;
+
         #endregion Fields
 
         #region Properties

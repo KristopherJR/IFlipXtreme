@@ -1,4 +1,4 @@
-﻿// Authors: Alfie Baker-James, Teodor - Cristian Lutoiu, Kris Randle
+﻿// Authors: Alfie Baker-James, Teodor-Cristian Lutoiu, Kris Randle
 using System;
 
 namespace Library

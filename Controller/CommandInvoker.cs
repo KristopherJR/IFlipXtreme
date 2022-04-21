@@ -14,7 +14,6 @@ namespace Controller
         /// </summary>
         public CommandInvoker()
         {
-            
         }
 
         /// <summary>
