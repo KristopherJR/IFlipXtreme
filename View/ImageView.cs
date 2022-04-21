@@ -635,6 +635,7 @@ namespace View
             // IF the command object "RevertChanges" exists:
             if (_commands.ContainsKey("RevertChanges"))
             {
+                // EXECUTE the "RevertChanges" Command:
                 _executePointer((ICommand)_commands["RevertChanges"]);
             }
 

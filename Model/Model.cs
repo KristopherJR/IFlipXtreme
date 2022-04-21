@@ -304,7 +304,7 @@ namespace Model
         public void OpenImage(int pPos)
         {
             // IF the pPos value is in range 0-7
-            if (0 >= pPos && pPos <= 7)
+            if (0 <= pPos && pPos <= 7)
             {
                 // IF the Image Storage's image list is not empty
                 if (_imageStorage.ImageStore.Count > 0)

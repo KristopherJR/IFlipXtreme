@@ -58,11 +58,14 @@ namespace Model
                         _imageStore[i] = _imageStore[i - 1];
                     }
 
+                    // DECLARE a new Image, call it "newImage":
                     Image newImage;
-
+                    // OPEN a new FileStream and load a File from the pImagePath:
                     using (FileStream file = new FileStream(pImagePath, FileMode.Open))
                     {
+                        // OPEN the Image from the File:
                         newImage = Image.FromStream(file);
+                        // CLOSE the File after loading from the FileStream:
                         file.Close();
                     }
 
@@ -75,11 +78,15 @@ namespace Model
                 // ELSE (If _imageStore != 8)
                 else
                 {
+                    // DECLARE a new Image, call it "newImage":
                     Image newImage;
 
+                    // OPEN a new FileStream and load a File from the pImagePath:
                     using (FileStream file = new FileStream(pImagePath, FileMode.Open))
                     {
+                        // OPEN the Image from the File:
                         newImage = Image.FromStream(file);
+                        // CLOSE the File after loading from the FileStream:
                         file.Close();
                     }
 
@@ -114,7 +121,7 @@ namespace Model
         {
             // GET the path of the image from the tag in the relevant element in Image List
             string path = (_imageStore[pIndex].Tag).ToString();
-
+            // CALL the SaveImage method and pass in the parameters with the path:
             SaveImage(pImage, pIndex, path);
         }
 
